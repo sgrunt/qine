@@ -1353,7 +1353,7 @@
                             "back": false,
                             "noShieldDamage": true,
                             "effect": {
-                                "sheet": "specials.neutral",
+                                "sheet": "specials.blockbox",
                                 "name": "shieldTrail"
                             },
                             "noDefaultFX": false
@@ -5925,8 +5925,8 @@
                             "back": false,
                             "noShieldDamage": true,
                             "effect": {
-                                "sheet": "specials.cold",
-                                "name": "shieldTrail"
+                                "sheet": "specials.blockbox",
+                                "name": "coldShieldTrail"
                             },
                             "noDefaultFX": false
                         }
@@ -5979,8 +5979,8 @@
                             "back": false,
                             "noShieldDamage": true,
                             "effect": {
-                                "sheet": "specials.cold",
-                                "name": "shieldTrail"
+                                "sheet": "specials.blockbox",
+                                "name": "coldShieldTrail"
                             },
                             "noDefaultFX": false
                         }
@@ -12807,7 +12807,7 @@
                 "changeType": "set",
                 "proxyOwner": false,
                 "type": "SET_ATTRIB_NUMBER",
-                "value": 0
+                "value": 0 
             },
             {
                 "attribName": "lvl2Arts",
@@ -15386,7 +15386,7 @@
                 "fixPos": false,
                 "type": "SHOW_EFFECT",
                 "effect": {
-                    "sheet": "specials.neutral",
+                    "sheet": "specials.vibroshield",
                     "name": "smallSweep"
                 }
             },
@@ -15640,8 +15640,8 @@
                 "fixPos": false,
                 "type": "SHOW_EFFECT",
                 "effect": {
-                    "sheet": "specials.neutral",
-                    "name": "smallSweepLoop"
+                    "sheet": "specials.vibroshield",
+                    "name": "smallSweep"
                 },
                 "offset": {
                     "x": 0,
@@ -15749,18 +15749,17 @@
                 "type": "WAIT"
             },
             {
-                "duration": 0.4,
+                "duration": 0.1,
                 "align": "BOTTOM",
                 "rotateFace": 8,
                 "flipLeftFace": true,
                 "wait": false,
                 "waitSkip": 0,
                 "actionDetached": false,
-                "fixPos": true,
                 "type": "SHOW_EFFECT",
                 "effect": {
-                    "sheet": "specials.neutral",
-                    "name": "upwardHit"
+                    "sheet": "combat.quadroguard",
+                    "name": "shieldNeutral"
                 },
                 "offset": {
                     "x": 0,
@@ -15873,8 +15872,8 @@
                 "fixPos": false,
                 "type": "SHOW_EFFECT",
                 "effect": {
-                    "sheet": "specials.neutral",
-                    "name": "biggerSweepLoop"
+                    "sheet": "specials.vibroshield",
+                    "name": "biggerSweep"
                 },
                 "offset": {
                     "x": 0,
@@ -16046,8 +16045,8 @@
                 "fixPos": false,
                 "type": "SHOW_EFFECT",
                 "effect": {
-                    "sheet": "specials.neutral",
-                    "name": "downSweep"
+                    "sheet": "combat.quadroguard",
+                    "name": "shieldNeutralFin"
                 },
                 "offset": {
                     "x": 0,
@@ -16321,7 +16320,7 @@
                         "back": false,
                         "noShieldDamage": true,
                         "effect": {
-                            "sheet": "specials.neutral",
+                            "sheet": "specials.blockbox",
                             "name": "shieldTrail"
                         },
                         "noDefaultFX": false

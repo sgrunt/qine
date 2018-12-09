@@ -1,6 +1,6 @@
 {
 	"name": "Qine",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"dependencies": {
 		"ccloader": "^2.7.2",
 		"Simplify": "^2.1.0"
