@@ -12692,6 +12692,7 @@
                             "type": "COMBAT_IF",
                             "thenStep": [
                                 {
+				    "name": "shield",
                                     "actionDetached": false,
                                     "shield": {
                                         "type": "DIRECTIONAL",
@@ -12726,6 +12727,7 @@
                             "elseStep": [
                                 {
                                     "actionDetached": false,
+				    "name": "shield",
                                     "shield": {
                                         "type": "DIRECTIONAL",
                                         "settings": {
@@ -12768,6 +12770,88 @@
                     {
                         "value": 0,
                         "type": "SET_SPIKE_DAMAGE"
+                    },
+                    {
+                        "name": "shield",
+                        "type": "REMOVE_SHIELD"
+                    },
+                    {
+                        "volume": 0.9,
+                        "global": false,
+                        "loop": false,
+                        "type": "PLAY_SOUND",
+                        "sound": "media/sound/battle/dash-3.ogg"
+                    },
+                    {
+                        "factor": 1,
+                        "type": "SET_PLAYER_INVINCIBLE"
+                    },
+                    {
+                        "followUp": "pointingBrake",
+                        "wait": false,
+                        "viaWalkConfig": false,
+                        "type": "SHOW_ANIMATION",
+                        "anim": "spinFull"
+                    },
+                    {
+                        "value": false,
+                        "type": "SET_JUMPING"
+                    },
+                    {
+                        "value": 320,
+                        "type": "SET_SPEED"
+                    },
+                    {
+                        "value": 2,
+                        "type": "SET_ACCEL_SPEED"
+                    },
+                    {
+                        "value": "IGNORE",
+                        "type": "SET_COLL_TYPE"
+                    },
+                    {
+                        "duration": 0.2,
+                        "align": "BOTTOM",
+                        "rotateFace": 0,
+                        "flipLeftFace": false,
+                        "wait": false,
+                        "waitSkip": 0,
+                        "actionDetached": false,
+                        "fixPos": false,
+                        "type": "SHOW_EFFECT",
+                        "effect": {
+                            "sheet": "dust",
+                            "name": "line"
+                        },
+                        "offset": {
+                            "x": 0,
+                            "y": 3,
+                            "z": 6
+                        }
+                    },
+                    {
+                        "dir": {
+                            "actorAttrib": "dashDir"
+                        },
+                        "time": 0.05,
+                        "stopBeforeEdge": false,
+                        "type": "MOVE_TO_DIR"
+                    },
+                    {
+                        "value": "VIRTUAL",
+                        "type": "SET_COLL_TYPE"
+                    },
+                    {
+                        "dir": {
+                            "actorAttrib": "dashDir"
+                        },
+                        "time": 0.11,
+                        "stopBeforeEdge": false,
+                        "type": "MOVE_TO_DIR"
+                    },
+                    {
+                        "time": 0.2,
+                        "type": "WAIT"
                     }
                 ]
             },
