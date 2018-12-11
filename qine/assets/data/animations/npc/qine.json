@@ -1,628 +1,249 @@
 {
-    "DOCTYPE": "MULTI_DIR_ANIMATION",
-    "namedSheets": {
-        "walk": {
-            "src": "media/entity/npc/qine.png",
-            "xCount": 9,
-            "offX": 0,
-            "offY": 0,
-            "width": 32,
-            "height": 40
-        },
-        "battle1": {
-            "src": "media/entity/npc/qine.png",
-            "xCount": 9,
-            "offX": 0,
-            "offY": 200,
-            "width": 32,
-            "height": 40
-        },
-        "spin": {
-            "src": "media/entity/npc/qine.png",
-            "xCount": 3,
-            "offX": 288,
-            "offY": 0,
-            "width": 32,
-            "height": 40
-        },
-        "attack": {
-            "src": "media/entity/npc/qine.png",
-            "xCount": 2,
-            "offX": 288,
-            "offY": 80,
-            "width": 48,
-            "height": 40
-        },
-        "eat": {
-            "src": "media/entity/npc/qine.png",
-            "offX": 0,
-            "offY": 320,
-            "width": 32,
-            "height": 40
-        }
+  "DOCTYPE": "MULTI_DIR_ANIMATION",
+  "namedSheets": {
+    "walk": {
+      "src": "media/entity/npc/qine.png",
+      "xCount": 9,
+      "offX": 0,
+      "offY": 0,
+      "width": 32,
+      "height": 40
     },
-    "shapeType": "Y_FLAT",
-    "offset": {
-        "x": 0,
-        "y": -2,
-        "z": 0
+    "battle1": {
+      "src": "media/entity/npc/qine.png",
+      "xCount": 9,
+      "offX": 0,
+      "offY": 200,
+      "width": 32,
+      "height": 40
     },
-    "SUB": [
+    "spin": {
+      "src": "media/entity/npc/qine.png",
+      "xCount": 3,
+      "offX": 288,
+      "offY": 0,
+      "width": 32,
+      "height": 40
+    },
+    "attack": {
+      "src": "media/entity/npc/qine.png",
+      "xCount": 2,
+      "offX": 288,
+      "offY": 80,
+      "width": 48,
+      "height": 40
+    },
+    "eat": {
+      "src": "media/entity/npc/qine.png",
+      "offX": 0,
+      "offY": 320,
+      "width": 32,
+      "height": 40
+    }
+  },
+  "shapeType": "Y_FLAT",
+  "offset": {
+    "x": 0,
+    "y": -2,
+    "z": 0
+  },
+  "SUB": [
+    {
+      "sheet": "walk",
+      "dirs": "8",
+      "flipX": [0, 0, 0, 0, 0, 1, 1, 1],
+      "tileOffsets": [0, 9, 18, 27, 36, 27, 18, 9],
+      "SUB": [
         {
-            "sheet": "walk",
-            "dirs": "8",
-            "flipX": [
-                0,
-                0,
-                0,
-                0,
-                0,
-                1,
-                1,
-                1
-            ],
-            "tileOffsets": [
-                0,
-                9,
-                18,
-                27,
-                36,
-                27,
-                18,
-                9
-            ],
-            "SUB": [
-                {
-                    "name": "idle",
-                    "time": 1,
-                    "repeat": false,
-                    "frames": [
-                        1
-                    ]
-                },
-                {
-                    "name": "preIdle",
-                    "time": 0.1,
-                    "repeat": false,
-                    "frames": [
-                        1
-                    ]
-                },
-                {
-                    "name": "walk",
-                    "time": 0.133,
-                    "repeat": true,
-                    "frames": [
-                        0,
-                        1,
-                        2,
-                        1
-                    ]
-                },
-                {
-                    "name": "run",
-                    "time": 0.1,
-                    "repeat": true,
-                    "frames": [
-                        3,
-                        4,
-                        5,
-                        6,
-                        7,
-                        8
-                    ]
-                },
-                {
-                    "name": "jump",
-                    "time": 0.1,
-                    "repeat": false,
-                    "frames": [
-                        6
-                    ]
-                },
-                {
-                    "name": "fall",
-                    "time": 0.1,
-                    "repeat": false,
-                    "frames": [
-                        4
-                    ]
-                }
-            ]
+          "name": "idle",
+          "time": 1,
+          "repeat": false,
+          "frames": [1]
         },
         {
-            "sheet": "battle1",
-            "dirs": "6",
-            "flipX": [
-                0,
-                0,
-                0,
-                1,
-                1,
-                1
-            ],
-            "tileOffsets": [
-                0,
-                9,
-                18,
-                18,
-                9,
-                0
-            ],
-            "SUB": [
-                {
-                    "name": "aim",
-                    "time": 0.1,
-                    "repeat": true,
-                    "frames": [
-                        0,
-                        1,
-                        2,
-                        3
-                    ]
-                },
-                {
-                    "name": "aimMove",
-                    "time": 0.1,
-                    "repeat": true,
-                    "frames": [
-                        4,
-                        5,
-                        6,
-                        7
-                    ]
-                },
-                {
-                    "name": "aimMoveRev",
-                    "time": 0.1,
-                    "repeat": true,
-                    "frames": [
-                        7,
-                        6,
-                        5,
-                        4
-                    ]
-                },
-                {
-                    "name": "damage",
-                    "time": 0.05,
-                    "repeat": true,
-                    "frames": [
-                        8,
-                        8
-                    ],
-                    "framesGfxOffset": [
-                        0,
-                        0,
-                        1,
-                        0
-                    ]
-                },
-                {
-                    "name": "charge",
-                    "time": 5,
-                    "repeat": false,
-                    "frames": [
-                        1
-                    ]
-                }
-            ]
+          "name": "preIdle",
+          "time": 0.1,
+          "repeat": false,
+          "frames": [1]
         },
         {
-            "sheet": "spin",
-            "dirs": "6",
-            "flipX": [
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
-            ],
-            "tileOffsets": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5
-            ],
-            "anchorOffsetX": [
-                15,
-                20,
-                16,
-                -16,
-                -20,
-                -15
-            ],
-            "anchorOffsetY": [
-                -18,
-                -6,
-                4,
-                4,
-                -6,
-                -18
-            ],
-            "anchorOffsetZ": [
-                12,
-                12,
-                12,
-                12,
-                12,
-                12
-            ],
-            "SUB": [
-                {
-                    "name": "spinFull",
-                    "time": 0.04,
-                    "repeat": true,
-                    "dirFrames": [
-                        [
-                            5,
-                            4,
-                            3,
-                            2,
-                            1,
-                            0
-                        ],
-                        [
-                            0,
-                            5,
-                            4,
-                            3,
-                            2,
-                            1
-                        ],
-                        [
-                            1,
-                            0,
-                            5,
-                            4,
-                            3,
-                            2
-                        ],
-                        [
-                            2,
-                            1,
-                            0,
-                            5,
-                            4,
-                            3
-                        ],
-                        [
-                            3,
-                            2,
-                            1,
-                            0,
-                            5,
-                            4
-                        ],
-                        [
-                            4,
-                            3,
-                            2,
-                            1,
-                            0,
-                            5
-                        ]
-                    ]
-                },
-                {
-                    "name": "spinFullLong",
-                    "time": 0.0333,
-                    "repeat": true,
-                    "dirFrames": [
-                        [
-                            5,
-                            4,
-                            3,
-                            2,
-                            1,
-                            0,
-                            5,
-                            4,
-                            3,
-                            2,
-                            1,
-                            0
-                        ],
-                        [
-                            0,
-                            5,
-                            4,
-                            3,
-                            2,
-                            1,
-                            0,
-                            5,
-                            4,
-                            3,
-                            2,
-                            1
-                        ],
-                        [
-                            1,
-                            0,
-                            5,
-                            4,
-                            3,
-                            2,
-                            1,
-                            0,
-                            5,
-                            4,
-                            3,
-                            2
-                        ],
-                        [
-                            2,
-                            1,
-                            0,
-                            5,
-                            4,
-                            3,
-                            2,
-                            1,
-                            0,
-                            5,
-                            4,
-                            3
-                        ],
-                        [
-                            3,
-                            2,
-                            1,
-                            0,
-                            5,
-                            4,
-                            3,
-                            2,
-                            1,
-                            0,
-                            5,
-                            4
-                        ],
-                        [
-                            4,
-                            3,
-                            2,
-                            1,
-                            0,
-                            5,
-                            4,
-                            3,
-                            2,
-                            1,
-                            0,
-                            5
-                        ]
-                    ]
-                },
-                {
-                    "name": "spinShort",
-                    "time": 0.04,
-                    "repeat": false,
-                    "dirFrames": [
-                        [
-                            1,
-                            0
-                        ],
-                        [
-                            2,
-                            1
-                        ],
-                        [
-                            3,
-                            2
-                        ],
-                        [
-                            4,
-                            3
-                        ],
-                        [
-                            5,
-                            4
-                        ],
-                        [
-                            0,
-                            5
-                        ]
-                    ]
-                },
-                {
-                    "flipX": [
-                        1,
-                        1,
-                        1,
-                        1,
-                        1,
-                        1
-                    ],
-                    "tileOffsets": [
-                        5,
-                        4,
-                        3,
-                        2,
-                        1,
-                        0
-                    ],
-                    "SUB": [
-                        {
-                            "name": "spinFullRev",
-                            "time": 0.04,
-                            "repeat": true,
-                            "dirFrames": [
-                                [
-                                    4,
-                                    3,
-                                    2,
-                                    1,
-                                    0,
-                                    5
-                                ],
-                                [
-                                    3,
-                                    2,
-                                    1,
-                                    0,
-                                    5,
-                                    4
-                                ],
-                                [
-                                    2,
-                                    1,
-                                    0,
-                                    5,
-                                    4,
-                                    3
-                                ],
-                                [
-                                    1,
-                                    0,
-                                    5,
-                                    4,
-                                    3,
-                                    2
-                                ],
-                                [
-                                    0,
-                                    5,
-                                    4,
-                                    3,
-                                    2,
-                                    1
-                                ],
-                                [
-                                    5,
-                                    4,
-                                    3,
-                                    2,
-                                    1,
-                                    0
-                                ]
-                            ]
-                        },
-                        {
-                            "name": "spinShortRev",
-                            "time": 0.04,
-                            "repeat": false,
-                            "dirFrames": [
-                                [
-                                    0,
-                                    5
-                                ],
-                                [
-                                    5,
-                                    4
-                                ],
-                                [
-                                    4,
-                                    3
-                                ],
-                                [
-                                    3,
-                                    2
-                                ],
-                                [
-                                    2,
-                                    1
-                                ],
-                                [
-                                    1,
-                                    0
-                                ]
-                            ]
-                        }
-                    ]
-                }
-            ]
+          "name": "walk",
+          "time": 0.133,
+          "repeat": true,
+          "frames": [0, 1, 2, 1]
         },
         {
-            "sheet": "attack",
-            "dirs": "6",
-            "flipX": [
-                0,
-                0,
-                0,
-                1,
-                1,
-                1
-            ],
-            "tileOffsets": [
-                0,
-                2,
-                4,
-                4,
-                2,
-                0
-            ],
-            "SUB": [
-                {
-                    "name": "attackEnd",
-                    "time": 0.083,
-                    "repeat": false,
-                    "frames": [
-                        0,
-                        1
-                    ]
-                }
-            ]
+          "name": "run",
+          "time": 0.1,
+          "repeat": true,
+          "frames": [3, 4, 5, 6, 7, 8]
         },
         {
-            "sheet": "eat",
-            "dirs": "1",
-            "flipX": [
-                0
-            ],
-            "tileOffsets": [
-                0
-            ],
-            "SUB": [
-                {
-                    "name": "itemFetch",
-                    "time": 0.05,
-                    "repeat": false,
-                    "frames": [
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "name": "itemHold",
-                    "time": 0.1,
-                    "repeat": false,
-                    "frames": [
-                        2
-                    ]
-                },
-                {
-                    "name": "itemEatFast",
-                    "time": 0.1,
-                    "repeat": false,
-                    "frames": [
-                        3,
-                        4,
-                        5,
-                        6,
-                        5,
-                        6,
-                        7,
-                        7
-                    ]
-                },
-                {
-                    "name": "itemEffect",
-                    "time": 0.05,
-                    "repeat": false,
-                    "frames": [
-                        8,
-                        9,
-                        10,
-                        10,
-                        10
-                    ]
-                }
-            ]
+          "name": "jump",
+          "time": 0.1,
+          "repeat": false,
+          "frames": [6]
+        },
+        {
+          "name": "fall",
+          "time": 0.1,
+          "repeat": false,
+          "frames": [4]
         }
-    ]
+      ]
+    },
+    {
+      "sheet": "battle1",
+      "dirs": "6",
+      "flipX": [0, 0, 0, 1, 1, 1],
+      "tileOffsets": [0, 9, 18, 18, 9, 0],
+      "SUB": [
+        {
+          "name": "aim",
+          "time": 0.1,
+          "repeat": true,
+          "frames": [0, 1, 2, 3]
+        },
+        {
+          "name": "aimMove",
+          "time": 0.1,
+          "repeat": true,
+          "frames": [4, 5, 6, 7]
+        },
+        {
+          "name": "aimMoveRev",
+          "time": 0.1,
+          "repeat": true,
+          "frames": [7, 6, 5, 4]
+        },
+        {
+          "name": "damage",
+          "time": 0.05,
+          "repeat": true,
+          "frames": [8, 8],
+          "framesGfxOffset": [0, 0, 1, 0]
+        },
+        {
+          "name": "charge",
+          "time": 5,
+          "repeat": false,
+          "frames": [1]
+        }
+      ]
+    },
+    {
+      "sheet": "spin",
+      "dirs": "6",
+      "flipX": [0, 0, 0, 0, 0, 0],
+      "tileOffsets": [0, 1, 2, 3, 4, 5],
+      "anchorOffsetX": [15, 20, 16, -16, -20, -15],
+      "anchorOffsetY": [-18, -6, 4, 4, -6, -18],
+      "anchorOffsetZ": [12, 12, 12, 12, 12, 12],
+      "SUB": [
+        {
+          "name": "spinFull",
+          "time": 0.04,
+          "repeat": true,
+          "dirFrames": [
+            [5, 4, 3, 2, 1, 0],
+            [0, 5, 4, 3, 2, 1],
+            [1, 0, 5, 4, 3, 2],
+            [2, 1, 0, 5, 4, 3],
+            [3, 2, 1, 0, 5, 4],
+            [4, 3, 2, 1, 0, 5]
+          ]
+        },
+        {
+          "name": "spinFullLong",
+          "time": 0.0333,
+          "repeat": true,
+          "dirFrames": [
+            [5, 4, 3, 2, 1, 0, 5, 4, 3, 2, 1, 0],
+            [0, 5, 4, 3, 2, 1, 0, 5, 4, 3, 2, 1],
+            [1, 0, 5, 4, 3, 2, 1, 0, 5, 4, 3, 2],
+            [2, 1, 0, 5, 4, 3, 2, 1, 0, 5, 4, 3],
+            [3, 2, 1, 0, 5, 4, 3, 2, 1, 0, 5, 4],
+            [4, 3, 2, 1, 0, 5, 4, 3, 2, 1, 0, 5]
+          ]
+        },
+        {
+          "name": "spinShort",
+          "time": 0.04,
+          "repeat": false,
+          "dirFrames": [[1, 0], [2, 1], [3, 2], [4, 3], [5, 4], [0, 5]]
+        },
+        {
+          "flipX": [1, 1, 1, 1, 1, 1],
+          "tileOffsets": [5, 4, 3, 2, 1, 0],
+          "SUB": [
+            {
+              "name": "spinFullRev",
+              "time": 0.04,
+              "repeat": true,
+              "dirFrames": [
+                [4, 3, 2, 1, 0, 5],
+                [3, 2, 1, 0, 5, 4],
+                [2, 1, 0, 5, 4, 3],
+                [1, 0, 5, 4, 3, 2],
+                [0, 5, 4, 3, 2, 1],
+                [5, 4, 3, 2, 1, 0]
+              ]
+            },
+            {
+              "name": "spinShortRev",
+              "time": 0.04,
+              "repeat": false,
+              "dirFrames": [[0, 5], [5, 4], [4, 3], [3, 2], [2, 1], [1, 0]]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "attack",
+      "dirs": "6",
+      "flipX": [0, 0, 0, 1, 1, 1],
+      "tileOffsets": [0, 2, 4, 4, 2, 0],
+      "SUB": [
+        {
+          "name": "attackEnd",
+          "time": 0.083,
+          "repeat": false,
+          "frames": [0, 1]
+        }
+      ]
+    },
+    {
+      "sheet": "eat",
+      "dirs": "1",
+      "flipX": [0],
+      "tileOffsets": [0],
+      "SUB": [
+        {
+          "name": "itemFetch",
+          "time": 0.05,
+          "repeat": false,
+          "frames": [0, 1]
+        },
+        {
+          "name": "itemHold",
+          "time": 0.1,
+          "repeat": false,
+          "frames": [2]
+        },
+        {
+          "name": "itemEatFast",
+          "time": 0.1,
+          "repeat": false,
+          "frames": [3, 4, 5, 6, 5, 6, 7, 7]
+        },
+        {
+          "name": "itemEffect",
+          "time": 0.05,
+          "repeat": false,
+          "frames": [8, 9, 10, 10, 10]
+        }
+      ]
+    }
+  ]
 }

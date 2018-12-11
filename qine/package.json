@@ -1,9 +1,9 @@
 {
-	"name": "Qine",
-	"main": "mod.js",
-	"version": "0.0.3.1",
-	"dependencies": {
-		"ccloader": "^2.7.2",
-		"Simplify": "^2.1.0"
-	}
+  "name": "Qine",
+  "main": "mod.js",
+  "version": "0.0.4",
+  "dependencies": {
+    "ccloader": "^2.7.3",
+    "Simplify": "^2.1.0"
+  }
 }

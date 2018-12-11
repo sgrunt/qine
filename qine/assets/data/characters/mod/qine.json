@@ -1,320 +1,254 @@
 {
-    "name": {
-        "en_US": "Qine",
-        "de_DE": "Qine",
-        "zh_CN": "Qine",
-        "ja_JP": "\u30ab\u30a4\u30cc",
-        "ko_KR": "Qine",
-        "langUid": 1
-    },
-    "realname": {
-        "en_US": "Simon Grant",
-        "de_DE": "Simon Grant",
-        "zh_CN": "<<A<<IGNORE",
-        "ja_JP": "\u30b5\u30a4\u30e2\u30f3\u30fb\u30b0\u30e9\u30f3\u30c8",
-        "ko_KR": "<<A<<IGNORE",
-        "langUid": 2
-    },
-    "size": {
-        "x": 16,
-        "y": 16,
-        "z": 24
-    },
-    "animSheet": "npc.qine",
-    "walkAnimSet": {
-        "normal": {
-            "idle": "idle",
-            "move": "walk",
-            "run": "run",
-            "jump": "jump",
-            "fall": "fall"
-        }
-    },
-    "walkAnims": "normal",
-    "shadow": 16,
-    "configs": {
-        "normal": {
-            "relativeVel": 0.5
-        },
-        "running": {
-            "relativeVel": 1
-        }
-    },
-    "face": {
-        "width": 208,
-        "height": 208,
-        "centerX": 88,
-        "centerY": 47,
-        "src": "qine.png",
-        "parts": [
-            {
-                "straight": {
-                    "srcX": 0,
-                    "srcY": 0,
-                    "width": 132,
-                    "height": 72,
-                    "destX": 56,
-                    "destY": 136,
-                    "subX": 21,
-                    "subY": 64
-                }
-            },
-            {
-                "norm": {
-                    "srcX": 132,
-                    "srcY": 0,
-                    "width": 80,
-                    "height": 24,
-                    "destX": 60,
-                    "destY": 0,
-		    "subX": 0,
-		    "subY": 24
-                },
-                "up": {
-                    "srcX": 212,
-                    "srcY": 0,
-                    "width": 80,
-                    "height": 24,
-                    "destX": 60,
-                    "destY": 0,
-		    "subX": 0,
-		    "subY": 24
-                },
-                "toward": {
-                    "srcX": 292,
-                    "srcY": 0,
-                    "width": 80,
-                    "height": 24,
-                    "destX": 60,
-                    "destY": 0,
-		    "subX": 0,
-		    "subY": 24
-                }
-            },
-            {
-                "normNeutral": {
-                    "srcX": 132,
-                    "srcY": 24,
-                    "width": 80,
-                    "height": 56,
-                    "destX": 60,
-                    "destY": 0,
-                    "subX": 0,
-                    "subY": 0,
-                    "img": ""
-                },
-                "normSmug": {
-                    "srcX": 132,
-                    "srcY": 80,
-                    "width": 80,
-                    "height": 56,
-                    "destX": 60,
-                    "destY": 0,
-                    "subX": 0,
-                    "subY": 0,
-                    "img": ""
-                },
-                "normFrown": {
-                    "srcX": 132,
-                    "srcY": 136,
-                    "width": 80,
-                    "height": 56,
-                    "destX": 60,
-                    "destY": 0,
-                    "subX": 0,
-                    "subY": 0,
-                    "img": ""
-                },
-                "normAngry": {
-                    "srcX": 132,
-                    "srcY": 192,
-                    "width": 80,
-                    "height": 56,
-                    "destX": 60,
-                    "destY": 0,
-                    "subX": 0,
-                    "subY": 0,
-                    "img": ""
-                },
-                "upNeutral": {
-                    "srcX": 212,
-                    "srcY": 24,
-                    "width": 80,
-                    "height": 56,
-                    "destX": 60,
-                    "destY": 0,
-                    "subX": 0,
-                    "subY": 0,
-                    "img": ""
-                },
-                "upOoh": {
-                    "srcX": 212,
-                    "srcY": 80,
-                    "width": 80,
-                    "height": 56,
-                    "destX": 60,
-                    "destY": 0,
-                    "subX": 0,
-                    "subY": 0,
-                    "img": ""
-                },
-                "upHappy": {
-                    "srcX": 212,
-                    "srcY": 136,
-                    "width": 80,
-                    "height": 56,
-                    "destX": 60,
-                    "destY": 0,
-                    "subX": 0,
-                    "subY": 0,
-                    "img": ""
-                },
-                "upGrin": {
-                    "srcX": 212,
-                    "srcY": 192,
-                    "width": 80,
-                    "height": 56,
-                    "destX": 60,
-                    "destY": 0,
-                    "subX": 0,
-                    "subY": 0,
-                    "img": ""
-                },
-                "towardNeutral": {
-                    "srcX": 292,
-                    "srcY": 24,
-                    "width": 80,
-                    "height": 56,
-                    "destX": 60,
-                    "destY": 0,
-                    "subX": 0,
-                    "subY": 0,
-                    "img": ""
-                },
-                "towardSuspicious": {
-                    "srcX": 292,
-                    "srcY": 80,
-                    "width": 80,
-                    "height": 56,
-                    "destX": 60,
-                    "destY": 0,
-                    "subX": 0,
-                    "subY": 0,
-                    "img": ""
-                },
-                "towardEyeroll": {
-                    "srcX": 292,
-                    "srcY": 136,
-                    "width": 80,
-                    "height": 56,
-                    "destX": 60,
-                    "destY": 0,
-                    "subX": 0,
-                    "subY": 0,
-                    "img": ""
-                }
-            }
-        ],
-        "expressions": {
-            "DEFAULT": {
-                "faces": [
-                    [
-                        "straight",
-                        "norm",
-                        "normNeutral"
-                    ]
-                ]
-            },
-            "SMUG": {
-                "faces": [
-                    [
-                        "straight",
-                        "norm",
-                        "normSmug"
-                    ]
-                ]
-            },
-            "FROWN": {
-                "faces": [
-                    [
-                        "straight",
-                        "norm",
-                        "normFrown"
-                    ]
-                ]
-            },
-            "ANGRY": {
-                "faces": [
-                    [
-                        "straight",
-                        "norm",
-                        "normAngry"
-                    ]
-                ]
-            },
-            "UP": {
-                "faces": [
-                    [
-                        "straight",
-                        "up",
-                        "upNeutral"
-                    ]
-                ]
-            },
-            "OOH": {
-                "faces": [
-                    [
-                        "straight",
-                        "up",
-                        "upOoh"
-                    ]
-                ]
-            },
-            "HAPPY": {
-                "faces": [
-                    [
-                        "straight",
-                        "up",
-                        "upHappy"
-                    ]
-                ]
-            },
-            "GRIN": {
-                "faces": [
-                    [
-                        "straight",
-                        "up",
-                        "upGrin"
-                    ]
-                ]
-            },
-            "TOWARD": {
-                "faces": [
-                    [
-                        "straight",
-                        "toward",
-                        "towardNeutral"
-                    ]
-                ]
-            },
-            "SUSPICIOUS": {
-                "faces": [
-                    [
-                        "straight",
-                        "toward",
-                        "towardSuspicious"
-                    ]
-                ]
-            },
-            "EYEROLL": {
-                "faces": [
-                    [
-                        "straight",
-                        "toward",
-                        "towardEyeroll"
-                    ]
-                ]
-            }
-        }
+  "name": {
+    "en_US": "Qine",
+    "de_DE": "Qine",
+    "zh_CN": "Qine",
+    "ja_JP": "\u30ab\u30a4\u30cc",
+    "ko_KR": "Qine",
+    "langUid": 1
+  },
+  "realname": {
+    "en_US": "Simon Grant",
+    "de_DE": "Simon Grant",
+    "zh_CN": "<<A<<IGNORE",
+    "ja_JP": "\u30b5\u30a4\u30e2\u30f3\u30fb\u30b0\u30e9\u30f3\u30c8",
+    "ko_KR": "<<A<<IGNORE",
+    "langUid": 2
+  },
+  "size": {
+    "x": 16,
+    "y": 16,
+    "z": 24
+  },
+  "animSheet": "npc.qine",
+  "walkAnimSet": {
+    "normal": {
+      "idle": "idle",
+      "move": "walk",
+      "run": "run",
+      "jump": "jump",
+      "fall": "fall"
     }
+  },
+  "walkAnims": "normal",
+  "shadow": 16,
+  "configs": {
+    "normal": {
+      "relativeVel": 0.5
+    },
+    "running": {
+      "relativeVel": 1
+    }
+  },
+  "face": {
+    "width": 208,
+    "height": 208,
+    "centerX": 88,
+    "centerY": 47,
+    "src": "qine.png",
+    "parts": [
+      {
+        "straight": {
+          "srcX": 0,
+          "srcY": 0,
+          "width": 132,
+          "height": 72,
+          "destX": 56,
+          "destY": 136,
+          "subX": 21,
+          "subY": 64
+        }
+      },
+      {
+        "norm": {
+          "srcX": 132,
+          "srcY": 0,
+          "width": 80,
+          "height": 24,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 24
+        },
+        "up": {
+          "srcX": 212,
+          "srcY": 0,
+          "width": 80,
+          "height": 24,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 24
+        },
+        "toward": {
+          "srcX": 292,
+          "srcY": 0,
+          "width": 80,
+          "height": 24,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 24
+        }
+      },
+      {
+        "normNeutral": {
+          "srcX": 132,
+          "srcY": 24,
+          "width": 80,
+          "height": 56,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 0,
+          "img": ""
+        },
+        "normSmug": {
+          "srcX": 132,
+          "srcY": 80,
+          "width": 80,
+          "height": 56,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 0,
+          "img": ""
+        },
+        "normFrown": {
+          "srcX": 132,
+          "srcY": 136,
+          "width": 80,
+          "height": 56,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 0,
+          "img": ""
+        },
+        "normAngry": {
+          "srcX": 132,
+          "srcY": 192,
+          "width": 80,
+          "height": 56,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 0,
+          "img": ""
+        },
+        "upNeutral": {
+          "srcX": 212,
+          "srcY": 24,
+          "width": 80,
+          "height": 56,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 0,
+          "img": ""
+        },
+        "upOoh": {
+          "srcX": 212,
+          "srcY": 80,
+          "width": 80,
+          "height": 56,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 0,
+          "img": ""
+        },
+        "upHappy": {
+          "srcX": 212,
+          "srcY": 136,
+          "width": 80,
+          "height": 56,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 0,
+          "img": ""
+        },
+        "upGrin": {
+          "srcX": 212,
+          "srcY": 192,
+          "width": 80,
+          "height": 56,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 0,
+          "img": ""
+        },
+        "towardNeutral": {
+          "srcX": 292,
+          "srcY": 24,
+          "width": 80,
+          "height": 56,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 0,
+          "img": ""
+        },
+        "towardSuspicious": {
+          "srcX": 292,
+          "srcY": 80,
+          "width": 80,
+          "height": 56,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 0,
+          "img": ""
+        },
+        "towardEyeroll": {
+          "srcX": 292,
+          "srcY": 136,
+          "width": 80,
+          "height": 56,
+          "destX": 60,
+          "destY": 0,
+          "subX": 0,
+          "subY": 0,
+          "img": ""
+        }
+      }
+    ],
+    "expressions": {
+      "DEFAULT": {
+        "faces": [["straight", "norm", "normNeutral"]]
+      },
+      "SMUG": {
+        "faces": [["straight", "norm", "normSmug"]]
+      },
+      "FROWN": {
+        "faces": [["straight", "norm", "normFrown"]]
+      },
+      "ANGRY": {
+        "faces": [["straight", "norm", "normAngry"]]
+      },
+      "UP": {
+        "faces": [["straight", "up", "upNeutral"]]
+      },
+      "OOH": {
+        "faces": [["straight", "up", "upOoh"]]
+      },
+      "HAPPY": {
+        "faces": [["straight", "up", "upHappy"]]
+      },
+      "GRIN": {
+        "faces": [["straight", "up", "upGrin"]]
+      },
+      "TOWARD": {
+        "faces": [["straight", "toward", "towardNeutral"]]
+      },
+      "SUSPICIOUS": {
+        "faces": [["straight", "toward", "towardSuspicious"]]
+      },
+      "EYEROLL": {
+        "faces": [["straight", "toward", "towardEyeroll"]]
+      }
+    }
+  }
 }

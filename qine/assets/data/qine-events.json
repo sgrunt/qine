@@ -1,0 +1,526 @@
+{
+  "qine-battle-start": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "condition": "party.alive.Qine",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "message": {
+          "en_US": "En garde!"
+        },
+        "type": "SHOW_SIDE_MSG",
+        "person": {
+          "person": "mod.qine",
+          "expression": "ANGRY"
+        }
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "type": "ENEMY_ATTACKS",
+      "battleStarted": true
+    }
+  },
+  "qine-cooldown-S": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "condition": "party.alive.Qine",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "message": {
+          "en_US": "In such a battle of endurance, I shall prevail!"
+        },
+        "type": "SHOW_SIDE_MSG",
+        "person": {
+          "person": "mod.qine",
+          "expression": "HAPPY"
+        }
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "killCount": 0,
+      "rankReached": "S",
+      "type": "COOLDOWN_START"
+    }
+  },
+  "qine-cooldown-A": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "condition": "party.alive.Qine",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "message": {
+          "en_US": "They just never learn, do they?"
+        },
+        "type": "SHOW_SIDE_MSG",
+        "person": {
+          "person": "mod.qine",
+          "expression": "GRIN"
+        }
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "killCount": 0,
+      "rankReached": "A",
+      "type": "COOLDOWN_START"
+    }
+  },
+  "qine-cooldown-B": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "condition": "party.alive.Qine",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "message": {
+          "en_US": "Nothing can get past us!"
+        },
+        "type": "SHOW_SIDE_MSG",
+        "person": {
+          "person": "mod.qine",
+          "expression": "SMUG"
+        }
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "killCount": 0,
+      "rankReached": "B",
+      "type": "COOLDOWN_START"
+    }
+  },
+  "qine-battle-over-S": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "condition": "party.alive.Qine",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "message": {
+          "en_US": "Phew... what a battle."
+        },
+        "type": "SHOW_SIDE_MSG",
+        "person": {
+          "person": "mod.qine",
+          "expression": "SUSPICIOUS"
+        }
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "killCount": 0,
+      "rank": "S",
+      "type": "BATTLE_OVER"
+    }
+  },
+  "qine-contact": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "outgoing": true,
+        "type": "RING_PRIVATE_MSG"
+      },
+      {
+        "type": "START_PRIVATE_MSG"
+      },
+      {
+        "side": "LEFT",
+        "order": 0,
+        "clearSide": false,
+        "type": "ADD_MSG_PERSON",
+        "person": {
+          "person": "mod.qine",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "side": "RIGHT",
+        "order": 0,
+        "clearSide": false,
+        "type": "ADD_MSG_PERSON",
+        "person": {
+          "person": "main.lea",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "message": {
+          "en_US": "Do you want to warp to the arena?"
+        },
+        "autoContinue": false,
+        "type": "SHOW_MSG",
+        "person": {
+          "person": "mod.qine",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "0": [
+          {
+            "message": {
+              "en_US": "[nods]"
+            },
+            "autoContinue": false,
+            "type": "SHOW_MSG",
+            "person": {
+              "person": "main.lea",
+              "expression": "NOD"
+            }
+          },
+          {
+            "callEvent": "arena-teleport",
+            "type": "CALL_EVENT"
+          }
+        ],
+        "1": [
+          {
+            "message": {
+              "en_US": "[shakes head]"
+            },
+            "autoContinue": false,
+            "type": "SHOW_MSG",
+            "person": {
+              "person": "main.lea",
+              "expression": "SHAKE"
+            }
+          }
+        ],
+        "type": "SHOW_CHOICE",
+        "person": {
+          "person": "main.lea",
+          "expression": "DEFAULT"
+        },
+        "options": [
+          {
+            "0": " ",
+            "label": {
+              "en_US": "[yes]"
+            }
+          },
+          {
+            "1": " ",
+            "label": {
+              "en_US": "[no]"
+            }
+          }
+        ]
+      },
+      {
+        "skipSounds": false,
+        "type": "END_PRIVATE_MSG"
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "member": "Qine",
+      "actionType": "CONTACT",
+      "type": "SOCIAL_ACTION"
+    }
+  },
+  "arena-teleport": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "type": "DO_ACTION",
+        "entity": {
+          "player": true
+        },
+        "action": [
+          {
+            "type": "SET_Z_GRAVITY_FACTOR",
+            "value": 0
+          },
+          {
+            "type": "SET_Z_VEL",
+            "value": 0
+          },
+          {
+            "type": "WAIT",
+            "time": 5
+          }
+        ]
+      },
+      {
+        "time": 0.2,
+        "ignoreSlowDown": false,
+        "type": "WAIT"
+      },
+      {
+        "type": "SET_TELEPORT_COLOR",
+        "lighter": true,
+        "color": "white"
+      },
+      {
+        "color": "white",
+        "alpha": 1,
+        "time": 1,
+        "lighter": true,
+        "type": "SET_OVERLAY"
+      },
+      {
+        "type": "SET_CAMERA_TARGET",
+        "entity": {
+          "player": true
+        },
+        "speed": "NORMAL",
+        "transition": "EASE_IN_OUT",
+        "zoom": 1.5
+      },
+      {
+        "time": 0.2,
+        "ignoreSlowDown": false,
+        "type": "WAIT"
+      },
+      {
+        "type": "SHOW_EFFECT",
+        "entity": {
+          "player": true
+        },
+        "effect": {
+          "sheet": "teleport",
+          "name": "hideMapTeleport"
+        }
+      },
+      {
+        "type": "SHOW_EFFECT",
+        "entity": {
+          "player": true
+        },
+        "effect": {
+          "sheet": "teleport",
+          "name": "hideFast"
+        }
+      },
+      {
+        "time": 1,
+        "ignoreSlowDown": false,
+        "type": "WAIT"
+      },
+      {
+        "type": "TELEPORT",
+        "map": "mod/qine-arena",
+        "marker": "arenaCenter"
+      },
+      {
+        "time": 3,
+        "ignoreSlowDown": false,
+        "type": "WAIT"
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "type": "CALL"
+    }
+  },
+  "qine-join": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "outgoing": true,
+        "type": "RING_PRIVATE_MSG"
+      },
+      {
+        "type": "START_PRIVATE_MSG"
+      },
+      {
+        "side": "LEFT",
+        "order": 0,
+        "clearSide": false,
+        "type": "ADD_MSG_PERSON",
+        "person": {
+          "person": "mod.qine",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "side": "RIGHT",
+        "order": 0,
+        "clearSide": false,
+        "type": "ADD_MSG_PERSON",
+        "person": {
+          "person": "main.lea",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "message": {
+          "en_US": "I shall be glad to accompany you."
+        },
+        "autoContinue": false,
+        "type": "SHOW_MSG",
+        "person": {
+          "person": "mod.qine",
+          "expression": "SMUG"
+        }
+      },
+      {
+        "member": "Qine",
+        "skipEffect": false,
+        "type": "ADD_PARTY_MEMBER"
+      },
+      {
+        "skipSounds": false,
+        "type": "END_PRIVATE_MSG"
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "member": "Qine",
+      "actionType": "PARTY_JOIN",
+      "type": "SOCIAL_ACTION"
+    }
+  },
+  "qine-equip-update": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "message": {
+          "en_US": "Ah, new gear. Haven't done that in a while."
+        },
+        "type": "SHOW_SIDE_MSG",
+        "person": {
+          "person": "mod.qine",
+          "expression": "GRIN"
+        }
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "member": "Qine",
+      "eventType": "EQUIP_UPDATE",
+      "actionType": "PARTY_JOIN",
+      "type": "PARTY_MEMBER_EVENT"
+    }
+  },
+  "qine-remove": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "outgoing": true,
+        "type": "RING_PRIVATE_MSG"
+      },
+      {
+        "type": "START_PRIVATE_MSG"
+      },
+      {
+        "side": "LEFT",
+        "order": 0,
+        "clearSide": false,
+        "type": "ADD_MSG_PERSON",
+        "person": {
+          "person": "mod.qine",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "side": "RIGHT",
+        "order": 0,
+        "clearSide": false,
+        "type": "ADD_MSG_PERSON",
+        "person": {
+          "person": "main.lea",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "message": {
+          "en_US": "Very well, then. Farewell!"
+        },
+        "autoContinue": false,
+        "type": "SHOW_MSG",
+        "person": {
+          "person": "mod.qine",
+          "expression": "SMUG"
+        }
+      },
+      {
+        "member": "Qine",
+        "skipEffect": false,
+        "type": "REMOVE_PARTY_MEMBER"
+      },
+      {
+        "skipSounds": false,
+        "type": "END_PRIVATE_MSG"
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "member": "Qine",
+      "actionType": "PARTY_LEAVE",
+      "type": "SOCIAL_ACTION"
+    }
+  },
+  "qine-dies": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "message": {
+          "en_US": "What!? Impossible!!"
+        },
+        "type": "SHOW_SIDE_MSG",
+        "person": {
+          "person": "mod.qine",
+          "expression": "ANGRY"
+        }
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "member": "Qine",
+      "eventType": "DIES",
+      "type": "PARTY_MEMBER_EVENT"
+    }
+  },
+  "qine-revived": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "message": {
+          "en_US": "Good work holding out until my return."
+        },
+        "type": "SHOW_SIDE_MSG",
+        "person": {
+          "person": "mod.qine",
+          "expression": "SMUG"
+        }
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "member": "Qine",
+      "eventType": "REVIVED",
+      "type": "PARTY_MEMBER_EVENT"
+    }
+  }
+}

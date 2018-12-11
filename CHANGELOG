@@ -1,3 +1,8 @@
+v0.0.4 (10-Dec-2018):
+  * Qine is now added to the party menu on load, and can be Contacted to
+    teleport to the arena.
+  * Assorted battle dialogue for Qine.
+
 v0.0.3.1 (09-Dec-2018):
   * Small adjustment to Qine-as-party-member's guard / dash logic.
 
@@ -7,7 +12,7 @@ v0.0.3 (09-Dec-2018):
 v0.0.2 (08-Dec-2018):
   * Swapped out some of the more obviously sphere effects (Sphere Saw/Storm,
     Guard/Blade Sphere, residual guard shields from Cold lv2/3 guards) with
-    more quadro-guard appropriate effects.
+    more Quadroguard-appropriate effects.
 
 v0.0.1 (08-Dec-2018):
   * Initial revision.
