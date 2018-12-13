@@ -17,27 +17,10 @@ class Qine {
      * list of data. The way I've implemented this *should* allow for
      * multiple concurrent new party member mods to exist and work correctly
      * with each other.
-     *
-     * If the obfuscation changes, it will probably break this...
      */
-    sc.bu.push("Qine");
-    var d = ig.copy(sc.bu);
-    d.unshift("Member3");
-    d.unshift("Member2");
-    ig.Ja.W9a(
-      "party",
-      function(a) {
-        return a.indexOf("Member") == 0
-          ? sc.sa.Kl(a.substr(6, 1) * 1 - 2)
-          : sc.sa.LBb(a);
-      },
-      {
-        b: "String",
-        U: d
-      }
-    );
+    sc[entries.partyMembers].push("Qine");
 
-    sc.sa.f();
+    sc[entries.party][entries.partyEditorInit]();
 
     const origLoad = cc.ig.gameMain[cc.ig.varNames.gameMainLoadMap];
     cc.ig.gameMain[cc.ig.varNames.gameMainLoadMap] = data => {
@@ -45,8 +28,8 @@ class Qine {
       callOrig;
 
       if (
-        cc.sc.party.Kn.Qine.status != undefined &&
-        cc.sc.party.Kn.Qine.status == 0
+        cc.sc.party[entries.partyStatus].Qine.status != undefined &&
+        cc.sc.party[entries.partyStatus].Qine.status == 0
       ) {
         new cc.ig.events.SET_PARTY_MEMBER_SP_LEVEL({
           member: "Qine",
@@ -89,8 +72,8 @@ class Qine {
         delete cc.ig.Database.data.commonEvents["nobody-contact"];
         cc.ig.Database.data.commonEvents["nobody-contact"] = nobody;
 
-        sc.Ip.Poa = {};
-        sc.Ip.f();
+        sc[entries.commonEvents][entries.commonEventsDb] = {};
+        sc[entries.commonEvents][entries.commonEventsInit]();
       })
       .catch(err => {
         throw err;

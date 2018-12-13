@@ -1,3 +1,9 @@
+v0.0.4.1 (12-Dec-2018):
+  * Adjust displayed real name to be more consistent with other party
+    members.
+  * Internal rework of some of the party member initialisation to be more
+    robust.
+
 v0.0.4 (10-Dec-2018):
   * Qine is now added to the party menu on load, and can be Contacted to
     teleport to the arena.
