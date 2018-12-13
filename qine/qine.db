@@ -30,6 +30,22 @@
 	    {
                 "type": "raw",
                 "name": "commonEventsInit"
+	    },
+	    {
+                "type": "raw",
+                "name": "saveGui"
+	    },
+	    {
+                "type": "raw",
+                "name": "igImage"
+	    },
+	    {
+                "type": "raw",
+                "name": "saveGuiHeads"
+	    },
+	    {
+                "type": "raw",
+                "name": "saveGuiHeadsImage"
 	    }
         ]
     },
@@ -108,6 +124,53 @@
 		    {
 		        "name": "properties.5.value.body.body.1.expression.right.arguments.0.raw",
 		        "value": "\"commonEvents\""
+		    }
+		]
+	    }
+	},
+        "saveGui": {
+	    "type": "select",
+	    "pattern": "left.property.name",
+	    "from": {
+	        "type": "AssignmentExpression",
+                "values": [
+		    {
+		        "name": "right.arguments.0.properties.0.value.arguments.0.value",
+		        "value": "media/gui/severed-heads.png"
+		    },
+		    {
+		        "name": "right.arguments.0.properties.1.value.arguments.0.value",
+		        "value": "media/gui/menu.png"
+		    }
+		]
+	    }
+	},
+        "igImage": {
+	    "type": "select",
+	    "pattern": "callee.property.name",
+	    "from": {
+	        "type": "NewExpression",
+                "values": [
+		    {
+		        "name": "arguments.0.value",
+		        "value": "media/gui/severed-heads.png"
+		    }
+		]
+	    }
+	},
+        "saveGuiHeadsImage": {
+	    "type": "select",
+	    "pattern": "properties.0.key.name",
+	    "from": {
+	        "type": "ObjectExpression",
+                "values": [
+		    {
+		        "name": "properties.0.value.arguments.0.value",
+		        "value": "media/gui/severed-heads.png"
+		    },
+		    {
+		        "name": "properties.1.value.arguments.0.value",
+		        "value": "media/gui/menu.png"
 		    }
 		]
 	    }

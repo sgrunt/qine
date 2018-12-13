@@ -8,6 +8,7 @@ class Qine {
   _init() {
     this._addPartyMember();
     this._addDatabaseEntries();
+    this._loadHeads();
   }
 
   _addPartyMember() {
@@ -79,6 +80,20 @@ class Qine {
         throw err;
       });
   }
+
+  _loadHeads() {
+    this._tmpHeadsImage = new ig[entries.igImage]("assets/media/gui/severed-heads.png");
+    setTimeout( () => this._updateHeads(), 100 );
+  }
+
+  _updateHeads() {
+    if (this._tmpHeadsImage.loaded) {
+      const tmpSaveGui = new sc[entries.saveGui];
+      Object.assign(tmpSaveGui[entries.saveGuiHeadsImage], this._tmpHeadsImage);
+    } else {
+      setTimeout( () => this._updateHeads(), 100 );
+    }
+  };
 }
 
 new Qine();
