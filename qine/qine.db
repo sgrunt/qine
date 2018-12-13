@@ -1,0 +1,116 @@
+{
+    "tree": {
+        "name": "cc",
+        "type": "object",
+        "children": [
+	    {
+                "type": "raw",
+                "name": "partyMembers"
+	    },
+	    {
+                "type": "raw",
+                "name": "partyEditor"
+	    },
+	    {
+                "type": "raw",
+                "name": "partyEditorInit"
+	    },
+	    {
+                "type": "raw",
+                "name": "partyStatus"
+	    },
+	    {
+                "type": "raw",
+                "name": "commonEvents"
+	    },
+	    {
+                "type": "raw",
+                "name": "commonEventsDb"
+	    },
+	    {
+                "type": "raw",
+                "name": "commonEventsInit"
+	    }
+        ]
+    },
+    "entries": {
+        "partyMembers": {
+	    "type": "select",
+	    "pattern": "left.property.name",
+	    "from": {
+	        "type": "AssignmentExpression",
+                "values": [
+		    {
+		        "name": "right.elements.2.raw",
+		        "value": "\"Shizuka0\""
+		    }
+		]
+	    }
+	},
+        "partyEditorInit": {
+	    "type": "select",
+	    "pattern": "key.name",
+	    "from": {
+	        "type": "Property",
+                "values": [
+		    {
+		        "name": "value.body.body.3.expression.arguments.2.raw",
+		        "value": "\"VarPartyEditor\""
+		    }
+		]
+	    }
+	},
+        "partyStatus": {
+	    "type": "select",
+	    "pattern": "properties.4.key.name",
+	    "from": {
+	        "type": "ObjectExpression",
+                "values": [
+		    {
+		        "name": "properties.11.value.body.body.3.expression.arguments.2.raw",
+		        "value": "\"VarPartyEditor\""
+		    }
+		]
+	    }
+	},
+        "commonEvents": {
+	    "type": "select",
+	    "pattern": "expression.callee.object.property.name",
+	    "from": {
+	        "type": "ExpressionStatement",
+                "values": [
+		    {
+		        "name": "expression.arguments.0.raw",
+		        "value": "\"SOCIAL_ACTION\""
+		    }
+		]
+	    }
+	},
+        "commonEventsDb": {
+	    "type": "select",
+	    "pattern": "properties.1.key.name",
+	    "from": {
+	        "type": "ObjectExpression",
+                "values": [
+		    {
+		        "name": "properties.5.value.body.body.1.expression.right.arguments.0.raw",
+		        "value": "\"commonEvents\""
+		    }
+		]
+	    }
+	},
+        "commonEventsInit": {
+	    "type": "select",
+	    "pattern": "properties.5.key.name",
+	    "from": {
+	        "type": "ObjectExpression",
+                "values": [
+		    {
+		        "name": "properties.5.value.body.body.1.expression.right.arguments.0.raw",
+		        "value": "\"commonEvents\""
+		    }
+		]
+	    }
+	}
+    }
+}
