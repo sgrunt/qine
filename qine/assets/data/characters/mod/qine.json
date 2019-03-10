@@ -52,11 +52,11 @@
           "srcX": 0,
           "srcY": 0,
           "width": 132,
-          "height": 72,
+          "height": 86,
           "destX": 56,
           "destY": 136,
-          "subX": 21,
-          "subY": 64
+          "subX": 14,
+          "subY": 56
         }
       },
       {
