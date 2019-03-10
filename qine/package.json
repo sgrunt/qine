@@ -2,9 +2,9 @@
   "name": "Qine",
   "main": "mod.js",
   "table": "qine.db",
-  "version": "0.0.4.2",
+  "version": "0.0.5",
   "dependencies": {
-    "ccloader": "^2.7.3",
+    "ccloader": "^2.7.6",
     "Simplify": "^2.1.0"
   }
 }
