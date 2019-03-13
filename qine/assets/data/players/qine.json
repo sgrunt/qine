@@ -12746,6 +12746,51 @@
       }
     },
     "NEUTRAL": {
+      "DASH_SPECIAL1_A": {
+        "name": {
+          "en_US": "Incite"
+        },
+        "description": {
+          "en_US": "Screech to draw enemies' attention towards you."
+        },
+        "dmgType": "RANGED",
+        "stunType": "LOCK",
+        "status": false,
+        "steps": [
+          {
+            "type": "SET_PLAYER_ACTION_BLOCK",
+            "blockData": {
+              "dash": 0,
+              "action": 1.0,
+              "move": 1.0,
+              "reaim": 1.0
+            }
+          },
+          {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "aim"
+          },
+          {
+            "volume": 2.0,
+            "global": false,
+            "loop": false,
+            "type": "PLAY_SOUND",
+            "sound": "media\/sound\/battle\/enemies\/fish-scream-solo.ogg"
+          },
+          {
+            "target": {
+              "party": "Qine"
+            },
+            "type": "SET_SCREEN_ENEMY_TARGET"
+          },
+          {
+            "time": 1,
+            "type": "WAIT"
+          }
+        ]
+      },
       "ATTACK_SPECIAL1_B": {
         "name": {
           "en_US": "Vibroshield",

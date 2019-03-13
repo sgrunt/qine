@@ -46,6 +46,30 @@
 	    {
                 "type": "raw",
                 "name": "saveGuiHeadsImage"
+	    },
+	    {
+	        "type": "raw",
+	        "name": "baseCombatAction"
+	    },
+	    {
+	        "type": "raw",
+	        "name": "combatActionAttributes"
+	    },
+	    {
+	        "type": "raw",
+	        "name": "entityFinder"
+	    },
+	    {
+	        "type": "raw",
+	        "name": "findEntity"
+	    },
+	    {
+	        "type": "raw",
+	        "name": "combatFeature"
+	    },
+	    {
+	        "type": "raw",
+	        "name": "setScreenEnemyTarget"
 	    }
         ]
     },
@@ -171,6 +195,84 @@
 		    {
 		        "name": "properties.1.value.arguments.0.value",
 		        "value": "media/gui/menu.png"
+		    }
+		]
+	    }
+	},
+        "baseCombatAction": {
+	    "type": "select",
+	    "pattern": "right.callee.object.property.name",
+	    "from": {
+	        "type": "AssignmentExpression",
+                "values": [
+		    {
+		        "name": "left.property.name",
+		        "value": "RESET_ACTOR"
+		    }
+		]
+	    }
+	},
+        "combatActionAttributes": {
+	    "type": "select",
+	    "pattern": "right.arguments.0.properties.0.value.callee.property.name",
+	    "from": {
+	        "type": "AssignmentExpression",
+                "values": [
+		    {
+		        "name": "left.property.name",
+		        "value": "RESET_ACTOR"
+		    }
+		]
+	    }
+	},
+        "entityFinder": {
+	    "type": "select",
+	    "pattern": "right.arguments.0.properties.3.value.body.body.0.declarations.0.init.callee.object.property.name",
+	    "from": {
+	        "type": "AssignmentExpression",
+                "values": [
+		    {
+		        "name": "left.property.name",
+		        "value": "SET_SCREEN_ENEMY_TARGET"
+		    }
+		]
+	    }
+	},
+        "findEntity": {
+	    "type": "select",
+	    "pattern": "right.arguments.0.properties.3.value.body.body.0.declarations.0.init.callee.property.name",
+	    "from": {
+	        "type": "AssignmentExpression",
+                "values": [
+		    {
+		        "name": "left.property.name",
+		        "value": "SET_SCREEN_ENEMY_TARGET"
+		    }
+		]
+	    }
+	},
+        "combatFeature": {
+	    "type": "select",
+	    "pattern": "right.arguments.0.properties.3.value.body.body.1.expression.callee.object.property.name",
+	    "from": {
+	        "type": "AssignmentExpression",
+                "values": [
+		    {
+		        "name": "left.property.name",
+		        "value": "SET_SCREEN_ENEMY_TARGET"
+		    }
+		]
+	    }
+	},
+        "setScreenEnemyTarget": {
+	    "type": "select",
+	    "pattern": "right.arguments.0.properties.3.value.body.body.1.expression.callee.property.name",
+	    "from": {
+	        "type": "AssignmentExpression",
+                "values": [
+		    {
+		        "name": "left.property.name",
+		        "value": "SET_SCREEN_ENEMY_TARGET"
 		    }
 		]
 	    }

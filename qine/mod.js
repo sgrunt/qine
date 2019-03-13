@@ -6,9 +6,32 @@ class Qine {
   }
 
   _init() {
+    this._addCombatAction();
     this._addPartyMember();
     this._addDatabaseEntries();
     this._loadHeads();
+  }
+
+  _addCombatAction() {
+    cc.ig.combatActions.SET_SCREEN_ENEMY_TARGET = ig[entries.baseCombatAction].extend({
+      target: 0,
+      t: new ig[entries.combatActionAttributes]({
+        attributes: {
+          target: {
+            c: "Entity",
+            d: "Entity to target",
+            ik: h
+          }
+        }
+      }),
+      f: function(a) {
+        this.target = a.target
+      },
+      start: function(a) {
+        var c = ig[entries.entityFinder][entries.findEntity](this.target, undefined);
+        sc[entries.combatFeature][entries.setScreenEnemyTarget](c);
+      },
+    });
   }
 
   _addPartyMember() {
