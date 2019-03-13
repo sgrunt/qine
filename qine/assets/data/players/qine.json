@@ -17510,6 +17510,122 @@
             "type": "FOCUS_CAMERA"
           }
         ]
+      },
+      "DASH_SPECIAL1_A": {
+        "name": {
+          "en_US": "Warp Decoy",
+          "zh_CN": "\u626d\u66f2\u5708\u5957",
+          "ja_JP": "\u30ef\u30fc\u30d7\u30c7\u30b3\u30a4",
+          "ko_KR": "\uc6cc\ud504 \ubbf8\ub07c",
+          "langUid": 148,
+          "de_DE": "Warp Decoy"
+        },
+        "description": {
+          "en_US": "Dash away and leave behind a decoy, distracting your foes.",
+          "de_DE": "Sprinte und hinterlasse eine Lockvogel, der deine Feinde ablenkt.<<A<<[CHANGED 2018/09/02]",
+          "zh_CN": "\u51b2\u523a\u79bb\u5f00\uff0c\u5e76\u7559\u4e0b\u4e00\u4e2a\u53ef\u4ee5\u8bef\u5bfc\u654c\u4eba\u7684\u8bf1\u9975\u3002<<A<<[CHANGED 2018/09/02]",
+          "ja_JP": "\u30c0\u30c3\u30b7\u30e5\u3067\u96e2\u8131\u3057\u3064\u3064\u3001\u6575\u306e\u6ce8\u610f\u3092\u5f15\u304f\u6b8b\u50cf\u3092\u6b8b\u3059\u3002<<A<<[CHANGED 2018/09/02]",
+          "ko_KR": "\ub300\uc2dc\ub85c \ub3c4\ub9dd\uac04 \ub4a4 \uc801\uc744 \uad50\ub780\ud558\ub294 \ubbf8\ub07c\ub97c \ub0a8\uae41\ub2c8\ub2e4.<<A<<[CHANGED 2018/09/02]",
+          "langUid": 149
+        },
+        "dmgType": "NONE",
+        "stunType": "",
+        "status": false,
+        "steps": [
+          {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+          },
+          {
+            "type": "SET_PLAYER_ACTION_BLOCK",
+            "blockData": {
+              "dash": 0.15,
+              "action": 0.3,
+              "move": 0.3,
+              "reaim": 0.3
+            }
+          },
+          {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "waveDummy",
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "dir": {
+              "actorAttrib": "dashDir"
+            },
+            "type": "SET_FACE_TO_DIR"
+          },
+          {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "dash"
+          },
+          {
+            "value": false,
+            "type": "SET_JUMPING"
+          },
+          {
+            "value": 400,
+            "type": "SET_SPEED"
+          },
+          {
+            "value": 2,
+            "type": "SET_ACCEL_SPEED"
+          },
+          {
+            "value": true,
+            "type": "SET_FACE_FIX"
+          },
+          {
+            "duration": -1,
+            "align": "CENTER",
+            "rotateFace": 8,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "specials.wave",
+              "name": "waveDashTrail"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "time": 0.2,
+            "stopBeforeEdge": false,
+            "type": "MOVE_FORWARD"
+          },
+          {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idle"
+          },
+          {
+            "time": 0.1,
+            "type": "WAIT"
+          },
+          {
+            "type": "CLEAR_EFFECTS"
+          },
+          {
+            "time": 0.4,
+            "type": "WAIT"
+          }
+        ]
       }
     }
   },
