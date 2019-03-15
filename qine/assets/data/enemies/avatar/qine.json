@@ -2153,6 +2153,162 @@
         "collType": "NONE"
       }
     },
+    "torch": {
+      "copyOwnerAnims": false,
+      "breakType": "NEVER",
+      "action": [
+        {
+          "face": "SOUTH",
+          "rotate": false,
+          "rotateSpeed": 3,
+          "type": "SET_FACE"
+        },
+        {
+          "value": true,
+          "type": "SET_FACE_FIX"
+        },
+        {
+          "attribName": "cycles",
+          "changeType": "set",
+          "proxyOwner": false,
+          "type": "SET_ATTRIB_NUMBER",
+          "value": 20
+        },
+        {
+          "duration": -1,
+          "align": "TOP",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.heat",
+            "name": "flameDash"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 16
+          }
+        },
+        {
+          "name": "repeat",
+          "type": "LABEL"
+        },
+        {
+          "withElse": false,
+          "type": "IF",
+          "condition": "entity.attrib.cycles > 0",
+          "thenStep": [
+            {
+              "attribName": "cycles",
+              "changeType": "sub",
+              "proxyOwner": false,
+              "type": "SET_ATTRIB_NUMBER",
+              "value": 1
+            },
+            {
+              "time": 0.25,
+              "type": "WAIT"
+            },
+            {
+              "name": "repeat",
+              "type": "GOTO_LABEL"
+            }
+          ]
+        },
+        {
+          "type": "CLEAR_EFFECTS"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "OWNER",
+      "stickFaceAlign": false,
+      "type": "GENERIC",
+      "size": {
+        "x": 24,
+        "y": 24,
+        "z": 32
+      },
+      "config": {
+        "collType": "NONE"
+      }
+    },
+    "flameTrail": {
+      "copyOwnerAnims": false,
+      "breakType": "NEVER",
+      "action": [
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.heat",
+            "name": "flameDashCircle"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "align": "BOTTOM",
+          "centralAngle": 0,
+          "angleVary": 0,
+          "startDistCollide": "NONE",
+          "random": "false",
+          "count": 1,
+          "duration": 0.0833,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0.016,
+          "repeat": true,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "flameWall",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 5,
+          "type": "WAIT"
+        },
+        {
+          "type": "STOP_REPEATING_FORCE"
+        },
+        {
+          "type": "CLEAR_EFFECTS"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "OWNER",
+      "stickFaceAlign": false,
+      "type": "GENERIC",
+      "size": {
+        "x": 24,
+        "y": 24,
+        "z": 32
+      },
+      "config": {
+        "collType": "NONE"
+      }
+    },
     "flameWall": {
       "copyOwnerAnims": false,
       "breakType": "COMBATANT",
@@ -2169,7 +2325,7 @@
           "type": "SHOW_EFFECT",
           "effect": {
             "sheet": "specials.heat",
-            "name": "flameWall"
+            "name": "chargeSmall"
           },
           "offset": {
             "x": 0,
@@ -2179,9 +2335,9 @@
         },
         {
           "align": "BOTTOM",
-          "radius": 32,
+          "radius": 16,
           "yScale": 0,
-          "zHeight": 32,
+          "zHeight": 16,
           "centralAngle": 1,
           "duration": 0.3,
           "expandRadius": 0,
@@ -2226,9 +2382,9 @@
       "group": "wall",
       "type": "GENERIC",
       "size": {
-        "x": 24,
-        "y": 24,
-        "z": 32
+        "x": 12,
+        "y": 12,
+        "z": 16
       },
       "config": {
         "collType": "NONE"
@@ -12830,7 +12986,7 @@
         "type": "COMBAT_IF",
         "conditions": [
           {
-            "element": "FIRE",
+            "element": "HEAT",
             "negated": false,
             "type": "ELEMENT_MODE"
           },
@@ -15044,7 +15200,7 @@
             "type": "COMBAT_IF",
             "conditions": [
               {
-                "element": "WAVE",
+                "element": "HEAT",
                 "negated": false,
                 "type": "ELEMENT_MODE"
               }
@@ -15052,20 +15208,99 @@
             "thenStep": [
               {
                 "type": "DO_ENEMY_ACTION",
-                "actionName": "WaveDashSpecial"
+                "actionName": "HeatDashSpecial"
               }
             ],
             "elseStep": [
               {
-                "name": "swapReady",
-                "type": "SET_ATTRIB_BOOL",
-                "value": true
-              },
-              {
-                "type": "DO_ENEMY_ACTION",
-                "actionName": "ThrowBalls"
+                "withElse": true,
+                "type": "COMBAT_IF",
+                "conditions": [
+                  {
+                    "element": "SHOCK",
+                    "negated": false,
+                    "type": "ELEMENT_MODE"
+                  }
+                ],
+                "thenStep": [
+                  {
+                    "type": "DO_ENEMY_ACTION",
+                    "actionName": "ShockDashSpecial"
+                  }
+                ],
+                "elseStep": [
+                  {
+                    "withElse": true,
+                    "type": "COMBAT_IF",
+                    "conditions": [
+                      {
+                        "element": "WAVE",
+                        "negated": false,
+                        "type": "ELEMENT_MODE"
+                      }
+                    ],
+                    "thenStep": [
+                      {
+                        "type": "DO_ENEMY_ACTION",
+                        "actionName": "WaveDashSpecial"
+                      }
+                    ],
+                    "elseStep": [
+                      {
+                        "type": "DO_ENEMY_ACTION",
+                        "actionName": "NeutralDashSpecial"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
+          }
+        ]
+      }
+    ],
+    "NeutralDashSpecial": [
+      {
+        "name": "swapReady",
+        "type": "SET_ATTRIB_BOOL",
+        "value": true
+      },
+      {
+        "type": "DO_ENEMY_ACTION",
+        "actionName": "ThrowBalls"
+      }
+    ],
+    "HeatDashSpecial": [
+      {
+        "withElse": true,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "negated": false,
+            "type": "VAR_CONDITION",
+            "condition": "entity.attrib.lvl2Arts"
+          },
+          {
+            "min": 3,
+            "negated": false,
+            "type": "HAS_SP"
+          }
+        ],
+        "thenStep": [
+          {
+            "type": "DO_ENEMY_ACTION",
+            "actionName": "_Flamebringer"
+          }
+        ],
+        "elseStep": [
+          {
+            "name": "swapReady",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
+          },
+          {
+            "type": "DO_ENEMY_ACTION",
+            "actionName": "ThrowBalls"
           }
         ]
       }
@@ -15103,6 +15338,17 @@
             "actionName": "_IndigoStrike"
           }
         ]
+      }
+    ],
+    "ShockDashSpecial": [
+      {
+        "name": "swapReady",
+        "type": "SET_ATTRIB_BOOL",
+        "value": true
+      },
+      {
+        "type": "DO_ENEMY_ACTION",
+        "actionName": "ThrowBalls"
       }
     ],
     "WaveDashSpecial": [
@@ -16664,6 +16910,92 @@
       },
       {
         "time": 0.4,
+        "type": "WAIT"
+      }
+    ],
+    "_Flamebringer": [
+      {
+        "attribName": "nonNeutralActions",
+        "changeType": "add",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 3
+      },
+      {
+        "element": "HEAT",
+        "skipEffect": false,
+        "type": "SET_ENEMY_ELEMENT_MODE"
+      },
+      {
+        "value": true,
+        "immediately": true,
+        "type": "FACE_TO_TARGET"
+      },
+      {
+        "value": 2,
+        "type": "FACE_TO_TARGET_SPEED"
+      },
+      {
+        "value": "MASSIVE",
+        "type": "SET_HIT_STABLE"
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "charge"
+      },
+      {
+        "element": "HEAT",
+        "level": 2,
+        "type": "COMBAT_ART_CHARGE"
+      },
+      {
+        "volume": 0.9,
+        "global": false,
+        "loop": false,
+        "type": "PLAY_SOUND",
+        "sound": "media/sound/battle/airon/fire-generic-attack-1.ogg"
+      },
+      {
+        "align": "BOTTOM",
+        "type": "SHOOT_PROXY",
+        "proxy": "torch",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "align": "BOTTOM",
+        "type": "SHOOT_PROXY",
+        "proxy": "flameTrail",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "dash"
+      },
+      {
+        "time": 0.15,
+        "type": "WAIT"
+      },
+      {
+        "followUp": "idle",
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "preIdle"
+      },
+      {
+        "time": 0.05,
         "type": "WAIT"
       }
     ],
