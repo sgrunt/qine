@@ -12158,6 +12158,491 @@
       },
       "type": "GENERIC"
     },
+    "chargeCoil": {
+      "animation": {
+        "SUB": [
+          {
+            "name": "default",
+            "shapeType": "Z_EXPAND",
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": -8
+            },
+            "sheet": {
+              "src": "media/entity/objects/tesla-loose.png",
+              "offX": 72,
+              "offY": 0,
+              "width": 16,
+              "height": 40
+            },
+            "wallY": 0.5,
+            "frames": [
+              0
+            ]
+          }
+        ]
+      },
+      "copyOwnerAnims": false,
+      "breakType": "COMBATANT",
+      "action": [
+        {
+          "duration": 0.3,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.shock",
+            "name": "boldPre"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "volume": 0.9,
+          "global": false,
+          "loop": false,
+          "type": "PLAY_SOUND",
+          "sound": "media/sound/battle/enemies/discharge.ogg"
+        },
+        {
+          "minTime": 0.3,
+          "maxTime": 0.5,
+          "type": "WAIT_RANDOM"
+        },
+        {
+          "value": "-1",
+          "type": "SET_Z_VEL"
+        },
+        {
+          "type": "WAIT_UNTIL_ON_GROUND"
+        },
+        {
+          "volume": 0.9,
+          "global": false,
+          "loop": false,
+          "type": "PLAY_SOUND",
+          "sound": "media/sound/battle/thud-light.ogg"
+        },
+        {
+          "type": "CLEAR_EFFECTS"
+        },
+        {
+          "time": 0.5,
+          "type": "WAIT"
+        },
+        {
+          "searchType": "CLOSE_RANGE",
+          "distance": 32,
+          "ignoreCurrentTarget": false,
+          "prevHitBehavior": "NONE",
+          "type": "SET_CLOSE_TEMP_TARGET"
+        },
+        {
+          "attribName": "wait",
+          "changeType": "set",
+          "proxyOwner": false,
+          "type": "SET_ATTRIB_NUMBER",
+          "value": 5
+        },
+        {
+          "name": "start",
+          "type": "LABEL"
+        },
+        {
+          "withElse": false,
+          "type": "IF",
+          "condition": "!entity.hasTmpTarget",
+          "thenStep": [
+            {
+              "searchType": "CLOSE_RANGE",
+              "distance": 32,
+              "ignoreCurrentTarget": false,
+              "prevHitBehavior": "NONE",
+              "type": "SET_CLOSE_TEMP_TARGET"
+            }
+          ]
+        },
+        {
+          "withElse": false,
+          "type": "IF",
+          "condition": "entity.attrib.wait > 0 && !entity.hasTmpTarget",
+          "thenStep": [
+            {
+              "attribName": "wait",
+              "changeType": "sub",
+              "proxyOwner": false,
+              "type": "SET_ATTRIB_NUMBER",
+              "value": 0.1
+            },
+            {
+              "time": 0.1,
+              "type": "WAIT"
+            },
+            {
+              "name": "start",
+              "type": "GOTO_LABEL"
+            }
+          ]
+        },
+        {
+          "withElse": false,
+          "type": "IF",
+          "condition": "entity.hasTmpTarget",
+          "thenStep": [
+            {
+              "duration": 0.1,
+              "align": "BOTTOM",
+              "rotateFace": 0,
+              "flipLeftFace": false,
+              "wait": false,
+              "waitSkip": 0,
+              "actionDetached": false,
+              "group": "trail",
+              "fixPos": false,
+              "type": "SHOW_EFFECT",
+              "target2": "TARGET",
+              "target2Offset": {
+                "x": 0,
+                "y": 0,
+                "z": 12
+              },
+              "fixPos": true,
+              "effect": {
+                "sheet": "specials.shock",
+                "name": "dashLightning"
+              },
+              "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 12
+              }
+            },
+            {
+              "selectType": "TARGET",
+              "hitDir": "AWAY",
+              "align": "BOTTOM",
+              "hitCount": 1,
+              "hitDelay": 0,
+              "type": "DIRECT_HIT",
+              "attack": {
+                "type": "MASSIVE",
+                "element": "SHOCK",
+                "fly": "HEAVY",
+                "reverse": false,
+                "damageFactor": 2.5,
+                "reverse": false,
+                "spFactor": 0,
+                "hints": ["CHARGED"],
+                "status": 2,
+                "guardable": "",
+                "skillBonus": "RANGED_DMG",
+                "noIronStance": true,
+                "guardable": "",
+                "limiter": ""
+              }
+            },
+            {
+              "time": 0.5,
+              "type": "WAIT"
+            }
+          ]
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "killEffect": {
+        "sheet": "enemies.whale-boss",
+        "name": "teslaGone"
+      },
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 16
+      },
+      "config": {
+        "collType": "IGNORE",
+        "zGravityFactor": 0
+      },
+      "type": "GENERIC"
+    },
+    "teslaTower": {
+      "animation": {
+        "SUB": [
+          {
+            "name": "default",
+            "shapeType": "Z_EXPAND",
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": -16
+            },
+            "sheet": {
+              "src": "media/entity/objects/tesla-loose.png",
+              "offX": 0,
+              "offY": 0,
+              "width": 24,
+              "height": 64
+            },
+            "wallY": 0.125,
+            "frames": [
+              0
+            ]
+          }
+        ]
+      },
+      "copyOwnerAnims": false,
+      "breakType": "COMBATANT",
+      "action": [
+        {
+          "volume": 0.9,
+          "global": false,
+          "loop": false,
+          "type": "PLAY_SOUND",
+          "sound": "media/sound/battle/enemies/discharge.ogg"
+        },
+        {
+          "duration": 0.3,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.shock",
+            "name": "boldPre"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "minTime": 0.3,
+          "maxTime": 0.5,
+          "type": "WAIT_RANDOM"
+        },
+        {
+          "value": "-1",
+          "type": "SET_Z_VEL"
+        },
+        {
+          "type": "WAIT_UNTIL_ON_GROUND"
+        },
+        {
+          "volume": 0.9,
+          "global": false,
+          "loop": false,
+          "type": "PLAY_SOUND",
+          "sound": "media/sound/battle/thud-5.ogg"
+        },
+        {
+          "type": "CLEAR_EFFECTS"
+        },
+        {
+          "time": 0.5,
+          "type": "WAIT"
+        },
+        {
+          "searchType": "CLOSE_RANGE",
+          "distance": 32,
+          "ignoreCurrentTarget": false,
+          "prevHitBehavior": "NONE",
+          "type": "SET_CLOSE_TEMP_TARGET"
+        },
+        {
+          "attribName": "wait",
+          "changeType": "set",
+          "proxyOwner": false,
+          "type": "SET_ATTRIB_NUMBER",
+          "value": 5
+        },
+        {
+          "name": "start",
+          "type": "LABEL"
+        },
+        {
+          "withElse": false,
+          "type": "IF",
+          "condition": "!entity.hasTmpTarget",
+          "thenStep": [
+            {
+              "searchType": "CLOSE_RANGE",
+              "distance": 32,
+              "ignoreCurrentTarget": false,
+              "prevHitBehavior": "NONE",
+              "type": "SET_CLOSE_TEMP_TARGET"
+            }
+          ]
+        },
+        {
+          "withElse": false,
+          "type": "IF",
+          "condition": "entity.attrib.wait > 0 && !entity.hasTmpTarget",
+          "thenStep": [
+            {
+              "attribName": "wait",
+              "changeType": "sub",
+              "proxyOwner": false,
+              "type": "SET_ATTRIB_NUMBER",
+              "value": 0.1
+            },
+            {
+              "time": 0.1,
+              "type": "WAIT"
+            },
+            {
+              "name": "start",
+              "type": "GOTO_LABEL"
+            }
+          ]
+        },
+        {
+          "withElse": true,
+          "type": "IF",
+          "condition": "entity.attrib.wait > 0 && entity.hasTmpTarget",
+          "thenStep": [
+            {
+              "duration": 0.1,
+              "align": "BOTTOM",
+              "rotateFace": 0,
+              "flipLeftFace": false,
+              "wait": false,
+              "waitSkip": 0,
+              "actionDetached": false,
+              "group": "trail",
+              "fixPos": false,
+              "type": "SHOW_EFFECT",
+              "target2": "TARGET",
+              "target2Offset": {
+                "x": 0,
+                "y": 0,
+                "z": 12
+              },
+              "fixPos": true,
+              "effect": {
+                "sheet": "specials.shock",
+                "name": "dashLightning"
+              },
+              "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 24
+              }
+            },
+            {
+              "selectType": "TARGET",
+              "hitDir": "AWAY",
+              "align": "BOTTOM",
+              "hitCount": 1,
+              "hitDelay": 0,
+              "type": "DIRECT_HIT",
+              "attack": {
+                "type": "MASSIVE",
+                "element": "SHOCK",
+                "fly": "HEAVY",
+                "reverse": false,
+                "damageFactor": 2.5,
+                "reverse": false,
+                "spFactor": 0,
+                "hints": ["CHARGED"],
+                "status": 2,
+                "guardable": "",
+                "skillBonus": "RANGED_DMG",
+                "noIronStance": true,
+                "guardable": "",
+                "limiter": ""
+              }
+            },
+            {
+              "volume": 0.9,
+              "global": false,
+              "loop": false,
+              "type": "PLAY_SOUND",
+              "sound": "media/sound/puzzle/shock-charge.ogg"
+            },
+            {
+              "attribName": "wait",
+              "changeType": "sub",
+              "proxyOwner": false,
+              "type": "SET_ATTRIB_NUMBER",
+              "value": 1
+            },
+            {
+              "time": 1,
+              "type": "WAIT"
+            },
+            {
+              "searchType": "CLOSE_RANGE",
+              "distance": 32,
+              "ignoreCurrentTarget": false,
+              "prevHitBehavior": "NONE",
+              "type": "SET_CLOSE_TEMP_TARGET"
+            },
+            {
+              "name": "start",
+              "type": "GOTO_LABEL"
+            }
+          ],
+          "elseStep": [
+            {
+              "withElse": false,
+              "type": "IF",
+              "condition": "entity.attrib.wait > 0",
+              "thenStep": [
+                {
+                  "attribName": "wait",
+                  "changeType": "sub",
+                  "proxyOwner": false,
+                  "type": "SET_ATTRIB_NUMBER",
+                  "value": 0.1
+                },
+                {
+                  "time": 0.1,
+                  "type": "WAIT"
+                },
+                {
+                  "name": "start",
+                  "type": "GOTO_LABEL"
+                }
+              ]
+              }
+          ]
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "killEffect": {
+        "sheet": "enemies.whale-boss",
+        "name": "teslaGone"
+      },
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 32
+      },
+      "config": {
+        "collType": "IGNORE",
+        "zGravityFactor": 0
+      },
+      "type": "GENERIC"
+    },
     "healer": {
       "copyOwnerAnims": false,
       "breakType": "COMBATANT",
@@ -17216,6 +17701,336 @@
           },
           {
             "time": 0.52,
+            "type": "WAIT"
+          }
+        ]
+      },
+      "DASH_SPECIAL1_A": {
+        "name": {
+          "en_US": "Charge Coil"
+        },
+        "description": {
+          "en_US": "Dash away and leave behind a charged spike, which will zap the next enemy that approaches it."
+        },
+        "dmgType": "NONE",
+        "stunType": "",
+        "status": false,
+        "steps": [
+          {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+          },
+          {
+            "type": "SET_PLAYER_ACTION_BLOCK",
+            "blockData": {
+              "dash": 0.15,
+              "action": 0.3,
+              "move": 0.3,
+              "reaim": 0.3
+            }
+          },
+          {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "chargeCoil",
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 32
+            }
+          },
+          {
+            "dir": {
+              "actorAttrib": "dashDir"
+            },
+            "type": "SET_FACE_TO_DIR"
+          },
+          {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "dash"
+          },
+          {
+            "value": false,
+            "type": "SET_JUMPING"
+          },
+          {
+            "value": 400,
+            "type": "SET_SPEED"
+          },
+          {
+            "value": 2,
+            "type": "SET_ACCEL_SPEED"
+          },
+          {
+            "value": true,
+            "type": "SET_FACE_FIX"
+          },
+          {
+            "time": 0.1,
+            "stopBeforeEdge": false,
+            "type": "MOVE_FORWARD"
+          },
+          {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idle"
+          },
+          {
+            "time": 0.1,
+            "type": "WAIT"
+          },
+          {
+            "type": "CLEAR_EFFECTS"
+          },
+          {
+            "time": 0.4,
+            "type": "WAIT"
+          }
+        ]
+      },
+      "DASH_SPECIAL2_A": {
+        "name": {
+          "en_US": "Tesla Tower"
+        },
+        "description": {
+          "en_US": "Dash away and leave behind a charged tower, which will zap  enemies that approaches it up to five times."
+        },
+        "dmgType": "NONE",
+        "stunType": "",
+        "status": false,
+        "steps": [
+          {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+          },
+          {
+            "type": "SET_PLAYER_ACTION_BLOCK",
+            "blockData": {
+              "dash": 0.15,
+              "action": 0.3,
+              "move": 0.3,
+              "reaim": 0.3
+            }
+          },
+          {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "teslaTower",
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 32
+            }
+          },
+          {
+            "dir": {
+              "actorAttrib": "dashDir"
+            },
+            "type": "SET_FACE_TO_DIR"
+          },
+          {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "dash"
+          },
+          {
+            "value": false,
+            "type": "SET_JUMPING"
+          },
+          {
+            "value": 400,
+            "type": "SET_SPEED"
+          },
+          {
+            "value": 2,
+            "type": "SET_ACCEL_SPEED"
+          },
+          {
+            "value": true,
+            "type": "SET_FACE_FIX"
+          },
+          {
+            "time": 0.1,
+            "stopBeforeEdge": false,
+            "type": "MOVE_FORWARD"
+          },
+          {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idle"
+          },
+          {
+            "time": 0.1,
+            "type": "WAIT"
+          },
+          {
+            "type": "CLEAR_EFFECTS"
+          },
+          {
+            "time": 0.4,
+            "type": "WAIT"
+          }
+        ]
+      },
+      "DASH_SPECIAL3_A": {
+        "name": {
+          "en_US": "Gaussian Grid"
+        },
+        "description": {
+          "en_US": "Dash away and leave behind a grid of charged towers, which will zap  enemies that approach them up to five times each."
+        },
+        "dmgType": "NONE",
+        "stunType": "",
+        "status": false,
+        "steps": [
+          {
+            "zoomType": "LIGHT",
+            "fadeIn": 0.2,
+            "duration": 1,
+            "fadeOut": 0.2,
+            "type": "SET_ZOOM_BLUR"
+          },
+          {
+            "zoom": 5,
+            "duration": 1,
+            "transition": "LINEAR",
+            "type": "SET_CAMERA_ZOOM"
+          },
+          {
+            "factor": 0.05,
+            "time": 0,
+            "keepEntityStatic": false,
+            "inversAccelerate": true,
+            "type": "ADD_SLOW_MOTION"
+          },
+          {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "type": "PLAY_SOUND",
+            "sound": "media/sound/battle/enemies/charge-1s.ogg"
+          },
+          {
+            "time": 1,
+            "type": "WAIT"
+          },
+          {
+            "zoomType": "LIGHT",
+            "fadeIn": 0,
+            "duration": 0.2,
+            "fadeOut": 0.2,
+            "type": "SET_ZOOM_BLUR"
+          },
+          {
+            "time": 0,
+            "removeEntityStatic": false,
+            "type": "CLEAR_SLOW_MOTION"
+          },
+          {
+            "speed": "NORMAL",
+            "transition": "EASE_IN_OUT",
+            "wait": false,
+            "waitSkip": 0,
+            "type": "RESET_CAMERA"
+          },
+          {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+          },
+          {
+            "type": "SET_PLAYER_ACTION_BLOCK",
+            "blockData": {
+              "dash": 0.15,
+              "action": 0.3,
+              "move": 0.3,
+              "reaim": 0.3
+            }
+          },
+          {
+            "tilesize": 64,
+            "align": "BOTTOM",
+            "flow": "SQUARE",
+            "duration": 0.01,
+            "type": "SHOOT_PROXY_GRID",
+            "proxies": [
+              "teslaTower"
+            ],
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 32
+            },
+            "pattern": [
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "dir": {
+              "actorAttrib": "dashDir"
+            },
+            "type": "SET_FACE_TO_DIR"
+          },
+          {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "dash"
+          },
+          {
+            "value": false,
+            "type": "SET_JUMPING"
+          },
+          {
+            "value": 400,
+            "type": "SET_SPEED"
+          },
+          {
+            "value": 2,
+            "type": "SET_ACCEL_SPEED"
+          },
+          {
+            "value": true,
+            "type": "SET_FACE_FIX"
+          },
+          {
+            "time": 0.1,
+            "stopBeforeEdge": false,
+            "type": "MOVE_FORWARD"
+          },
+          {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idle"
+          },
+          {
+            "time": 0.1,
+            "type": "WAIT"
+          },
+          {
+            "type": "CLEAR_EFFECTS"
+          },
+          {
+            "time": 0.4,
             "type": "WAIT"
           }
         ]
