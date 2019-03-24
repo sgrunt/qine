@@ -818,48 +818,38 @@
           }
         },
         {
-          "duration": -1,
-          "target": "PROXY_OWNER",
-          "align": "BOTTOM",
-          "rotateFace": 0,
-          "flipLeftFace": false,
-          "wait": false,
-          "waitSkip": 0,
-          "actionDetached": false,
-          "fixPos": false,
-          "type": "SHOW_EFFECT",
-          "effect": {
-            "sheet": "specials.neutral",
-            "name": "shieldSpikes"
-          },
-          "offset": {
-            "x": 0,
-            "y": 0,
-            "z": 12
-          }
+          "attribName": "bursts",
+          "changeType": "set",
+          "proxyOwner": false,
+          "type": "SET_ATTRIB_NUMBER",
+          "value": 5
+        },
+        {
+          "name": "start",
+          "type": "LABEL"
         },
         {
           "align": "BOTTOM",
-          "radius": 32,
-          "yScale": 0,
-          "zHeight": 32,
+          "radius": 24,
+          "yScale": 1,
+          "zHeight": 16,
           "centralAngle": 1,
-          "duration": 0.25,
-          "expandRadius": 0,
+          "duration": 0.1,
+          "expandRadius": 48,
           "alwaysFull": true,
           "clockwise": false,
           "flipLeftFace": 0,
           "rectangular": false,
-          "repeat": true,
+          "repeat": false,
           "uniformHitDir": false,
           "fixPos": false,
           "checkCollision": true,
           "type": "CIRCLE_ATTACK",
           "attack": {
-            "type": "NONE",
-            "visualType": "LIGHT",
+            "type": "MASSIVE",
             "element": "NEUTRAL",
-            "damageFactor": 0.4,
+            "damageFactor": 1.6,
+            "fly": "MASSIVE+",
             "reverse": false,
             "spFactor": 0,
             "guardable": "",
@@ -872,8 +862,46 @@
           }
         },
         {
-          "time": 5,
+          "duration": 0,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.neutral",
+            "name": "proximityBlast"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 1,
           "type": "WAIT"
+        },
+        {
+          "attribName": "bursts",
+          "changeType": "sub",
+          "proxyOwner": false,
+          "type": "SET_ATTRIB_NUMBER",
+          "value": 1
+        },
+        {
+          "withElse": false,
+          "type": "IF",
+          "condition": "entity.attrib.bursts > 0",
+          "thenStep": [
+            {
+              "name": "start",
+              "type": "GOTO_LABEL"
+            }
+          ]
         },
         {
           "type": "STOP_REPEATING_FORCE"
@@ -15406,15 +15434,10 @@
       },
       "GUARD_SPECIAL2_A": {
         "name": {
-          "en_US": "Pandora's Box"
+          "en_US": "Blast Box"
         },
         "description": {
-          "en_US": "Creates a damage-reducing shield that also damages nearby enemies for several seconds.",
-          "de_DE": "Erschafft einen l\u00e4nger haltenden Schild gegen Schaden, welches zudem Gegner verletzt.",
-          "zh_CN": "\u5236\u9020\u4e00\u4e2a\u51cf\u4f24\u62a4\u76fe\uff0c\u540c\u65f6\u5bf9\u9644\u8fd1\u654c\u4eba\u9020\u6210\u4f24\u5bb3\uff0c\u6548\u679c\u6301\u7eed\u6570\u79d2\u949f\u3002",
-          "ja_JP": "\u30c0\u30e1\u30fc\u30b8\u3092\u5438\u53ce\u3059\u308b\u3060\u3051\u3067\u306a\u304f\u3001\u8fd1\u304f\u306e\u6575\u306b\u30c0\u30e1\u30fc\u30b8\u3092\u4e0e\u3048\u308b\u30b7\u30fc\u30eb\u30c9\u3092\u6570\u79d2\u9593\u767a\u751f\u3055\u305b\u308b\u3002",
-          "ko_KR": "\uba87 \ucd08\uac04 \uc8fc\ubcc0\uc758 \uc801\uc5d0\uac8c \ub300\ubbf8\uc9c0\ub97c \uac00\ud558\uba70, \ubc1b\ub294 \ub300\ubbf8\uc9c0\ub97c \uac10\uc18c\ud558\ub294 \ubc29\uc5b4\ub9c9\uc744 \ub9cc\ub4ed\ub2c8\ub2e4.",
-          "langUid": 171
+          "en_US": "Creates a damage-reducing shield that also repels nearby enemies for several seconds."
         },
         "dmgType": "RANGED",
         "stunType": "",
