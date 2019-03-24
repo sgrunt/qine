@@ -70,6 +70,18 @@
 	    {
 	        "type": "raw",
 	        "name": "setScreenEnemyTarget"
+	    },
+	    {
+	        "type": "raw",
+	        "name": "combatMessages"
+	    },
+	    {
+	        "type": "raw",
+	        "name": "combatMessageIcon"
+	    },
+	    {
+	        "type": "raw",
+	        "name": "combatMessageMessage"
 	    }
         ]
     },
@@ -273,6 +285,45 @@
 		    {
 		        "name": "left.property.name",
 		        "value": "SET_SCREEN_ENEMY_TARGET"
+		    }
+		]
+	    }
+	},
+        "combatMessages": {
+	    "type": "select",
+	    "pattern": "left.property.name",
+	    "from": {
+	        "type": "AssignmentExpression",
+                "values": [
+		    {
+		        "name": "right.properties.0.key.name",
+		        "value": "STUN_CANCEL"
+		    }
+		]
+	    }
+	},
+        "combatMessageIcon": {
+	    "type": "select",
+	    "pattern": "right.properties.0.value.properties.0.key.name",
+	    "from": {
+	        "type": "AssignmentExpression",
+                "values": [
+		    {
+		        "name": "right.properties.0.key.name",
+		        "value": "STUN_CANCEL"
+		    }
+		]
+	    }
+	},
+        "combatMessageMessage": {
+	    "type": "select",
+	    "pattern": "right.properties.0.value.properties.1.key.name",
+	    "from": {
+	        "type": "AssignmentExpression",
+                "values": [
+		    {
+		        "name": "right.properties.0.key.name",
+		        "value": "STUN_CANCEL"
 		    }
 		]
 	    }

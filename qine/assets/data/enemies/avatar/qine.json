@@ -1424,6 +1424,78 @@
       "config": {},
       "type": "GENERIC"
     },
+    "guardCountered": {
+      "copyOwnerAnims": false,
+      "breakType": "NEVER",
+      "action": [
+        {
+          "kind": "PART_TARGET_ROOT",
+          "type": "SET_TEMP_TARGET"
+        },
+        {
+          "duration": -1,
+          "target": "TARGET",
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemy",
+            "name": "angry2"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "target": "TARGET",
+          "timeScale": 1,
+          "logicTimeScale": 1,
+          "moveXYScale": 0.75,
+          "type": "ADD_TEMP_INFLUENCE"
+        },
+        {
+          "time": 3,
+          "type": "WAIT"
+        },
+        {
+          "type": "CLEAR_TEMP_INFLUENCE"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "TARGET",
+      "stickFaceAlign": false,
+      "group": "",
+      "size": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shadow": 0,
+      "effects": "",
+      "maxBounce": 0,
+      "groundBounce": 0,
+      "speed": 300,
+      "zBounciness": 0,
+      "multiHit": false,
+      "noLightGlow": false,
+      "config": {},
+      "attack": {
+        "type": "NONE",
+        "element": "NEUTRAL",
+        "guardable": "",
+        "skillBonus": ""
+      },
+      "zVel": 0,
+      "type": "GENERIC"
+    },
     "defaultHeat": {
       "effects": "ball-heat",
       "speed": 550,
@@ -15326,7 +15398,91 @@
         "type": "SET_SPIKE_DAMAGE"
       },
       {
-        "time": 0.5,
+        "maxTime": 0.1,
+        "meleeOnly": true,
+        "type": "WAIT_UNTIL_GUARDED"
+      },
+      {
+        "conditions": [
+          {
+            "negated": false,
+            "type": "HAS_BLOCKED_ENTITY"
+          }
+        ],
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "thenStep": [
+	  {
+	    "kind": "GUARDED_ATTACKER",
+	    "type": "SET_TEMP_TARGET"
+	  },
+	  {
+	    "selectType": "TARGET",
+	    "hitDir": "AWAY",
+	    "align": "BOTTOM",
+	    "hitCount": 1,
+	    "hitDelay": 0,
+	    "type": "DIRECT_HIT",
+	    "attack": {
+	      "type": "MASSIVE",
+	      "element": "NEUTRAL",
+	      "fly": "MASSIVE",
+	      "damageFactor": 1,
+	      "reverse": false,
+	      "status": 0,
+	      "guardable": "false",
+	      "skillBonus": "",
+	      "limiter": "NO_DAMAGE"
+	    }
+	  },
+	  {
+	    "posType": "TARGET",
+	    "align": "CENTER",
+	    "type": "SET_HIT_PROXY",
+	    "proxy": "guardCountered",
+	    "offset": {
+	      "x": 0,
+	      "y": 0,
+	      "z": 0
+	    }
+	  },
+          {
+            "msgType": "GUARD_COUNTER",
+            "type": "SHOW_COMBAT_MSG"
+          },
+          {
+            "zoomType": "LIGHT",
+            "fadeIn": 0.1,
+            "duration": 0.2,
+            "fadeOut": 0.2,
+            "type": "SET_ZOOM_BLUR"
+          },
+          {
+            "type": "SET_CAMERA_ZOOM",
+	    "duration": 0.2,
+	    "transition": "EASE_OUT",
+            "zoom": 1.25
+          },
+          {
+            "factor": 0.001,
+            "time": 0.2,
+            "keepEntityStatic": true,
+            "inversAccelerate": true,
+            "type": "ADD_SLOW_MOTION"
+          },
+	  {
+	    "type": "WAIT",
+	    "time": 0.2
+	  },
+	  {
+	    "type": "UNDO_CAMERA",
+	    "speed": 1,
+	    "transition": "EASE_IN_OUT"
+	  }
+        ]
+      },
+      {
+        "time": 0.4,
         "type": "WAIT"
       },
       {

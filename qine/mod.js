@@ -7,6 +7,7 @@ class Qine {
 
   _init() {
     this._addCombatAction();
+    this._addCombatMessage();
     this._addPartyMember();
     this._addDatabaseEntries();
     this._loadHeads();
@@ -32,6 +33,12 @@ class Qine {
         sc[entries.combatFeature][entries.setScreenEnemyTarget](c);
       },
     });
+  }
+
+  _addCombatMessage() {
+    sc[entries.combatMessages].GUARD_COUNTER = sc[entries.combatMessages].STUN_CANCEL;
+    sc[entries.combatMessages].GUARD_COUNTER[entries.combatMessageIcon] = "";
+    sc[entries.combatMessages].GUARD_COUNTER[entries.combatMessageMessage] = "sc.gui.combat-msg.guard-counter";
   }
 
   _addPartyMember() {
