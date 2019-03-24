@@ -1,3 +1,26 @@
+v0.1.0 (24-Mar-2019)
+  * Qine now has a variety of Quadroguard-specific techs, including:
+    * Neutral dash: Incite, drawing enemies' attention to Qine on a one-off
+      basis;
+    * Neutral throws: Ball of Shield, which hurls a shield which knocks back
+      opponents, and Ball of Boom, which explodes on contact, throwing
+      enemies everywhere;
+    * Neutral guard: Blast Box, combining a shield with several proximity
+      blasts;
+    * Heat dashes: Torchbringer, which continually draws enemies' attention
+      for five seconds, and Flamebringer, which also adds a trail of flame
+      to hurt enemies that try to folow;
+    * Cold melee: Chilling Blow, Freezing Blow, and Ice Age, which force
+      enemies back and impair them for several seconds;
+    * Cold throw: Final Flawke, which hurls a snowball that breaks into
+      several smaller snowballs, leaving icicles everywhere;
+    * Shock dashes: Charge Coil, Tesla Tower, and Gaussian Grid, which
+      drop spikes that zap enemies that draw near them; and
+    * Wave throws: Repel, Mass Repel, and Irresistible Force, which blast
+      enemies back a considerable distance.
+  * In addition, Qine can use Warp Decoy and Toxic Revenant.
+  * Qine is now capable of guard countering the player.
+
 v0.0.5 (10-Mar-2019)
   * A brand new portrait, by rioreur (with facial expression art by me).
   * Field sprites have had their hair redone.
