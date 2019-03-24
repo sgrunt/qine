@@ -6716,6 +6716,10 @@
           }
         },
         {
+          "time": 1,
+          "type": "WAIT"
+        },
+        {
           "target": "TARGET",
           "timeScale": 0.15,
           "logicTimeScale": 1,
@@ -6764,8 +6768,18 @@
           "type": "SET_TEMP_TARGET"
         },
         {
-          "time": 0.4,
+          "time": 1.2,
           "type": "WAIT"
+        },
+        {
+          "align": "BOTTOM",
+          "type": "SHOOT_PROXY",
+          "proxy": "iceFreezeIcicles",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
         },
         {
           "duration": -1,
@@ -6796,7 +6810,7 @@
           "type": "ADD_TEMP_INFLUENCE"
         },
         {
-          "maxTime": 3,
+          "maxTime": 2,
           "type": "WAIT_UNTIL_TARGET_DEFEATED"
         },
         {
@@ -6882,16 +6896,166 @@
       "zVel": 0,
       "type": "GENERIC"
     },
+    "iceFreezeIcicles": {
+      "copyOwnerAnims": false,
+      "breakType": "NEVER",
+      "action": [
+        {
+          "duration": 0,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.cold",
+            "name": "coldExplode"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.2,
+          "type": "WAIT"
+        },
+        {
+          "sticking": false,
+          "group": "wall",
+          "keepCount": 16,
+          "type": "REMOVE_PROXIES"
+        },
+        {
+          "align": "BOTTOM",
+          "centralAngle": 1,
+          "angleVary": 0,
+          "startDist": 36,
+          "startDistCollide": "DROP",
+          "limitRangeOnColl": true,
+          "random": false,
+          "count": 8,
+          "duration": 0,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0,
+          "repeat": false,
+          "maxGroundDistance": 18,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "icicleSmall",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.1,
+          "type": "WAIT"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 16
+      },
+      "config": {
+        "zGravityFactor": 0
+      },
+      "type": "GENERIC"
+    },
     "iceFreeze2": {
       "copyOwnerAnims": false,
       "breakType": "NEVER",
       "action": [
         {
+          "type": "ADD_TARGET_STUN_LOCK"
+        },
+        {
           "kind": "PART_TARGET_ROOT",
           "type": "SET_TEMP_TARGET"
         },
         {
-          "time": 0.2,
+          "time": 1.2,
+          "type": "WAIT"
+        },
+        {
+          "align": "BOTTOM",
+          "type": "SHOOT_PROXY",
+          "proxy": "iceFreezeIcicles2",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 1,
+          "align": "BOTTOM",
+          "rotateFace": 8,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.cold",
+            "name": "starCharge3"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 12
+          }
+        },
+        {
+          "duration": 1,
+          "align": "BOTTOM",
+          "rotateFace": 8,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.cold",
+            "name": "megaIcicleCircle"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 12
+          }
+        },
+        {
+          "time": 0.95,
+          "type": "WAIT"
+        },
+        {
+          "align": "BOTTOM",
+          "type": "SHOOT_PROXY",
+          "proxy": "icicleHuge",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 3,
           "type": "WAIT"
         },
         {
@@ -6923,7 +7087,7 @@
           "type": "ADD_TEMP_INFLUENCE"
         },
         {
-          "maxTime": 6,
+          "maxTime": 2,
           "type": "WAIT_UNTIL_TARGET_DEFEATED"
         },
         {
@@ -7007,6 +7171,85 @@
         "skillBonus": ""
       },
       "zVel": 0,
+      "type": "GENERIC"
+    },
+    "iceFreezeIcicles2": {
+      "copyOwnerAnims": false,
+      "breakType": "NEVER",
+      "action": [
+        {
+          "duration": 0,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.cold",
+            "name": "coldExplode"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.2,
+          "type": "WAIT"
+        },
+        {
+          "sticking": false,
+          "group": "wall",
+          "keepCount": 16,
+          "type": "REMOVE_PROXIES"
+        },
+        {
+          "align": "BOTTOM",
+          "centralAngle": 1,
+          "angleVary": 0,
+          "startDist": 48,
+          "startDistCollide": "DROP",
+          "limitRangeOnColl": true,
+          "random": false,
+          "count": 8,
+          "duration": 0,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0,
+          "repeat": false,
+          "maxGroundDistance": 24,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "icicleBigDmg",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.1,
+          "type": "WAIT"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 16
+      },
+      "config": {
+        "zGravityFactor": 0
+      },
       "type": "GENERIC"
     },
     "iceSlowShield": {
@@ -16587,7 +16830,7 @@
         "thenStep": [
           {
             "type": "DO_ENEMY_ACTION",
-            "actionName": "_EternalWinter"
+            "actionName": "_IceAge"
           }
         ],
         "elseStep": [
@@ -16614,13 +16857,13 @@
             "thenStep": [
               {
                 "type": "DO_ENEMY_ACTION",
-                "actionName": "_BlizzardHawk"
+                "actionName": "_FreezingBlow"
               }
             ],
             "elseStep": [
               {
                 "type": "DO_ENEMY_ACTION",
-                "actionName": "_FrozenStar"
+                "actionName": "_ChillingBlow"
               }
             ]
           }
@@ -18842,7 +19085,7 @@
         "type": "WAIT"
       }
     ],
-    "_FrozenStar": [
+    "_ChillingBlow": [
       {
         "attribName": "nonNeutralActions",
         "changeType": "add",
@@ -18880,10 +19123,11 @@
         "type": "COMBAT_ART_CHARGE"
       },
       {
+        "followUp": "aim",
         "wait": false,
         "viaWalkConfig": false,
         "type": "SHOW_ANIMATION",
-        "anim": "aim"
+        "anim": "spinShortRev"
       },
       {
         "value": false,
@@ -18903,10 +19147,10 @@
         "type": "MOVE_FORWARD"
       },
       {
-        "duration": 1,
+        "duration": 0,
         "align": "FACE",
-        "rotateFace": 0,
-        "flipLeftFace": false,
+        "rotateFace": 8,
+        "flipLeftFace": true,
         "wait": false,
         "waitSkip": 0,
         "actionDetached": false,
@@ -18914,8 +19158,14 @@
         "type": "SHOW_EFFECT",
         "effect": {
           "sheet": "specials.cold",
-          "name": "starCharge"
-        },
+          "name": "coldAreaShock"
+        }
+      },
+      {
+        "posType": "TARGET",
+        "align": "CENTER",
+        "type": "SET_HIT_PROXY",
+        "proxy": "iceSlowMo",
         "offset": {
           "x": 0,
           "y": 0,
@@ -18923,35 +19173,11 @@
         }
       },
       {
-        "time": 1,
-        "type": "WAIT"
-      },
-      {
-        "duration": 0,
-        "align": "FACE",
-        "rotateFace": 0,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "fixPos": true,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "specials.cold",
-          "name": "starExplosion"
-        },
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "align": "FACE",
-        "radius": 40,
+        "align": "BOTTOM",
+        "radius": 32,
         "yScale": 0,
         "zHeight": 16,
-        "centralAngle": 1,
+        "centralAngle": 0.25,
         "duration": 0.1,
         "expandRadius": 0,
         "alwaysFull": true,
@@ -18959,26 +19185,19 @@
         "flipLeftFace": 0,
         "rectangular": false,
         "repeat": false,
-        "uniformHitDir": true,
+        "uniformHitDir": false,
         "fixPos": false,
         "checkCollision": true,
         "type": "CIRCLE_ATTACK",
         "attack": {
           "type": "MASSIVE",
           "element": "COLD",
-          "damageFactor": 8,
-          "fly": "MASSIVE",
-          "reverse": false,
-          "stunSteps": [
-            {
-              "type": "BLOCK_XY"
-            }
-          ],
-          "status": 0.9,
-          "hints": ["NO_PUZZLE"],
+          "fly": "MASSIVE+",
+          "damageFactor": 5,
+          "spFactor": 0,
+          "status": 1,
           "guardable": "",
-          "skillBonus": "MELEE_DMG",
-          "limiter": ""
+          "skillBonus": "MELEE_DMG"
         },
         "offset": {
           "x": 0,
@@ -18987,17 +19206,7 @@
         }
       },
       {
-        "time": 0.05,
-        "type": "WAIT"
-      },
-      {
-        "wait": false,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "charge"
-      },
-      {
-        "time": 0.5,
+        "time": 0.55,
         "type": "WAIT"
       },
       {
@@ -19012,7 +19221,7 @@
         "type": "WAIT"
       }
     ],
-    "_BlizzardHawk": [
+    "_FreezingBlow": [
       {
         "attribName": "nonNeutralActions",
         "changeType": "add",
@@ -19050,10 +19259,11 @@
         "type": "COMBAT_ART_CHARGE"
       },
       {
+        "followUp": "aim",
         "wait": false,
         "viaWalkConfig": false,
         "type": "SHOW_ANIMATION",
-        "anim": "aim"
+        "anim": "spinShortRev"
       },
       {
         "value": false,
@@ -19066,53 +19276,6 @@
       {
         "value": 3,
         "type": "SET_ACCEL_SPEED"
-      },
-      {
-        "time": 0.05,
-        "stopBeforeEdge": false,
-        "type": "MOVE_FORWARD"
-      },
-      {
-        "duration": 1,
-        "align": "FACE",
-        "rotateFace": 0,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "fixPos": false,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "specials.cold",
-          "name": "starCharge2"
-        },
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "time": 1,
-        "type": "WAIT"
-      },
-      {
-        "followUp": "aim",
-        "wait": false,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "spinShortRev"
-      },
-      {
-        "zoomType": "LIGHT",
-        "fadeIn": 0,
-        "duration": 0.2,
-        "fadeOut": 0.2,
-        "type": "SET_ZOOM_BLUR"
-      },
-      {
-        "value": "HEAVY",
-        "type": "SET_HIT_STABLE"
       },
       {
         "duration": -1,
@@ -19135,10 +19298,15 @@
         }
       },
       {
+        "time": 0.05,
+        "stopBeforeEdge": false,
+        "type": "MOVE_FORWARD"
+      },
+      {
         "duration": 0,
         "align": "FACE",
-        "rotateFace": 0,
-        "flipLeftFace": false,
+        "rotateFace": 8,
+        "flipLeftFace": true,
         "wait": false,
         "waitSkip": 0,
         "actionDetached": false,
@@ -19146,8 +19314,14 @@
         "type": "SHOW_EFFECT",
         "effect": {
           "sheet": "specials.cold",
-          "name": "starExplosion"
-        },
+          "name": "coldAreaShock"
+        }
+      },
+      {
+        "posType": "TARGET",
+        "align": "CENTER",
+        "type": "SET_HIT_PROXY",
+        "proxy": "iceFreeze",
         "offset": {
           "x": 0,
           "y": 0,
@@ -19155,11 +19329,11 @@
         }
       },
       {
-        "align": "FACE",
-        "radius": 24,
+        "align": "BOTTOM",
+        "radius": 32,
         "yScale": 0,
         "zHeight": 16,
-        "centralAngle": 1,
+        "centralAngle": 0.25,
         "duration": 0.1,
         "expandRadius": 0,
         "alwaysFull": true,
@@ -19167,135 +19341,19 @@
         "flipLeftFace": 0,
         "rectangular": false,
         "repeat": false,
-        "uniformHitDir": true,
+        "uniformHitDir": false,
         "fixPos": false,
         "checkCollision": true,
         "type": "CIRCLE_ATTACK",
         "attack": {
           "type": "MASSIVE",
           "element": "COLD",
-          "damageFactor": 6,
-          "fly": "MASSIVE+",
-          "reverse": false,
-          "stunSteps": [
-            {
-              "type": "BLOCK_XY"
-            },
-            {
-              "type": "START_LOCK"
-            },
-            {
-              "accel": 1,
-              "offZ": 32,
-              "maxTime": 0,
-              "type": "Z_PULL"
-            }
-          ],
-          "status": 0.9,
-          "hints": ["NO_PUZZLE"],
-          "guardable": "",
-          "skillBonus": "MELEE_DMG",
-          "limiter": ""
-        },
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "time": 0.3,
-        "type": "WAIT"
-      },
-      {
-        "kind": "FIRST_HIT",
-        "type": "SET_TEMP_TARGET"
-      },
-      {
-        "duration": 0,
-        "target": "TARGET",
-        "align": "FACE",
-        "rotateFace": 0,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "fixPos": false,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "specials.cold",
-          "name": "starExplosion"
-        },
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "selectType": "PREVIOUSLY_HIT",
-        "hitDir": "TOWARD",
-        "align": "BOTTOM",
-        "hitCount": 1,
-        "hitDelay": 0,
-        "type": "DIRECT_HIT",
-        "attack": {
-          "type": "MASSIVE",
-          "element": "COLD",
-          "damageFactor": 7,
           "fly": "MASSIVE++",
-          "reverse": false,
-          "stunSteps": [
-            {
-              "type": "BLOCK_XY"
-            },
-            {
-              "accel": 1,
-              "offZ": 64,
-              "maxTime": 0,
-              "type": "Z_PULL"
-            }
-          ],
-          "status": 0.9,
+          "damageFactor": 6,
+          "spFactor": 0,
+          "status": 1,
           "guardable": "",
           "skillBonus": "MELEE_DMG"
-        }
-      },
-      {
-        "time": 0.3,
-        "type": "WAIT"
-      },
-      {
-        "factor": 0.05,
-        "time": 0,
-        "keepEntityStatic": true,
-        "inversAccelerate": false,
-        "type": "ADD_SLOW_MOTION"
-      },
-      {
-        "zoomType": "LIGHT",
-        "fadeIn": 0,
-        "duration": 0.2,
-        "fadeOut": 0.2,
-        "type": "SET_ZOOM_BLUR"
-      },
-      {
-        "type": "CLEAR_EFFECTS"
-      },
-      {
-        "duration": 0,
-        "target": "TARGET",
-        "align": "FACE",
-        "rotateFace": 0,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "fixPos": false,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "specials.cold",
-          "name": "starExplosionBig"
         },
         "offset": {
           "x": 0,
@@ -19304,56 +19362,7 @@
         }
       },
       {
-        "posType": "TARGET",
-        "align": "BOTTOM",
-        "type": "SET_HIT_PROXY",
-        "proxy": "iceFreezeFall",
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "selectType": "PREVIOUSLY_HIT",
-        "hitDir": "TOWARD",
-        "align": "BOTTOM",
-        "hitCount": 1,
-        "hitDelay": 0,
-        "type": "DIRECT_HIT",
-        "attack": {
-          "type": "MASSIVE",
-          "element": "COLD",
-          "damageFactor": 8.5,
-          "reverse": false,
-          "stunSteps": [
-            {
-              "type": "BLOCK_XY"
-            },
-            {
-              "value": 0,
-              "accel": 0,
-              "offZ": 0,
-              "maxTime": 0,
-              "type": "Z_VEL"
-            }
-          ],
-          "status": 0.9,
-          "guardable": "",
-          "skillBonus": "MELEE_DMG"
-        }
-      },
-      {
-        "time": 0.3,
-        "type": "WAIT"
-      },
-      {
-        "time": 0.1,
-        "removeEntityStatic": false,
-        "type": "CLEAR_SLOW_MOTION"
-      },
-      {
-        "time": 0.3,
+        "time": 0.55,
         "type": "WAIT"
       },
       {
@@ -19368,7 +19377,7 @@
         "type": "WAIT"
       }
     ],
-    "_EternalWinter": [
+    "_IceAge": [
       {
         "attribName": "nonNeutralActions",
         "changeType": "add",
@@ -19406,83 +19415,13 @@
         "type": "COMBAT_ART_CHARGE"
       },
       {
-        "wait": false,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "aim"
-      },
-      {
-        "value": false,
-        "type": "SET_JUMPING"
-      },
-      {
-        "value": 150,
-        "type": "SET_SPEED"
-      },
-      {
-        "value": 3,
-        "type": "SET_ACCEL_SPEED"
-      },
-      {
-        "value": "MASSIVE",
-        "type": "SET_HIT_STABLE"
-      },
-      {
-        "time": 0.05,
-        "stopBeforeEdge": false,
-        "type": "MOVE_FORWARD"
-      },
-      {
-        "duration": 1,
-        "rotOffset": {
-          "x": 0,
-          "y": -40
-        },
-        "align": "BOTTOM",
-        "rotateFace": 8,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "fixPos": false,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "specials.cold",
-          "name": "starCharge3"
-        },
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 12
+        "type": "SET_PLAYER_ACTION_BLOCK",
+        "blockData": {
+          "dash": 0,
+          "action": 1.2,
+          "move": 1.2,
+          "reaim": 1.2
         }
-      },
-      {
-        "duration": 1,
-        "rotOffset": {
-          "x": 0,
-          "y": -40
-        },
-        "align": "BOTTOM",
-        "rotateFace": 8,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "fixPos": false,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "specials.cold",
-          "name": "megaIcicleCircle"
-        },
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 12
-        }
-      },
-      {
-        "time": 0.95,
-        "type": "WAIT"
       },
       {
         "followUp": "aim",
@@ -19496,7 +19435,7 @@
         "type": "SET_JUMPING"
       },
       {
-        "value": 150,
+        "value": 300,
         "type": "SET_SPEED"
       },
       {
@@ -19504,38 +19443,19 @@
         "type": "SET_ACCEL_SPEED"
       },
       {
-        "time": 0.05,
-        "stopBeforeEdge": false,
-        "type": "MOVE_FORWARD"
-      },
-      {
-        "zoomType": "LIGHT",
-        "fadeIn": 0,
-        "duration": 0.2,
-        "fadeOut": 0.2,
-        "type": "SET_ZOOM_BLUR"
-      },
-      {
-        "value": "HEAVY",
-        "type": "SET_HIT_STABLE"
-      },
-      {
+        "duration": -1,
         "align": "BOTTOM",
-        "centralAngle": 0,
-        "angleVary": 0,
-        "startDist": 40,
-        "startDistCollide": "NONE",
-        "random": false,
-        "count": 1,
-        "duration": 0,
-        "clockwise": false,
-        "flipLeftFace": 0,
-        "circularArea": false,
-        "uniformDir": 0,
-        "delay": 0,
-        "repeat": false,
-        "type": "SHOOT_PROXY_RANGE",
-        "proxy": "icicleHuge",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "specials.cold",
+          "name": "blueScreenLight"
+        },
         "offset": {
           "x": 0,
           "y": 0,
@@ -19543,45 +19463,71 @@
         }
       },
       {
-        "time": 1,
-        "type": "WAIT"
-      },
-      {
-        "time": 0.1,
-        "type": "WAIT"
-      },
-      {
-        "value": true,
-        "type": "SET_FACE_FIX"
-      },
-      {
-        "followUp": "attackEnd",
-        "wait": false,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "attackRev"
-      },
-      {
-        "value": 250,
-        "type": "SET_SPEED"
-      },
-      {
-        "time": 0.1,
+        "time": 0.05,
         "stopBeforeEdge": false,
-        "type": "MOVE_BACKWARD"
+        "type": "MOVE_FORWARD"
       },
       {
-        "time": 0,
-        "turn": -0.125,
-        "random": 0,
-        "type": "ROTATE_FACE"
+        "duration": 0,
+        "align": "FACE",
+        "rotateFace": 8,
+        "flipLeftFace": true,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "specials.cold",
+          "name": "coldAreaShock"
+        }
       },
       {
-        "time": 0.4,
-        "type": "WAIT"
+        "posType": "TARGET",
+        "align": "CENTER",
+        "type": "SET_HIT_PROXY",
+        "proxy": "iceFreeze2",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
       },
       {
-        "time": 0.4,
+        "align": "BOTTOM",
+        "radius": 32,
+        "yScale": 0,
+        "zHeight": 16,
+        "centralAngle": 0.25,
+        "duration": 0.1,
+        "expandRadius": 0,
+        "alwaysFull": true,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "rectangular": false,
+        "repeat": false,
+        "uniformHitDir": false,
+        "fixPos": false,
+        "checkCollision": true,
+        "type": "CIRCLE_ATTACK",
+        "attack": {
+          "type": "MASSIVE",
+          "element": "COLD",
+          "fly": "MASSIVE++",
+          "damageFactor": 8,
+          "spFactor": 0,
+          "status": 1,
+          "guardable": "",
+          "skillBonus": "MELEE_DMG"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.55,
         "type": "WAIT"
       },
       {
