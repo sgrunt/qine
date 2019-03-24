@@ -5082,6 +5082,870 @@
       },
       "type": "GENERIC"
     },
+    "iceSnowball3": {
+      "animation": {
+        "name": "default",
+        "sheet": {
+          "src": "media/entity/effects/cold.png",
+          "offX": 160,
+          "offY": 0,
+          "width": 32,
+          "height": 32
+        },
+        "time": 0.05,
+        "repeat": true,
+        "frames": [0]
+      },
+      "copyOwnerAnims": false,
+      "breakType": "NEVER",
+      "action": [
+        {
+          "sticking": false,
+          "group": "wall",
+          "type": "REMOVE_PROXIES"
+        },
+        {
+          "align": "BOTTOM",
+          "centralAngle": 0,
+          "angleVary": 0,
+          "startDistCollide": "NONE",
+          "random": false,
+          "count": 1,
+          "duration": 0.166,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0.1,
+          "repeat": true,
+          "maxGroundDistance": 16,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "icicleSmall",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.cold",
+            "name": "blueScreenLight"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "ball-cold",
+            "name": "snowballTrail"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 1.5,
+          "cancelOnHit": true,
+          "collideCancel": 1,
+          "orthoDirFactor": 0,
+          "ignoreLastHit": false,
+          "type": "TACKLE",
+          "attack": {
+            "type": "NONE",
+            "element": "COLD",
+            "damageFactor": 0,
+            "reverse": false,
+            "guardable": "",
+            "skillBonus": "RANGED_DMG"
+          }
+        },
+        {
+          "type": "STOP_REPEATING_FORCE"
+        },
+        {
+          "type": "CLEAR_EFFECTS"
+        },
+        {
+          "align": "BOTTOM",
+          "type": "SHOOT_PROXY",
+          "proxy": "iceSnowExplode3",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.1,
+          "type": "WAIT"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 16
+      },
+      "effects": "ball-cold",
+      "effectKeys": {
+        "trail": "snowballTrail"
+      },
+      "speed": 400,
+      "maxBounce": 0,
+      "timer": 1.5,
+      "trail": true,
+      "multiHit": false,
+      "light": "XXL",
+      "noLightGlow": true,
+      "destroyProxy": "iceSnowExplode3",
+      "type": "GENERIC",
+      "attack": {
+        "type": "LIGHT",
+        "element": "COLD",
+        "damageFactor": 0,
+        "reverse": false,
+        "guardable": "",
+        "skillBonus": "RANGED_DMG"
+      },
+      "timeBoni": null,
+      "behaviors": [],
+      "config": {
+        "collType": "PROJECTILE",
+        "airFriction": 1,
+        "maxVel": 500,
+        "zGravityFactor": 0,
+        "bounciness": 0.0001
+      }
+    },
+    "iceSnowExplode3": {
+      "copyOwnerAnims": false,
+      "breakType": "NEVER",
+      "action": [
+        {
+          "zoomType": "LIGHT",
+          "fadeIn": 0,
+          "duration": 0.2,
+          "fadeOut": 0.2,
+          "type": "SET_ZOOM_BLUR"
+        },
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.cold",
+            "name": "blueScreenMedium"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 0,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.cold",
+            "name": "coldExplode"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "align": "BOTTOM",
+          "radius": 32,
+          "yScale": 0,
+          "zHeight": 4,
+          "centralAngle": 1,
+          "duration": 0.2,
+          "expandRadius": 32,
+          "alwaysFull": true,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "rectangular": false,
+          "repeat": false,
+          "uniformHitDir": false,
+          "fixPos": false,
+          "checkCollision": true,
+          "type": "CIRCLE_ATTACK",
+          "attack": {
+            "type": "HEAVY",
+            "element": "COLD",
+            "damageFactor": 7,
+            "reverse": false,
+            "stunSteps": [
+              {
+                "type": "BLOCK_XY"
+              }
+            ],
+            "status": 1,
+            "hints": ["CHARGED"],
+            "guardable": "",
+            "skillBonus": "RANGED_DMG",
+            "limiter": ""
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.2,
+          "type": "WAIT"
+        },
+        {
+          "align": "BOTTOM",
+          "centralAngle": 0.75,
+          "angleVary": 0,
+          "startDist": 0,
+          "startDistCollide": "DROP",
+          "random": false,
+          "count": 3,
+          "duration": 0,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0,
+          "repeat": false,
+          "maxGroundDistance": 12,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "iceSnowball4",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 0,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.cold",
+            "name": "coldExplode"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "align": "BOTTOM",
+          "radius": 32,
+          "yScale": 0,
+          "zHeight": 4,
+          "centralAngle": 1,
+          "duration": 0.2,
+          "expandRadius": 32,
+          "alwaysFull": true,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "rectangular": false,
+          "repeat": false,
+          "uniformHitDir": false,
+          "fixPos": false,
+          "checkCollision": true,
+          "type": "CIRCLE_ATTACK",
+          "attack": {
+            "type": "MASSIVE",
+            "element": "COLD",
+            "damageFactor": 4,
+            "reverse": false,
+            "stunSteps": [
+              {
+                "type": "BLOCK_XY"
+              }
+            ],
+            "status": 1,
+            "guardable": "",
+            "skillBonus": "RANGED_DMG",
+            "limiter": ""
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.2,
+          "type": "WAIT"
+        },
+        {
+          "align": "BOTTOM",
+          "centralAngle": 0.75,
+          "angleVary": 0,
+          "startDist": 80,
+          "startDistCollide": "DROP",
+          "random": false,
+          "count": 12,
+          "duration": 0,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0,
+          "repeat": false,
+          "maxGroundDistance": 12,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "icicleSmall",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.1,
+          "type": "WAIT"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 16
+      },
+      "config": {
+        "zGravityFactor": 0
+      },
+      "type": "GENERIC"
+    },
+    "iceSnowball4": {
+      "animation": {
+        "name": "default",
+        "sheet": {
+          "src": "media/entity/effects/cold.png",
+          "offX": 160,
+          "offY": 0,
+          "width": 32,
+          "height": 32
+        },
+        "time": 0.05,
+        "repeat": true,
+        "frames": [0]
+      },
+      "copyOwnerAnims": false,
+      "breakType": "NEVER",
+      "action": [
+        {
+          "align": "BOTTOM",
+          "centralAngle": 0,
+          "angleVary": 0,
+          "startDistCollide": "NONE",
+          "random": false,
+          "count": 1,
+          "duration": 0.2,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0.1,
+          "repeat": true,
+          "maxGroundDistance": 16,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "icicleSmall",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 1.5,
+          "cancelOnHit": true,
+          "collideCancel": 1,
+          "orthoDirFactor": 0,
+          "ignoreLastHit": false,
+          "type": "TACKLE",
+          "attack": {
+            "type": "NONE",
+            "element": "COLD",
+            "damageFactor": 0,
+            "reverse": false,
+            "guardable": "",
+            "skillBonus": "RANGED_DMG"
+          }
+        },
+        {
+          "type": "STOP_REPEATING_FORCE"
+        },
+        {
+          "type": "CLEAR_EFFECTS"
+        },
+        {
+          "align": "BOTTOM",
+          "type": "SHOOT_PROXY",
+          "proxy": "iceSnowExplode4",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.1,
+          "type": "WAIT"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 16
+      },
+      "effects": "ball-cold",
+      "effectKeys": {
+        "trail": "snowballTrail"
+      },
+      "speed": 400,
+      "maxBounce": 0,
+      "timer": 1.5,
+      "trail": true,
+      "multiHit": false,
+      "noLightGlow": true,
+      "destroyProxy": "iceSnowExplode4",
+      "type": "GENERIC",
+      "attack": {
+        "type": "LIGHT",
+        "element": "COLD",
+        "damageFactor": 0,
+        "reverse": false,
+        "guardable": "",
+        "skillBonus": "RANGED_DMG"
+      },
+      "timeBoni": null,
+      "behaviors": [],
+      "config": {
+        "collType": "PROJECTILE",
+        "airFriction": 1,
+        "maxVel": 500,
+        "zGravityFactor": 0,
+        "bounciness": 0.0001
+      }
+    },
+    "iceSnowExplode4": {
+      "copyOwnerAnims": false,
+      "breakType": "NEVER",
+      "action": [
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.cold",
+            "name": "blueScreenMedium"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 0,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.cold",
+            "name": "coldExplode"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "align": "BOTTOM",
+          "radius": 32,
+          "yScale": 0,
+          "zHeight": 4,
+          "centralAngle": 1,
+          "duration": 0.2,
+          "expandRadius": 32,
+          "alwaysFull": true,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "rectangular": false,
+          "repeat": false,
+          "uniformHitDir": false,
+          "fixPos": false,
+          "checkCollision": true,
+          "type": "CIRCLE_ATTACK",
+          "attack": {
+            "type": "HEAVY",
+            "element": "COLD",
+            "damageFactor": 3,
+            "reverse": false,
+            "stunSteps": [
+              {
+                "type": "BLOCK_XY"
+              }
+            ],
+            "status": 1,
+            "hints": ["CHARGED"],
+            "guardable": "",
+            "skillBonus": "RANGED_DMG",
+            "limiter": ""
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.2,
+          "type": "WAIT"
+        },
+        {
+          "align": "BOTTOM",
+          "centralAngle": 0.2,
+          "angleVary": 0,
+          "startDist": 48,
+          "startDistCollide": "DROP",
+          "random": false,
+          "count": 3,
+          "duration": 0,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0,
+          "repeat": false,
+          "maxGroundDistance": 12,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "iceSnowball5",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 0,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.cold",
+            "name": "coldExplode"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "align": "BOTTOM",
+          "radius": 32,
+          "yScale": 0,
+          "zHeight": 4,
+          "centralAngle": 1,
+          "duration": 0.2,
+          "expandRadius": 32,
+          "alwaysFull": true,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "rectangular": false,
+          "repeat": false,
+          "uniformHitDir": false,
+          "fixPos": false,
+          "checkCollision": true,
+          "type": "CIRCLE_ATTACK",
+          "attack": {
+            "type": "MASSIVE",
+            "element": "COLD",
+            "damageFactor": 4,
+            "reverse": false,
+            "stunSteps": [
+              {
+                "type": "BLOCK_XY"
+              }
+            ],
+            "status": 1,
+            "guardable": "",
+            "skillBonus": "RANGED_DMG",
+            "limiter": ""
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.2,
+          "type": "WAIT"
+        },
+        {
+          "align": "BOTTOM",
+          "centralAngle": 0.75,
+          "angleVary": 0,
+          "startDist": 80,
+          "startDistCollide": "DROP",
+          "random": false,
+          "count": 12,
+          "duration": 0,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0,
+          "repeat": false,
+          "maxGroundDistance": 12,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "icicleSmall",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.1,
+          "type": "WAIT"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 16
+      },
+      "config": {
+        "zGravityFactor": 0
+      },
+      "type": "GENERIC"
+    },
+    "iceSnowball5": {
+      "effects": "ball-cold",
+      "speed": 600,
+      "maxBounce": 0,
+      "timer": 1.5,
+      "trail": true,
+      "multiHit": false,
+      "noLightGlow": false,
+      "destroyProxy": "iceSnowExplode5",
+      "type": "BALL",
+      "animation": {
+        "name": "default",
+        "sheet": {
+          "src": "media/entity/effects/cold.png",
+          "offX": 192,
+          "offY": 0,
+          "width": 16,
+          "height": 16
+        },
+        "time": 0.05,
+        "repeat": true,
+        "frames": [0]
+      },
+      "attack": {
+        "type": "LIGHT",
+        "element": "COLD",
+        "damageFactor": 0,
+        "reverse": false,
+        "guardable": "",
+        "skillBonus": "RANGED_DMG",
+        "limiter": ""
+      },
+      "timeBoni": null,
+      "behaviors": []
+    },
+    "iceSnowExplode5": {
+      "copyOwnerAnims": false,
+      "breakType": "NEVER",
+      "action": [
+        {
+          "duration": 0,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.cold",
+            "name": "coldExplode"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "align": "BOTTOM",
+          "radius": 32,
+          "yScale": 0,
+          "zHeight": 4,
+          "centralAngle": 1,
+          "duration": 0.2,
+          "expandRadius": 32,
+          "alwaysFull": true,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "rectangular": false,
+          "repeat": false,
+          "uniformHitDir": false,
+          "fixPos": false,
+          "checkCollision": true,
+          "type": "CIRCLE_ATTACK",
+          "attack": {
+            "type": "HEAVY",
+            "element": "COLD",
+            "damageFactor": 3,
+            "fly": "LIGHT",
+            "reverse": false,
+            "status": 1,
+            "hints": ["CHARGED"],
+            "guardable": "",
+            "skillBonus": "RANGED_DMG",
+            "limiter": ""
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.2,
+          "type": "WAIT"
+        },
+        {
+          "align": "BOTTOM",
+          "centralAngle": 1,
+          "angleVary": 0,
+          "startDist": 48,
+          "startDistCollide": "DROP",
+          "limitRangeOnColl": true,
+          "random": false,
+          "count": 8,
+          "duration": 0,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0,
+          "repeat": false,
+          "maxGroundDistance": 24,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "icicleSmall",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.1,
+          "type": "WAIT"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 16
+      },
+      "config": {
+        "zGravityFactor": 0
+      },
+      "type": "GENERIC"
+    },
     "iceSlowMo": {
       "copyOwnerAnims": false,
       "breakType": "NEVER",
@@ -16117,20 +16981,10 @@
       },
       "THROW_SPECIAL3_A": {
         "name": {
-          "en_US": "Gatling Arctillery",
-          "de_DE": "Gatling Arctillery<<A<<[CHANGED 2017/12/14]",
-          "zh_CN": "\u5bd2\u51b0\u52a0\u7279\u6797<<A<<[CHANGED 2017/12/12]",
-          "ja_JP": "\u30ac\u30c8\u30ea\u30f3\u30b0\u30a2\u30fc\u30c1\u30c6\u30ea<<A<<[CHANGED 2017/12/11]",
-          "ko_KR": "\uac1c\ud2c0\ub9c1 \ud3ec\uaca9<<C<<Is Arctillery a typo of Artillery?<<A<<TODO 0.9.8",
-          "langUid": 247
+          "en_US": "Final Flawke"
         },
         "description": {
-          "en_US": "Summon an Ice Turret with spikes around you and blast your enemies away with a volley of icicles.",
-          "de_DE": "Beschw\u00f6re einen Eisturm mit Stacheln um dich herum und blase deine Feinde mit einer Salve aus Eiszapfen weg.<<C<<sc<<A<<[CHANGED 2018/03/14]",
-          "zh_CN": "\u5728\u4f60\u7684\u8eab\u8fb9\u53ec\u5524\u51fa\u5bd2\u51b0\u70ae\u53f0\u548c\u51b0\u523a\uff0c\u901a\u8fc7\u51b0\u67aa\u8fde\u51fb\u5c04\u7206\u654c\u4eba\u3002\u9020\u6210\\c[3]\u5bd2\u51b7\\c[0]\u6548\u679c\u3002<<A<<[CHANGED 2018/03/14]",
-          "ja_JP": "\u81ea\u8eab\u306e\u5468\u308a\u306b\u3068\u3052\u4ed8\u304d\u306e\u6c37\u306e\u7832\u53f0\u3092\u53ec\u559a\u3057\u3001\u3064\u3089\u3089\u3092\u4e00\u6589\u653e\u5c04\u3057\u3066\u6575\u3092\u5439\u304d\u98db\u3070\u3059\u653b\u6483\u3002<<A<<[CHANGED 2018/03/14]",
-          "ko_KR": "\uc8fc\ubcc0\uc5d0 \uac00\uc2dc\uac00 \ub2ec\ub9b0 \uc5bc\uc74c \ud3ec\ud0d1\uc744 \uc0dd\uc131\ud574 \uace0\ub4dc\ub984 \uc77c\uc81c\uc0ac\uaca9\uc73c\ub85c \uc801\uc744 \ub0a0\ub824\ubc84\ub9bd\ub2c8\ub2e4.<<A<<[CHANGED 2018/03/14]",
-          "langUid": 248
+          "en_US": "Shoot a gigantic snow ball, leaving an icicle trail and splitting into multiple smaller snow balls on impact."
         },
         "dmgType": "RANGED",
         "stunType": "",
@@ -16139,169 +16993,14 @@
           {
             "type": "SET_PLAYER_ACTION_BLOCK",
             "blockData": {
-              "dash": 0,
-              "action": -1,
-              "move": -1,
-              "reaim": -1
-            }
-          },
-          {
-            "followUp": "aim",
-            "wait": false,
-            "viaWalkConfig": false,
-            "type": "SHOW_ANIMATION",
-            "anim": "spinShortRev"
-          },
-          {
-            "factor": 0.1,
-            "time": 0.1,
-            "keepEntityStatic": false,
-            "inversAccelerate": true,
-            "type": "ADD_SLOW_MOTION"
-          },
-          {
-            "zoomType": "LIGHT",
-            "fadeIn": 0.1,
-            "duration": 0.2,
-            "fadeOut": 0.2,
-            "type": "SET_ZOOM_BLUR"
-          },
-          {
-            "offsetX": 0,
-            "offsetY": 0,
-            "speed": "FASTER",
-            "transition": "EASE_OUT",
-            "wait": false,
-            "waitSkip": 0,
-            "zoom": 2,
-            "focusType": "SELF",
-            "keepPlayerOffset": 0.5,
-            "type": "FOCUS_CAMERA"
-          },
-          {
-            "value": "FIXED",
-            "type": "SET_GROUND_CONNECTED"
-          },
-          {
-            "value": -1,
-            "type": "SET_WEIGHT"
-          },
-          {
-            "value": "MASSIVE",
-            "type": "SET_HIT_STABLE"
-          },
-          {
-            "actionDetached": false,
-            "type": "ADD_SHIELD",
-            "shield": {
-              "type": "PLAYER",
-              "settings": {
-                "baseFactor": 3,
-                "strength": "BLOCK_ABOVE",
-                "hitResist": "MASSIVE",
-                "stableOverride": "MASSIVE",
-                "duration": -1,
-                "range": 1,
-                "back": false,
-                "noShieldDamage": true,
-                "noDefaultFX": true
-              }
+              "dash": 0.2,
+              "action": 1.5,
+              "move": 1.5,
+              "reaim": 1.52
             }
           },
           {
             "duration": -1,
-            "align": "BOTTOM",
-            "rotateFace": -1,
-            "flipLeftFace": false,
-            "wait": false,
-            "waitSkip": 0,
-            "actionDetached": false,
-            "fixPos": false,
-            "type": "SHOW_EFFECT",
-            "effect": {
-              "sheet": "specials.cold",
-              "name": "turretAura"
-            },
-            "offset": {
-              "x": 0,
-              "y": 0,
-              "z": 0
-            }
-          },
-          {
-            "duration": -1,
-            "align": "BOTTOM",
-            "rotateFace": -1,
-            "flipLeftFace": false,
-            "wait": false,
-            "waitSkip": 0,
-            "actionDetached": false,
-            "fixPos": false,
-            "type": "SHOW_EFFECT",
-            "effect": {
-              "sheet": "specials.icicles",
-              "name": "turret"
-            },
-            "offset": {
-              "x": 0,
-              "y": 0,
-              "z": 0
-            }
-          },
-          {
-            "time": 0.1,
-            "type": "WAIT"
-          },
-          {
-            "align": "BOTTOM",
-            "centralAngle": 1,
-            "angleVary": 0,
-            "startDist": 32,
-            "startDistCollide": "DROP",
-            "random": false,
-            "count": 9,
-            "duration": 0.2,
-            "clockwise": true,
-            "flipLeftFace": 0,
-            "circularArea": true,
-            "uniformDir": 0,
-            "delay": 0,
-            "repeat": false,
-            "maxGroundDistance": 16,
-            "type": "SHOOT_PROXY_RANGE",
-            "proxy": "icicleSmallTurret",
-            "offset": {
-              "x": 0,
-              "y": 0,
-              "z": 0
-            }
-          },
-          {
-            "time": 0.15,
-            "type": "PLAYER_ADJUST_FACE"
-          },
-          {
-            "speed": "SLOWER",
-            "transition": "EASE_IN_OUT",
-            "wait": false,
-            "waitSkip": 0,
-            "type": "RESET_CAMERA"
-          },
-          {
-            "time": 0.3,
-            "removeEntityStatic": false,
-            "type": "CLEAR_SLOW_MOTION"
-          },
-          {
-            "time": 0.15,
-            "type": "PLAYER_ADJUST_FACE"
-          },
-          {
-            "duration": -1,
-            "rotOffset": {
-              "x": 0,
-              "y": -36
-            },
             "align": "BOTTOM",
             "rotateFace": -1,
             "flipLeftFace": false,
@@ -16330,22 +17029,27 @@
             "type": "CLEAR_EFFECTS"
           },
           {
+            "time": 0,
+            "type": "PLAYER_ADJUST_FACE"
+          },
+          {
+            "followUp": "aim",
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "spinShortRev"
+          },
+          {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "type": "PLAY_SOUND",
+            "sound": "media/sound/battle/enemies/discharge.ogg"
+          },
+          {
             "align": "BOTTOM",
-            "centralAngle": 0.015,
-            "angleVary": 0,
-            "startDist": 24,
-            "startDistCollide": "CLOSER",
-            "random": true,
-            "count": 9,
-            "duration": 0.3,
-            "clockwise": true,
-            "flipLeftFace": 0,
-            "circularArea": false,
-            "uniformDir": 0,
-            "delay": 0,
-            "repeat": true,
-            "type": "SHOOT_PROXY_RANGE",
-            "proxy": "iceSpecialSmallTurret",
+            "type": "SHOOT_PROXY",
+            "proxy": "iceSnowball3",
             "offset": {
               "x": 0,
               "y": 0,
@@ -16353,52 +17057,8 @@
             }
           },
           {
-            "duration": -1,
-            "rotOffset": {
-              "x": 0,
-              "y": -36
-            },
-            "align": "BOTTOM",
-            "rotateFace": -1,
-            "flipLeftFace": false,
-            "wait": false,
-            "waitSkip": 0,
-            "actionDetached": false,
-            "fixPos": false,
-            "type": "SHOW_EFFECT",
-            "effect": {
-              "sheet": "specials.cold",
-              "name": "turretPermaShoot"
-            },
-            "offset": {
-              "x": 0,
-              "y": 0,
-              "z": 16
-            }
-          },
-          {
-            "duration": -1,
-            "align": "BOTTOM",
-            "rotateFace": -1,
-            "flipLeftFace": false,
-            "wait": false,
-            "waitSkip": 0,
-            "actionDetached": false,
-            "fixPos": false,
-            "type": "SHOW_EFFECT",
-            "effect": {
-              "sheet": "specials.cold",
-              "name": "turretShootSnowflake"
-            },
-            "offset": {
-              "x": 0,
-              "y": 0,
-              "z": 0
-            }
-          },
-          {
-            "time": 3,
-            "type": "PLAYER_ADJUST_FACE"
+            "time": 0.5,
+            "type": "WAIT"
           }
         ]
       },
