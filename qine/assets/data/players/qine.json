@@ -1926,12 +1926,12 @@
           "type": "SHOW_EFFECT",
           "effect": {
             "sheet": "specials.heat",
-            "name": "flameDashCircle"
+            "name": "flameDash"
           },
           "offset": {
             "x": 0,
             "y": 0,
-            "z": 0
+            "z": 16
           }
         },
         {
