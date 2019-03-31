@@ -36,7 +36,7 @@ class Qine {
   }
 
   _addCombatMessage() {
-    sc[entries.combatMessages].GUARD_COUNTER = sc[entries.combatMessages].STUN_CANCEL;
+    sc[entries.combatMessages].GUARD_COUNTER = JSON.parse(JSON.stringify(sc[entries.combatMessages].STUN_CANCEL));
     sc[entries.combatMessages].GUARD_COUNTER[entries.combatMessageIcon] = "";
     sc[entries.combatMessages].GUARD_COUNTER[entries.combatMessageMessage] = "sc.gui.combat-msg.guard-counter";
   }

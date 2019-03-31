@@ -233,96 +233,385 @@
                 "type": "SHOW_MSG"
               },
               {
-                "person": {
-                  "person": "mod.qine",
-                  "expression": "SMUG"
-                },
-                "message": {
-                  "en_US": "Ah, welcome. Here to fight?"
-                },
-                "autoContinue": false,
-                "type": "SHOW_MSG"
-              },
-              {
-                "0": [
+                "withElse": true,
+                "type": "IF",
+                "condition": "party.size > 1",
+                "thenStep": [
                   {
-                    "message": {
-                      "en_US": "[nods]"
-                    },
-                    "autoContinue": false,
-                    "type": "SHOW_MSG",
-                    "person": {
-                      "person": "main.lea",
-                      "expression": "NOD"
-                    }
-                  },
-                  {
-                    "message": {
-                      "en_US": "Excellent. Let's get started."
-                    },
-                    "autoContinue": false,
-                    "type": "SHOW_MSG",
                     "person": {
                       "person": "mod.qine",
-                      "expression": "GRIN"
-                    }
-                  },
-                  {
-                    "side": "ALL",
-                    "type": "CLEAR_MSG"
-                  },
-                  {
-                    "mode": "SLOW",
-                    "type": "PAUSE_BGM"
-                  },
-                  {
-                    "entity": {
-                      "global": true,
-                      "name": "Qine"
+                      "expression": "SMUG"
                     },
-                    "stat": "BOTTOM_POS",
-                    "type": "SET_VAR_ENTITY_STAT",
-                    "varName": "tmp.pos"
-                  },
-                  {
-                    "entity": {
-                      "player": true
+                    "message": {
+                      "en_US": "Ah, welcome."
                     },
-                    "stat": "BOTTOM_POS",
-                    "type": "SET_VAR_ENTITY_STAT",
-                    "varName": "tmp.pos2"
+                    "autoContinue": false,
+                    "type": "SHOW_MSG"
+                  },
+		  {
+                    "person": {
+                      "person": "mod.qine",
+                      "expression": "SMUG"
+                    },
+                    "message": {
+                      "en_US": "If you're here for a fight, talk to me when you have nobody else in your party."
+                    },
+                    "autoContinue": false,
+                    "type": "SHOW_MSG"
+                  }
+                ],
+                "elseStep": [
+                  {
+                    "person": {
+                      "person": "mod.qine",
+                      "expression": "SMUG"
+                    },
+                    "message": {
+                      "en_US": "Ah, welcome. Here to fight?"
+                    },
+                    "autoContinue": false,
+                    "type": "SHOW_MSG"
                   },
                   {
-                    "withElse": true,
-                    "type": "IF",
-                    "condition": "tmp.pos.x < tmp.pos2.x",
-                    "thenStep": [
+                    "0": [
+                      {
+                        "message": {
+                          "en_US": "[nods]"
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "main.lea",
+                          "expression": "NOD"
+                        }
+                      },
+                      {
+                        "message": {
+                          "en_US": "Excellent. Let's get started."
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "mod.qine",
+                          "expression": "GRIN"
+                        }
+                      },
+                      {
+                        "side": "ALL",
+                        "type": "CLEAR_MSG"
+                      },
+                      {
+                        "mode": "SLOW",
+                        "type": "PAUSE_BGM"
+                      },
+                      {
+                        "entity": {
+                          "global": true,
+                          "name": "Qine"
+                        },
+                        "stat": "BOTTOM_POS",
+                        "type": "SET_VAR_ENTITY_STAT",
+                        "varName": "tmp.pos"
+                      },
                       {
                         "entity": {
                           "player": true
                         },
+                        "stat": "BOTTOM_POS",
+                        "type": "SET_VAR_ENTITY_STAT",
+                        "varName": "tmp.pos2"
+                      },
+                      {
+                        "withElse": true,
+                        "type": "IF",
+                        "condition": "tmp.pos.x < tmp.pos2.x",
+                        "thenStep": [
+                          {
+                            "entity": {
+                              "player": true
+                            },
+                            "action": [
+                              {
+                                "target": {
+                                  "x": 485,
+                                  "y": 264,
+                                  "lvl": "0"
+                                },
+                                "maxTime": 0,
+                                "distance": 0,
+                                "precise": false,
+                                "planOnly": false,
+                                "teleportOnFail": false,
+                                "type": "NAVIGATE_TO_POINT"
+                              },
+                              {
+                                "face": "WEST",
+                                "rotate": true,
+                                "rotateSpeed": 3,
+                                "type": "SET_FACE"
+                              },
+                              {
+                                "time": -1,
+                                "type": "WAIT"
+                              }
+                            ],
+                            "repeating": false,
+                            "wait": false,
+                            "keepState": false,
+                            "immediately": false,
+                            "type": "DO_ACTION"
+                          },
+                          {
+                            "entity": {
+                              "global": true,
+                              "name": "Qine"
+                            },
+                            "action": [
+                              {
+                                "value": false,
+                                "type": "FACE_TO_TARGET"
+                              },
+                              {
+                                "target": {
+                                  "x": 335,
+                                  "y": 264,
+                                  "lvl": "0"
+                                },
+                                "maxTime": 0,
+                                "distance": 0,
+                                "precise": false,
+                                "planOnly": false,
+                                "teleportOnFail": false,
+                                "type": "NAVIGATE_TO_POINT"
+                              }
+                            ],
+                            "repeating": false,
+                            "wait": true,
+                            "keepState": true,
+                            "immediately": false,
+                            "type": "DO_ACTION"
+                          }
+                        ],
+                        "elseStep": [
+                          {
+                            "entity": {
+                              "player": true
+                            },
+                            "action": [
+                              {
+                                "target": {
+                                  "x": 335,
+                                  "y": 264,
+                                  "lvl": "0"
+                                },
+                                "maxTime": 0,
+                                "distance": 0,
+                                "precise": false,
+                                "planOnly": false,
+                                "teleportOnFail": false,
+                                "type": "NAVIGATE_TO_POINT"
+                              },
+                              {
+                                "face": "EAST",
+                                "rotate": true,
+                                "rotateSpeed": 3,
+                                "type": "SET_FACE"
+                              },
+                              {
+                                "time": -1,
+                                "type": "WAIT"
+                              }
+                            ],
+                            "repeating": false,
+                            "wait": false,
+                            "keepState": false,
+                            "immediately": false,
+                            "type": "DO_ACTION"
+                          },
+                          {
+                            "entity": {
+                              "global": true,
+                              "name": "Qine"
+                            },
+                            "action": [
+                              {
+                                "value": false,
+                                "type": "FACE_TO_TARGET"
+                              },
+                              {
+                                "target": {
+                                  "x": 485,
+                                  "y": 264,
+                                  "lvl": "0"
+                                },
+                                "maxTime": 0,
+                                "distance": 0,
+                                "precise": false,
+                                "planOnly": false,
+                                "teleportOnFail": false,
+                                "type": "NAVIGATE_TO_POINT"
+                              }
+                            ],
+                            "repeating": false,
+                            "wait": true,
+                            "keepState": true,
+                            "immediately": false,
+                            "type": "DO_ACTION"
+                          }
+                        ]
+                      },
+                      {
+                        "pos": {
+                          "x": 410,
+                          "y": 120
+                        },
+                        "speed": "FAST",
+                        "transition": "EASE_IN_OUT",
+                        "wait": true,
+                        "waitSkip": 0.2,
+                        "zoom": 1,
+                        "type": "SET_CAMERA_POS"
+                      },
+                      {
+                        "person": {
+                          "person": "mod.qine",
+                          "expression": "ANGRY"
+                        },
+                        "side": "RIGHT",
+                        "order": 0,
+                        "clearSide": false,
+                        "type": "ADD_MSG_PERSON"
+                      },
+                      {
+                        "message": {
+                          "en_US": "PvP Combat, ACTIVATE!"
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "mod.qine",
+                          "expression": "ANGRY"
+                        }
+                      },
+                      {
+                        "side": "ALL",
+                        "type": "CLEAR_MSG"
+                      },
+                      {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "map.pvpSign",
+                        "value": true
+                      },
+                      {
+                        "ignoreSlowDown": false,
+                        "type": "WAIT",
+                        "time": 0.5
+                      },
+                      {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "map.pvpArena",
+                        "value": true
+                      },
+                      {
+                        "pos": {
+                          "x": 410,
+                          "y": 264
+                        },
+                        "speed": "FAST",
+                        "transition": "EASE_IN_OUT",
+                        "wait": true,
+                        "waitSkip": 0.2,
+                        "zoom": 1,
+                        "type": "SET_CAMERA_POS"
+                      },
+                      {
+                        "ignoreSlowDown": false,
+                        "type": "WAIT",
+                        "time": 0.5
+                      },
+                      {
+                        "bgm": "aridBattle",
+                        "volume": 1,
+                        "mode": "IMMEDIATELY",
+                        "type": "PLAY_BGM"
+                      },
+                      {
+                        "person": {
+                          "person": "mod.qine",
+                          "expression": "ANGRY"
+                        },
+                        "side": "RIGHT",
+                        "order": 0,
+                        "clearSide": false,
+                        "type": "ADD_MSG_PERSON"
+                      },
+                      {
+                        "person": {
+                          "person": "mod.qine",
+                          "expression": "ANGRY"
+                        },
+                        "message": {
+                          "en_US": "Let the duel begin!"
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG"
+                      },
+                      {
+                        "side": "ALL",
+                        "type": "CLEAR_MSG"
+                      },
+                      {
+                        "entity": {
+                          "global": true,
+                          "name": "Qine"
+                        },
+                        "type": "SWAP_ENTITY_WITH_ENEMY",
+                        "enemyInfo": {
+                          "group": "",
+                          "party": "",
+                          "face": "WEST",
+                          "type": "avatar.qine",
+                          "attribs": {}
+                        }
+                      },
+                      {
+                        "entity": {
+                          "global": true,
+                          "name": "Qine"
+                        },
+                        "speed": "NORMAL",
+                        "type": "ADD_PLAYER_CAMERA_TARGET"
+                      },
+                      {
+                        "zoom": 1,
+                        "duration": 1,
+                        "transition": "EASE_OUT",
+                        "type": "SET_CAMERA_ZOOM"
+                      },
+                      {
+                        "winPoints": 5,
+                        "type": "START_PVP_BATTLE",
+                        "enemies": [
+                          {
+                            "global": true,
+                            "name": "Qine"
+                          }
+                        ]
+                      },
+                      {
+                        "autoContinue": true,
+                        "type": "PREPARE_PVP_ROUND"
+                      },
+                      {
+                        "entity": {
+                          "global": "true",
+                          "name": "Qine"
+                        },
                         "action": [
                           {
-                            "target": {
-                              "x": 485,
-                              "y": 264,
-                              "lvl": "0"
-                            },
-                            "maxTime": 0,
-                            "distance": 0,
-                            "precise": false,
-                            "planOnly": false,
-                            "teleportOnFail": false,
-                            "type": "NAVIGATE_TO_POINT"
-                          },
-                          {
-                            "face": "WEST",
-                            "rotate": true,
-                            "rotateSpeed": 3,
-                            "type": "SET_FACE"
-                          },
-                          {
-                            "time": -1,
+                            "time": 0,
                             "type": "WAIT"
                           }
                         ],
@@ -334,62 +623,11 @@
                       },
                       {
                         "entity": {
-                          "global": true,
-                          "name": "Qine"
-                        },
-                        "action": [
-                          {
-                            "value": false,
-                            "type": "FACE_TO_TARGET"
-                          },
-                          {
-                            "target": {
-                              "x": 335,
-                              "y": 264,
-                              "lvl": "0"
-                            },
-                            "maxTime": 0,
-                            "distance": 0,
-                            "precise": false,
-                            "planOnly": false,
-                            "teleportOnFail": false,
-                            "type": "NAVIGATE_TO_POINT"
-                          }
-                        ],
-                        "repeating": false,
-                        "wait": true,
-                        "keepState": true,
-                        "immediately": false,
-                        "type": "DO_ACTION"
-                      }
-                    ],
-                    "elseStep": [
-                      {
-                        "entity": {
                           "player": true
                         },
                         "action": [
                           {
-                            "target": {
-                              "x": 335,
-                              "y": 264,
-                              "lvl": "0"
-                            },
-                            "maxTime": 0,
-                            "distance": 0,
-                            "precise": false,
-                            "planOnly": false,
-                            "teleportOnFail": false,
-                            "type": "NAVIGATE_TO_POINT"
-                          },
-                          {
-                            "face": "EAST",
-                            "rotate": true,
-                            "rotateSpeed": 3,
-                            "type": "SET_FACE"
-                          },
-                          {
-                            "time": -1,
+                            "time": 0,
                             "type": "WAIT"
                           }
                         ],
@@ -398,273 +636,66 @@
                         "keepState": false,
                         "immediately": false,
                         "type": "DO_ACTION"
+                      }
+                    ],
+                    "1": [
+                      {
+                        "message": {
+                          "en_US": "[shakes head]"
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "main.lea",
+                          "expression": "SHAKE"
+                        }
                       },
                       {
-                        "entity": {
-                          "global": true,
-                          "name": "Qine"
+                        "person": {
+                          "person": "mod.qine",
+                          "expression": "FROWN"
                         },
-                        "action": [
-                          {
-                            "value": false,
-                            "type": "FACE_TO_TARGET"
-                          },
-                          {
-                            "target": {
-                              "x": 485,
-                              "y": 264,
-                              "lvl": "0"
-                            },
-                            "maxTime": 0,
-                            "distance": 0,
-                            "precise": false,
-                            "planOnly": false,
-                            "teleportOnFail": false,
-                            "type": "NAVIGATE_TO_POINT"
-                          }
-                        ],
-                        "repeating": false,
-                        "wait": true,
-                        "keepState": true,
-                        "immediately": false,
-                        "type": "DO_ACTION"
-                      }
-                    ]
-                  },
-                  {
-                    "pos": {
-                      "x": 410,
-                      "y": 120
-                    },
-                    "speed": "FAST",
-                    "transition": "EASE_IN_OUT",
-                    "wait": true,
-                    "waitSkip": 0.2,
-                    "zoom": 1,
-                    "type": "SET_CAMERA_POS"
-                  },
-                  {
-                    "person": {
-                      "person": "mod.qine",
-                      "expression": "ANGRY"
-                    },
-                    "side": "RIGHT",
-                    "order": 0,
-                    "clearSide": false,
-                    "type": "ADD_MSG_PERSON"
-                  },
-                  {
-                    "message": {
-                      "en_US": "PvP Combat, ACTIVATE!"
-                    },
-                    "autoContinue": false,
-                    "type": "SHOW_MSG",
-                    "person": {
-                      "person": "mod.qine",
-                      "expression": "ANGRY"
-                    }
-                  },
-                  {
-                    "side": "ALL",
-                    "type": "CLEAR_MSG"
-                  },
-                  {
-                    "changeType": "set",
-                    "type": "CHANGE_VAR_BOOL",
-                    "varName": "map.pvpSign",
-                    "value": true
-                  },
-                  {
-                    "ignoreSlowDown": false,
-                    "type": "WAIT",
-                    "time": 0.5
-                  },
-                  {
-                    "changeType": "set",
-                    "type": "CHANGE_VAR_BOOL",
-                    "varName": "map.pvpArena",
-                    "value": true
-                  },
-                  {
-                    "pos": {
-                      "x": 410,
-                      "y": 264
-                    },
-                    "speed": "FAST",
-                    "transition": "EASE_IN_OUT",
-                    "wait": true,
-                    "waitSkip": 0.2,
-                    "zoom": 1,
-                    "type": "SET_CAMERA_POS"
-                  },
-                  {
-                    "ignoreSlowDown": false,
-                    "type": "WAIT",
-                    "time": 0.5
-                  },
-                  {
-                    "bgm": "aridBattle",
-                    "volume": 1,
-                    "mode": "IMMEDIATELY",
-                    "type": "PLAY_BGM"
-                  },
-                  {
-                    "person": {
-                      "person": "mod.qine",
-                      "expression": "ANGRY"
-                    },
-                    "side": "RIGHT",
-                    "order": 0,
-                    "clearSide": false,
-                    "type": "ADD_MSG_PERSON"
-                  },
-                  {
-                    "person": {
-                      "person": "mod.qine",
-                      "expression": "ANGRY"
-                    },
-                    "message": {
-                      "en_US": "Let the duel begin!"
-                    },
-                    "autoContinue": false,
-                    "type": "SHOW_MSG"
-                  },
-                  {
-                    "side": "ALL",
-                    "type": "CLEAR_MSG"
-                  },
-                  {
-                    "entity": {
-                      "global": true,
-                      "name": "Qine"
-                    },
-                    "type": "SWAP_ENTITY_WITH_ENEMY",
-                    "enemyInfo": {
-                      "group": "",
-                      "party": "",
-                      "face": "WEST",
-                      "type": "avatar.qine",
-                      "attribs": {}
-                    }
-                  },
-                  {
-                    "entity": {
-                      "global": true,
-                      "name": "Qine"
-                    },
-                    "speed": "NORMAL",
-                    "type": "ADD_PLAYER_CAMERA_TARGET"
-                  },
-                  {
-                    "zoom": 1,
-                    "duration": 1,
-                    "transition": "EASE_OUT",
-                    "type": "SET_CAMERA_ZOOM"
-                  },
-                  {
-                    "winPoints": 5,
-                    "type": "START_PVP_BATTLE",
-                    "enemies": [
+                        "message": {
+                          "en_US": "Ah."
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG"
+                      },
                       {
-                        "global": true,
-                        "name": "Qine"
-                      }
-                    ]
-                  },
-                  {
-                    "autoContinue": true,
-                    "type": "PREPARE_PVP_ROUND"
-                  },
-                  {
-                    "entity": {
-                      "global": "true",
-                      "name": "Qine"
-                    },
-                    "action": [
+                        "person": {
+                          "person": "mod.qine",
+                          "expression": "SUSPICIOUS"
+                        },
+                        "message": {
+                          "en_US": "Well, come back if you change your mind."
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG"
+                      },
                       {
-                        "time": 0,
-                        "type": "WAIT"
+                        "side": "ALL",
+                        "type": "CLEAR_MSG"
                       }
                     ],
-                    "repeating": false,
-                    "wait": false,
-                    "keepState": false,
-                    "immediately": false,
-                    "type": "DO_ACTION"
-                  },
-                  {
-                    "entity": {
-                      "player": true
-                    },
-                    "action": [
-                      {
-                        "time": 0,
-                        "type": "WAIT"
-                      }
-                    ],
-                    "repeating": false,
-                    "wait": false,
-                    "keepState": false,
-                    "immediately": false,
-                    "type": "DO_ACTION"
-                  }
-                ],
-                "1": [
-                  {
-                    "message": {
-                      "en_US": "[shakes head]"
-                    },
-                    "autoContinue": false,
-                    "type": "SHOW_MSG",
+                    "type": "SHOW_CHOICE",
                     "person": {
                       "person": "main.lea",
-                      "expression": "SHAKE"
-                    }
-                  },
-                  {
-                    "person": {
-                      "person": "mod.qine",
-                      "expression": "FROWN"
+                      "expression": "SMUG"
                     },
-                    "message": {
-                      "en_US": "Ah."
-                    },
-                    "autoContinue": false,
-                    "type": "SHOW_MSG"
-                  },
-                  {
-                    "person": {
-                      "person": "mod.qine",
-                      "expression": "SUSPICIOUS"
-                    },
-                    "message": {
-                      "en_US": "Well, come back if you change your mind."
-                    },
-                    "autoContinue": false,
-                    "type": "SHOW_MSG"
-                  },
-                  {
-                    "side": "ALL",
-                    "type": "CLEAR_MSG"
-                  }
-                ],
-                "type": "SHOW_CHOICE",
-                "person": {
-                  "person": "main.lea",
-                  "expression": "SMUG"
-                },
-                "options": [
-                  {
-                    "0": " ",
-                    "label": {
-                      "en_US": "[yes]"
-                    }
-                  },
-                  {
-                    "1": " ",
-                    "label": {
-                      "en_US": "[no]"
-                    }
+                    "options": [
+                      {
+                        "0": " ",
+                        "label": {
+                          "en_US": "[yes]"
+                        }
+                      },
+                      {
+                        "1": " ",
+                        "label": {
+                          "en_US": "[no]"
+                        }
+                      }
+                    ]
                   }
                 ]
               }
