@@ -1,3 +1,7 @@
+v0.1.1 (30-Mar-2019)
+  * Qine will refuse to fight you if you have party members (avoids a crash).
+  * The stun cancel message is no longer overwritten incorrectly.
+
 v0.1.0 (24-Mar-2019)
   * Qine now has a variety of Quadroguard-specific techs, including:
     * Neutral dash: Incite, drawing enemies' attention to Qine on a one-off
