@@ -107,6 +107,11 @@
       "target": 3,
       "type": "HIT"
     },
+    "guardBreakHits": {
+      "target": 25,
+      "noStateReset": true,
+      "type": "HIT"
+    },
     "brakeOver": {
       "target": 4,
       "initRandom": 0,
@@ -14666,6 +14671,20 @@
   "actions": {
     "InitStrat": [
       {
+        "type": "DISABLE_REACTION",
+        "reaction": "GUARD_BREAK"
+      },
+      {
+        "type": "RESET_TRACKER",
+        "forceValue": 0,
+        "tracker": "guardBreakHits"
+      },
+      {
+        "name": "guardBroken",
+        "type": "SET_ATTRIB_BOOL",
+        "value": false
+      },
+      {
         "sticking": false,
         "group": "healer",
         "type": "REMOVE_PROXIES"
@@ -15384,6 +15403,242 @@
         ]
       }
     ],
+    "CloseCombatMeleeSpecial": [
+      {
+        "name": "artChain",
+        "type": "SET_ATTRIB_BOOL",
+        "value": false
+      },
+      {
+        "name": "actionSinceSwap",
+        "type": "SET_ATTRIB_BOOL",
+        "value": true
+      },
+      {
+        "noStateReset": false,
+        "type": "DO_ENEMY_ACTION",
+        "actionName": "_CloseCombatMeleeSpecial"
+      }
+    ],
+    "_CloseCombatMeleeSpecial": [
+      {
+        "withElse": true,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "element": "NEUTRAL",
+            "negated": false,
+            "type": "ELEMENT_MODE"
+          }
+        ],
+        "thenStep": [
+          {
+            "attribName": "nonNeutralActions",
+            "changeType": "sub",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 1
+          }
+        ],
+        "elseStep": [
+          {
+            "attribName": "nonNeutralActions",
+            "changeType": "add",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "value": "HEAVY",
+        "type": "SET_HIT_STABLE"
+      },
+      {
+        "type": "ENABLE_REACTION",
+        "reaction": "ATTACK_GUARD"
+      },
+      {
+        "value": 1,
+        "type": "SET_RELATIVE_SPEED"
+      },
+      {
+        "maxTime": 0.4,
+        "forceTime": false,
+        "distance": 80,
+        "planOnly": false,
+        "targetType": "ENEMY",
+        "precise": false,
+        "stayBehind": false,
+        "type": "NAVIGATE_TO_TARGET"
+      },
+      {
+        "value": 1,
+        "type": "FACE_TO_TARGET_SPEED"
+      },
+      {
+        "value": 1.2,
+        "type": "SET_RELATIVE_SPEED"
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "aimMove"
+      },
+      {
+        "time": 0.3,
+        "stopBeforeEdge": false,
+        "type": "MOVE_FORWARD"
+      },
+      {
+        "type": "ENABLE_REACTION",
+        "reaction": "COUNTERED"
+      },
+      {
+        "value": true,
+        "immediately": true,
+        "type": "FACE_TO_TARGET"
+      },
+      {
+        "followUp": "attackEnd",
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "spinShort"
+      },
+      {
+        "sweepType": "QUADROGUARD",
+        "reversed": false,
+        "faceCount": 6,
+        "flipLeftFace": false,
+        "type": "COMBAT_SWEEP"
+      },
+      {
+        "time": 0.05,
+        "stopBeforeEdge": false,
+        "type": "MOVE_FORWARD"
+      },
+      {
+        "time": 0.05,
+        "type": "WAIT"
+      },
+      {
+        "baseStrength": 0.8,
+        "type": "SPAWN_ASSAULT"
+      },
+      {
+        "time": 0.45,
+        "type": "WAIT"
+      },
+      {
+        "followUp": "attackEnd",
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "spinFull"
+      },
+      {
+        "value": true,
+        "type": "FACE_TO_TARGET"
+      },
+      {
+        "sweepType": "QUADROGUARD_FINISHER",
+        "reversed": false,
+        "faceCount": 6,
+        "flipLeftFace": false,
+        "type": "COMBAT_SWEEP"
+      },
+      {
+        "value": 300,
+        "type": "SET_SPEED"
+      },
+      {
+        "value": 3,
+        "type": "SET_ACCEL_SPEED"
+      },
+      {
+        "time": 0.1,
+        "stopBeforeEdge": false,
+        "type": "MOVE_FORWARD"
+      },
+      {
+        "value": 50,
+        "type": "SET_SPEED"
+      },
+      {
+        "time": 0.05,
+        "stopBeforeEdge": false,
+        "type": "MOVE_FORWARD"
+      },
+      {
+        "baseStrength": 2,
+        "type": "SPAWN_ASSAULT"
+      },
+      {
+        "time": 0.05,
+        "type": "WAIT"
+      },
+      {
+        "type": "DISABLE_REACTION",
+        "reaction": "COUNTERED"
+      },
+      {
+        "time": 0.1,
+        "type": "WAIT"
+      },
+      {
+        "withElse": true,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "max": 0.5,
+            "negated": false,
+            "type": "RANDOM"
+          }
+        ],
+        "thenStep": [
+          {
+            "type": "DO_ENEMY_ACTION",
+            "actionName": "AttackDodge"
+          }
+        ],
+        "elseStep": [
+          {
+            "time": 0.3,
+            "type": "WAIT"
+          }
+        ]
+      }
+    ],
+    "_CloseCombatMeleeSpecial": [
+      {
+        "value": "HEAVY",
+        "type": "SET_HIT_STABLE"
+      },
+      {
+        "type": "ENABLE_REACTION",
+        "reaction": "ATTACK_GUARD"
+      },
+      {
+        "value": 1,
+        "type": "SET_RELATIVE_SPEED"
+      },
+      {
+        "maxTime": 0.4,
+        "forceTime": false,
+        "distance": 32,
+        "planOnly": false,
+        "targetType": "ENEMY",
+        "precise": false,
+        "stayBehind": false,
+        "type": "NAVIGATE_TO_TARGET"
+      },
+      {
+        "actionName": "MeleeSpecial",
+        "type": "DO_ENEMY_ACTION"
+      }
+    ],
     "ThrowBalls": [
       {
         "name": "artChain",
@@ -15750,8 +16005,40 @@
         "actionName": "_DoShield"
       },
       {
-        "type": "DO_ENEMY_ACTION",
-        "actionName": "GuardSpecialOrDodge"
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "name": "guardBroken",
+            "negated": false,
+            "type": "!ATTRIB_IS_TRUE"
+          }
+        ],
+        "thenStep": [
+          {
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "conditions": [
+              {
+                "name": "didGuardCounter",
+                "negated": false,
+                "type": "ATTRIB_IS_TRUE"
+              }
+            ],
+            "thenStep": [
+              {
+                "type": "DO_ENEMY_ACTION",
+                "actionName": "MeleeSpecialOrAttack"
+              }
+            ],
+            "elseStep": [
+              {
+                "type": "DO_ENEMY_ACTION",
+                "actionName": "GuardSpecialOrDodge"
+              }
+            ]
+          }
+        ]
       }
     ],
     "_DoShield": [
@@ -15783,6 +16070,11 @@
         "type": "SET_SPIKE_DAMAGE"
       },
       {
+        "name": "didGuardCounter",
+        "type": "SET_ATTRIB_BOOL",
+        "value": false
+      },
+      {
         "maxTime": 0.1,
         "meleeOnly": true,
         "type": "WAIT_UNTIL_GUARDED"
@@ -15797,40 +16089,45 @@
         "withElse": false,
         "type": "COMBAT_IF",
         "thenStep": [
-	  {
-	    "kind": "GUARDED_ATTACKER",
-	    "type": "SET_TEMP_TARGET"
-	  },
-	  {
-	    "selectType": "TARGET",
-	    "hitDir": "AWAY",
-	    "align": "BOTTOM",
-	    "hitCount": 1,
-	    "hitDelay": 0,
-	    "type": "DIRECT_HIT",
-	    "attack": {
-	      "type": "MASSIVE",
-	      "element": "NEUTRAL",
-	      "fly": "MASSIVE",
-	      "damageFactor": 1,
-	      "reverse": false,
-	      "status": 0,
-	      "guardable": "false",
-	      "skillBonus": "",
-	      "limiter": "NO_DAMAGE"
-	    }
-	  },
-	  {
-	    "posType": "TARGET",
-	    "align": "CENTER",
-	    "type": "SET_HIT_PROXY",
-	    "proxy": "guardCountered",
-	    "offset": {
-	      "x": 0,
-	      "y": 0,
-	      "z": 0
-	    }
-	  },
+          {
+            "name": "didGuardCounter",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
+          },
+          {
+            "kind": "GUARDED_ATTACKER",
+            "type": "SET_TEMP_TARGET"
+          },
+          {
+            "selectType": "TARGET",
+            "hitDir": "AWAY",
+            "align": "BOTTOM",
+            "hitCount": 1,
+            "hitDelay": 0,
+            "type": "DIRECT_HIT",
+            "attack": {
+              "type": "MASSIVE",
+              "element": "NEUTRAL",
+              "fly": "MASSIVE",
+              "damageFactor": 1,
+              "reverse": false,
+              "status": 0,
+              "guardable": "false",
+              "skillBonus": "",
+              "limiter": "NO_DAMAGE"
+            }
+          },
+          {
+            "posType": "TARGET",
+            "align": "CENTER",
+            "type": "SET_HIT_PROXY",
+            "proxy": "guardCountered",
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
           {
             "msgType": "GUARD_COUNTER",
             "type": "SHOW_COMBAT_MSG"
@@ -15844,8 +16141,8 @@
           },
           {
             "type": "SET_CAMERA_ZOOM",
-	    "duration": 0.2,
-	    "transition": "EASE_OUT",
+            "duration": 0.2,
+            "transition": "EASE_OUT",
             "zoom": 1.25
           },
           {
@@ -15855,24 +16152,54 @@
             "inversAccelerate": true,
             "type": "ADD_SLOW_MOTION"
           },
-	  {
-	    "type": "WAIT",
-	    "time": 0.2
-	  },
-	  {
-	    "type": "UNDO_CAMERA",
-	    "speed": 1,
-	    "transition": "EASE_IN_OUT"
-	  }
+          {
+            "type": "WAIT",
+            "time": 0.2
+          },
+          {
+            "type": "UNDO_CAMERA",
+            "speed": 1,
+            "transition": "EASE_IN_OUT"
+          }
         ]
+      },
+      {
+        "type": "ENABLE_REACTION",
+        "reaction": "GUARD_BREAK"
       },
       {
         "time": 0.4,
         "type": "WAIT"
       },
       {
+        "type": "DISABLE_REACTION",
+        "reaction": "GUARD_BREAK"
+      },
+      {
         "value": 0,
         "type": "SET_SPIKE_DAMAGE"
+      },
+      {
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "name": "guardBroken",
+            "negated": false,
+            "type": "!ATTRIB_IS_TRUE"
+          },
+          {
+            "name": "didGuardCounter",
+            "negated": false,
+            "type": "ATTRIB_IS_TRUE"
+          }
+        ],
+        "thenStep": [
+          {
+            "type": "SET_ENEMY_STATE",
+            "enemyState": "CLOSE"
+          }
+        ]
       }
     ],
     "_DoNormalShield": [
@@ -15885,6 +16212,7 @@
       },
       {
         "actionDetached": false,
+        "name": "part",
         "shield": {
           "type": "DIRECTIONAL",
           "settings": {
@@ -15925,6 +16253,7 @@
       },
       {
         "actionDetached": false,
+        "name": "part",
         "shield": {
           "type": "DIRECTIONAL",
           "settings": {
@@ -15953,6 +16282,235 @@
           "sheet": "guard",
           "name": "neutral_top"
         }
+      }
+    ],
+    "_DetermineMeleeSpecial": [
+      {
+        "name": "doMeleeSpecial",
+        "type": "SET_ATTRIB_BOOL",
+        "value": false
+      },
+      {
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "negated": false,
+            "type": "!VAR_CONDITION",
+            "condition": "entity.attrib.lvl2Arts"
+          },
+          {
+            "min": 1,
+            "negated": false,
+            "type": "HAS_SP"
+          },
+          {
+            "max": 0.5,
+            "negated": false,
+            "type": "RANDOM"
+          }
+        ],
+        "thenStep": [
+          {
+            "name": "doMeleeSpecial",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
+          }
+        ]
+      },
+      {
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "negated": false,
+            "type": "VAR_CONDITION",
+            "condition": "entity.attrib.lvl2Arts"
+          },
+          {
+            "negated": false,
+            "type": "!VAR_CONDITION",
+            "condition": "entity.attrib.lvl3Arts"
+          },
+          {
+            "min": 3,
+            "negated": false,
+            "type": "HAS_SP"
+          },
+          {
+            "max": 0.5,
+            "negated": false,
+            "type": "RANDOM"
+          }
+        ],
+        "thenStep": [
+          {
+            "name": "doMeleeSpecial",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
+          }
+        ]
+      },
+      {
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "negated": false,
+            "type": "VAR_CONDITION",
+            "condition": "entity.attrib.lvl2Arts"
+          },
+          {
+            "negated": false,
+            "type": "!VAR_CONDITION",
+            "condition": "entity.attrib.lvl3Arts"
+          },
+          {
+            "min": 1,
+            "negated": false,
+            "type": "HAS_SP"
+          },
+          {
+            "max": 0.2,
+            "negated": false,
+            "type": "RANDOM"
+          }
+        ],
+        "thenStep": [
+          {
+            "name": "doMeleeSpecial",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
+          }
+        ]
+      },
+      {
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "negated": false,
+            "type": "VAR_CONDITION",
+            "condition": "entity.attrib.lvl2Arts"
+          },
+          {
+            "negated": false,
+            "type": "VAR_CONDITION",
+            "condition": "entity.attrib.lvl3Arts"
+          },
+          {
+            "min": 6,
+            "negated": false,
+            "type": "HAS_SP"
+          },
+          {
+            "max": 0.5,
+            "negated": false,
+            "type": "RANDOM"
+          }
+        ],
+        "thenStep": [
+          {
+            "name": "doMeleeSpecial",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
+          }
+        ]
+      },
+      {
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "negated": false,
+            "type": "VAR_CONDITION",
+            "condition": "entity.attrib.lvl2Arts"
+          },
+          {
+            "negated": false,
+            "type": "VAR_CONDITION",
+            "condition": "entity.attrib.lvl3Arts"
+          },
+          {
+            "min": 3,
+            "negated": false,
+            "type": "HAS_SP"
+          },
+          {
+            "max": 0.2,
+            "negated": false,
+            "type": "RANDOM"
+          }
+        ],
+        "thenStep": [
+          {
+            "name": "doMeleeSpecial",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
+          }
+        ]
+      },
+      {
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "negated": false,
+            "type": "VAR_CONDITION",
+            "condition": "entity.attrib.lvl2Arts"
+          },
+          {
+            "negated": false,
+            "type": "VAR_CONDITION",
+            "condition": "entity.attrib.lvl3Arts"
+          },
+          {
+            "min": 1,
+            "negated": false,
+            "type": "HAS_SP"
+          },
+          {
+            "max": 0.05,
+            "negated": false,
+            "type": "RANDOM"
+          }
+        ],
+        "thenStep": [
+          {
+            "name": "doMeleeSpecial",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
+          }
+        ]
+      }
+    ],
+    "MeleeSpecialOrAttack": [
+      {
+        "type": "DO_ENEMY_ACTION_INLINE",
+        "actionName": "_DetermineMeleeSpecial"
+      },
+      {
+        "withElse": true,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "name": "doMeleeSpecial",
+            "negated": false,
+            "type": "ATTRIB_IS_TRUE"
+          }
+        ],
+        "thenStep": [
+          {
+            "type": "DO_ENEMY_ACTION",
+            "actionName": "CloseCombatMeleeSpecial"
+          }
+        ],
+        "elseStep": [
+          {
+            "type": "DO_ENEMY_ACTION",
+            "actionName": "CloseCombat"
+          }
+        ]
       }
     ],
     "_DetermineGuardSpecial": [
@@ -16201,8 +16759,40 @@
         "actionName": "_DoShield"
       },
       {
-        "type": "DO_ENEMY_ACTION",
-        "actionName": "GuardSpecialOrAttackDodge"
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "name": "guardBroken",
+            "negated": false,
+            "type": "!ATTRIB_IS_TRUE"
+          }
+        ],
+        "thenStep": [
+          {
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "conditions": [
+              {
+                "name": "didGuardCounter",
+                "negated": false,
+                "type": "ATTRIB_IS_TRUE"
+              }
+            ],
+            "thenStep": [
+              {
+                "type": "DO_ENEMY_ACTION",
+                "actionName": "MeleeSpecialOrAttack"
+              }
+            ],
+            "elseStep": [
+              {
+                "type": "DO_ENEMY_ACTION",
+                "actionName": "GuardSpecialOrDodge"
+              }
+            ]
+          }
+        ]
       }
     ],
     "GuardSpecialOrAttackDodge": [
@@ -16252,6 +16842,33 @@
         "type": "WAIT"
       }
     ],
+    "GuardBroken": [
+      {
+        "type": "DISABLE_REACTION",
+        "reaction": "GUARD_BREAK"
+      },
+      {
+        "name": "hasDoneGuardSpecial",
+        "type": "SET_ATTRIB_BOOL",
+        "value": true
+      },
+      {
+        "name": "guardBroken",
+        "type": "SET_ATTRIB_BOOL",
+        "value": true
+      },
+      {
+        "flyLevel": "MASSIVE",
+        "breaking": true,
+        "stable": false,
+        "wait": true,
+        "type": "DO_DAMAGE_MOVEMENT"
+      },
+      {
+        "time": 0.4,
+        "type": "WAIT"
+      }
+    ],
     "weakStart": [
       {
         "duration": -1,
@@ -16272,12 +16889,40 @@
           "y": 0,
           "z": 0
         }
+      },
+      {
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "name": "guardBroken",
+            "negated": false,
+            "type": "ATTRIB_IS_TRUE"
+          }
+        ],
+        "thenStep": [
+          {
+            "type": "RESET_TRACKER",
+            "forceValue": 0,
+            "tracker": "guardBreakHits"
+          },
+          {
+            "type": "RESET_TRACKER",
+            "forceValue": -2,
+            "tracker": "brakeOver"
+          }
+        ]
       }
     ],
     "weakEnd": [
       {
         "group": "weak",
         "type": "CLEAR_EFFECTS"
+      },
+      {
+        "name": "guardBroken",
+        "type": "SET_ATTRIB_BOOL",
+        "value": false
       }
     ],
     "CloseCounter": [
@@ -22471,22 +23116,60 @@
     "GUARD": {
       "action": "Guard",
       "viewAngle": 0.5,
-      "restartPrevAction": true,
+      "restartPrevAction": false,
       "probability": 1,
       "count": 4,
       "blockTime": 2,
-      "conditions": [],
+      "conditions": [
+        {
+          "name": "guardBroken",
+          "negated": false,
+          "type": "!ATTRIB_IS_TRUE"
+        }
+      ],
       "type": "DODGE"
     },
     "ATTACK_GUARD": {
       "action": "AttackGuard",
       "viewAngle": 0.5,
-      "restartPrevAction": true,
+      "restartPrevAction": false,
       "probability": 1,
       "count": 3,
       "blockTime": 2,
-      "conditions": [],
+      "conditions": [
+        {
+          "name": "guardBroken",
+          "negated": false,
+          "type": "!ATTRIB_IS_TRUE"
+        }
+      ],
       "type": "DODGE"
+    },
+    "GUARD_BREAK": {
+      "hitType": "REGULAR",
+      "preSwitchState": "BRAKE",
+      "postSwitchState": "BRAKE",
+      "action": "GuardBroken",
+      "blockFurtherHits": true,
+      "damageFactor": 1,
+      "attackType": "MASSIVE",
+      "flyLevel": "LIGHT",
+      "stunChange": "FORCE_STABLE",
+      "alignFace": false,
+      "dramaticEffect": "GUARD_BREAK",
+      "conditions": [
+        {
+          "negated": false,
+          "type": "IS_SHIELDED"
+        },
+        {
+          "negated": false,
+          "type": "TRACKER_READY",
+          "name": "guardBreakHits"
+        }
+      ],
+      "ignoreFailed": false,
+      "type": "HIT_REACTION"
     },
     "COUNTERED": {
       "preSwitchState": "BRAKE",
