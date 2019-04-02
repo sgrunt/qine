@@ -6774,6 +6774,9 @@
       "breakType": "NEVER",
       "action": [
         {
+          "type": "ADD_TARGET_STUN_LOCK"
+        },
+        {
           "kind": "PART_TARGET_ROOT",
           "type": "SET_TEMP_TARGET"
         },

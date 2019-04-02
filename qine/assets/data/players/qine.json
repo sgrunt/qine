@@ -6331,6 +6331,9 @@
       "breakType": "NEVER",
       "action": [
         {
+          "type": "ADD_TARGET_STUN_LOCK"
+        },
+        {
           "duration": 0,
           "align": "BOTTOM",
           "rotateFace": 0,
