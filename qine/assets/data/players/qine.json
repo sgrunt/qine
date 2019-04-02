@@ -177,18 +177,18 @@
     },
     {
       "level": 59,
-      "HEAD": 397,
-      "LEFT_ARM": 414,
-      "RIGHT_ARM": 398,
-      "TORSO": 416,
-      "FEET": 400
+      "HEAD": 471,
+      "LEFT_ARM": 476,
+      "RIGHT_ARM": 58,
+      "TORSO": 425,
+      "FEET": 482
     },
     {
       "level": 63,
       "HEAD": 471,
       "LEFT_ARM": 475,
-      "RIGHT_ARM": 438,
-      "TORSO": 479,
+      "RIGHT_ARM": 58,
+      "TORSO": 510,
       "FEET": 482
     }
   ],

@@ -1,46 +1,51 @@
 {
   "level": 60,
   "params": {
-    "hp": 2947,
-    "attack": 283,
-    "defense": 475,
-    "focus": 322,
-    "elemFactor": [0.92, 0.92, 0.92, 0.83]
+    "hp": 3868,
+    "attack": 358,
+    "defense": 421,
+    "focus": 275,
+    "elemFactor": [0.966, 0.756, 0.756, 0.672]
   },
   "elementModes": {
     "HEAT": {
-      "hp": 3211,
-      "attack": 277,
-      "defense": 501,
-      "focus": 348,
-      "elemFactor": [0.82, 1.19, 0.96, 0.86]
+      "hp": 3868,
+      "attack": 417,
+      "defense": 434,
+      "focus": 320,
+      "elemFactor": [0.782, 1.035, 0.828, 0.736]
     },
     "COLD": {
-      "hp": 3328,
-      "attack": 309,
-      "defense": 495,
-      "focus": 337,
-      "elemFactor": [1.39, 0.63, 0.96, 0.96]
+      "hp": 4315,
+      "attack": 404,
+      "defense": 424,
+      "focus": 300,
+      "elemFactor": [1.5525, 0.648, 0.828, 0.736]
     },
     "SHOCK": {
-      "hp": 3211,
-      "attack": 289,
-      "defense": 459,
-      "focus": 419,
-      "elemFactor": [0.96, 0.96, 0.77, 1.29]
+      "hp": 3987,
+      "attack": 391,
+      "defense": 469,
+      "focus": 302,
+      "elemFactor": [1.058, 0.828, 0.567, 1.08]
     },
     "WAVE": {
-      "hp": 3211,
-      "attack": 265,
-      "defense": 513,
-      "focus": 348,
-      "elemFactor": [0.92, 0.92, 1.38, 0.41]
+      "hp": 4106,
+      "attack": 440,
+      "defense": 421,
+      "focus": 310,
+      "elemFactor": [1.058, 0.828, 1.215, 0.576]
     }
   },
   "modifiers": {
-    "SP_REGEN": 1.15,
-    "BERSERK": 1.3,
-    "COND_HEALING": 0.28
+    "ASSAULT": 0.4,
+    "COND_HEALING": 0.3,
+    "DASH_INVINC": 0.2,
+    "KNOCKBACK": 0.5,
+    "MELEE_DMG": 0.12,
+    "RANGED_DMG": 0.32,
+    "SP_REGEN": 0.1,
+    "STUN_THRESHOLD": 0.05
   },
   "credit": 0,
   "exp": 1000,
