@@ -124,6 +124,13 @@
       "noStateReset": false,
       "type": "TIME"
     },
+    "guardReset": {
+      "target": 10,
+      "initRandom": 0,
+      "resetRandom": 0,
+      "noStateReset": true,
+      "type": "TIME"
+    },
     "brakeSkipHits": {
       "target": 8,
       "type": "HIT"
@@ -153,7 +160,11 @@
               "condition": "pvp.brake"
             }
           ],
-          "sub": []
+          "sub": [
+            {
+              "action": "restoreGuard"
+            }
+	  ]
         },
         {
           "req": [
@@ -181,6 +192,21 @@
             }
           ],
           "preSwitchState": "DEFAULT"
+        },
+        {
+          "req": [
+            {
+              "name": "guardBroken",
+              "negated": false,
+              "type": "ATTRIB_IS_TRUE"
+            },
+            {
+              "negated": false,
+              "type": "TRACKER_READY",
+              "name": "guardReset"
+            }
+          ],
+          "action": "restoreGuard"
         },
         {
           "req": [
@@ -408,6 +434,21 @@
             }
           ],
           "preSwitchState": "DEFAULT"
+        },
+        {
+          "req": [
+            {
+              "name": "guardBroken",
+              "negated": false,
+              "type": "ATTRIB_IS_TRUE"
+            },
+            {
+              "negated": false,
+              "type": "TRACKER_READY",
+              "name": "guardReset"
+            }
+          ],
+          "action": "restoreGuard"
         },
         {
           "req": [
@@ -14688,11 +14729,6 @@
         "tracker": "guardBreakHits"
       },
       {
-        "name": "guardBroken",
-        "type": "SET_ATTRIB_BOOL",
-        "value": false
-      },
-      {
         "sticking": false,
         "group": "healer",
         "type": "REMOVE_PROXIES"
@@ -15998,9 +16034,29 @@
     ],
     "Guard": [
       {
-        "noStateReset": false,
-        "type": "DO_ENEMY_ACTION",
-        "actionName": "_Guard"
+        "withElse": true,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "name": "guardBroken",
+            "negated": false,
+            "type": "ATTRIB_IS_TRUE"
+          }
+        ],
+        "thenStep": [
+          {
+            "noStateReset": false,
+            "type": "DO_ENEMY_ACTION",
+            "actionName": "Dodge"
+          }
+        ],
+	"elseStep": [
+          {
+            "noStateReset": false,
+            "type": "DO_ENEMY_ACTION",
+            "actionName": "_Guard"
+          }
+	]
       }
     ],
     "_Guard": [
@@ -16719,6 +16775,24 @@
             "value": true
           }
         ]
+      },
+      {
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "name": "guardBroken",
+            "negated": false,
+            "type": "ATTRIB_IS_TRUE"
+          }
+        ],
+        "thenStep": [
+          {
+            "name": "doGuardSpecial",
+            "type": "SET_ATTRIB_BOOL",
+            "value": false
+          }
+        ]
       }
     ],
     "GuardSpecialOrDodge": [
@@ -16752,9 +16826,29 @@
     ],
     "AttackGuard": [
       {
-        "noStateReset": false,
-        "type": "DO_ENEMY_ACTION",
-        "actionName": "_AttackGuard"
+        "withElse": true,
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "name": "guardBroken",
+            "negated": false,
+            "type": "ATTRIB_IS_TRUE"
+          }
+        ],
+        "thenStep": [
+          {
+            "noStateReset": false,
+            "type": "DO_ENEMY_ACTION",
+            "actionName": "AttackDodge"
+          }
+        ],
+	"elseStep": [
+          {
+            "noStateReset": false,
+            "type": "DO_ENEMY_ACTION",
+            "actionName": "_AttackGuard"
+          }
+        ]
       }
     ],
     "_AttackGuard": [
@@ -16866,6 +16960,11 @@
         "value": true
       },
       {
+        "type": "RESET_TRACKER",
+        "forceValue": 0,
+        "tracker": "guardReset"
+      },
+      {
         "flyLevel": "MASSIVE",
         "breaking": true,
         "stable": false,
@@ -16913,11 +17012,6 @@
             "type": "RESET_TRACKER",
             "forceValue": 0,
             "tracker": "guardBreakHits"
-          },
-          {
-            "type": "RESET_TRACKER",
-            "forceValue": -2,
-            "tracker": "brakeOver"
           }
         ]
       }
@@ -16926,7 +17020,9 @@
       {
         "group": "weak",
         "type": "CLEAR_EFFECTS"
-      },
+      }
+    ],
+    "restoreGuard": [
       {
         "name": "guardBroken",
         "type": "SET_ATTRIB_BOOL",
@@ -16988,9 +17084,9 @@
             "type": "COMBAT_IF",
             "conditions": [
               {
-                "name": "techShield",
+                "name": "guardBroken",
                 "negated": false,
-                "type": "!HAS_SHIELD"
+                "type": "!ATTRIB_IS_TRUE"
               },
               {
                 "sticked": "false",
@@ -17039,6 +17135,11 @@
         "withElse": true,
         "type": "COMBAT_IF",
         "conditions": [
+          {
+            "name": "guardBroken",
+            "negated": false,
+            "type": "!ATTRIB_IS_TRUE"
+          },
           {
             "name": "techShield",
             "negated": false,
@@ -23128,13 +23229,6 @@
       "probability": 1,
       "count": 4,
       "blockTime": 2,
-      "conditions": [
-        {
-          "name": "guardBroken",
-          "negated": false,
-          "type": "!ATTRIB_IS_TRUE"
-        }
-      ],
       "type": "DODGE"
     },
     "ATTACK_GUARD": {
@@ -23144,13 +23238,6 @@
       "probability": 1,
       "count": 3,
       "blockTime": 2,
-      "conditions": [
-        {
-          "name": "guardBroken",
-          "negated": false,
-          "type": "!ATTRIB_IS_TRUE"
-        }
-      ],
       "type": "DODGE"
     },
     "GUARD_BREAK": {
