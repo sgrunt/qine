@@ -1,3 +1,10 @@
+v0.2.0 (19-Apr-2019)
+  * Theme music and battle music, courtesy of ac2pic's Custom Music
+    Loader.
+  * Adjusted behaviour when Qine's guard is broken - instead of an extra
+    long stun, it is now a normal length stun, and Qine cannot use his
+    shield for several seconds afterwards.
+
 v0.1.3 (01-Apr-2019)
   * Qine has a new equipment set, primarily meaning he is capable of dealing
     more damage; this applies to both party Qine and PvP Qine.
