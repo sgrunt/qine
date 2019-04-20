@@ -2,9 +2,10 @@
   "name": "Qine",
   "main": "mod.js",
   "table": "qine.db",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {
     "ccloader": "^2.7.6",
-    "Simplify": "^2.1.0"
+    "Simplify": "^2.1.0",
+    "Custom Music Loader": "^1.0.0"
   }
 }

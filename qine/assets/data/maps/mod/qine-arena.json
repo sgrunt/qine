@@ -202,6 +202,12 @@
             "config": "normal",
             "event": [
               {
+                "bgm": "qine",
+                "volume": 1,
+                "mode": "FAST_OUT",
+                "type": "PLAY_BGM"
+              },
+              {
                 "person": {
                   "person": "mod.qine",
                   "expression": "DEFAULT"
@@ -258,6 +264,11 @@
                     },
                     "autoContinue": false,
                     "type": "SHOW_MSG"
+                  },
+                  {
+                    "mode": "FAST",
+                    "delayed": false,
+                    "type": "RESUME_DEFAULT_BGM"
                   }
                 ],
                 "elseStep": [
@@ -532,7 +543,7 @@
                         "time": 0.5
                       },
                       {
-                        "bgm": "aridBattle",
+                        "bgm": "unbreakable",
                         "volume": 1,
                         "mode": "IMMEDIATELY",
                         "type": "PLAY_BGM"
@@ -675,6 +686,11 @@
                       {
                         "side": "ALL",
                         "type": "CLEAR_MSG"
+                      },
+                      {
+                        "mode": "FAST",
+                        "delayed": false,
+                        "type": "RESUME_DEFAULT_BGM"
                       }
                     ],
                     "type": "SHOW_CHOICE",
@@ -1327,6 +1343,12 @@
             "time": 0.2
           },
           {
+            "bgm": "qine",
+            "volume": 1,
+            "mode": "IMMEDIATELY",
+            "type": "PLAY_BGM"
+          },
+          {
             "withElse": true,
             "type": "IF",
             "condition": "pvp.lastWinPlayer",
@@ -1562,7 +1584,7 @@
             "type": "CLEAR_MSG"
           },
           {
-            "mode": "IMMEDIATELY",
+            "mode": "FAST",
             "delayed": false,
             "type": "RESUME_DEFAULT_BGM"
           },
