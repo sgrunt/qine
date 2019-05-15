@@ -14,31 +14,34 @@ class Qine {
   }
 
   _addCombatAction() {
-    cc.ig.combatActions.SET_SCREEN_ENEMY_TARGET = ig[entries.baseCombatAction].extend({
+    ig.ACTION_STEP.SET_SCREEN_ENEMY_TARGET = ig.ActionStepBase.extend({
       target: 0,
-      t: new ig[entries.combatActionAttributes]({
+      _wm: new ig.Config({
         attributes: {
           target: {
-            c: "Entity",
-            d: "Entity to target",
-            ik: h
+            _type: "Entity",
+            _info: "Entity to target",
+            _withNull: true
           }
         }
       }),
-      f: function(a) {
+      init: function(a) {
         this.target = a.target
       },
-      start: function(a) {
-        var c = ig[entries.entityFinder][entries.findEntity](this.target, undefined);
-        sc[entries.combatFeature][entries.setScreenEnemyTarget](c);
+      run: function(a) {
+        var c = ig.Event.getEntity(this.target, undefined);
+        sc.combat.setScreenEnemiesTarget(c);
       },
     });
   }
 
   _addCombatMessage() {
-    sc[entries.combatMessages].GUARD_COUNTER = JSON.parse(JSON.stringify(sc[entries.combatMessages].STUN_CANCEL));
-    sc[entries.combatMessages].GUARD_COUNTER[entries.combatMessageIcon] = "";
-    sc[entries.combatMessages].GUARD_COUNTER[entries.combatMessageMessage] = "sc.gui.combat-msg.guard-counter";
+    sc.COMBAT_MSG_TYPE.GUARD_COUNTER = {
+      icon: "",
+      msg: "sc.gui.combat-msg.guard-counter",
+      keepPos: true,
+      duration: 1
+    };
   }
 
   _addPartyMember() {
@@ -49,9 +52,9 @@ class Qine {
      * multiple concurrent new party member mods to exist and work correctly
      * with each other.
      */
-    sc[entries.partyMembers].push("Qine");
+    sc.PARTY_OPTIONS.push("Qine");
 
-    sc[entries.party][entries.partyEditorInit]();
+    cc.sc.party.init();
 
     const origLoad = cc.ig.gameMain[cc.ig.varNames.gameMainLoadMap];
     cc.ig.gameMain[cc.ig.varNames.gameMainLoadMap] = data => {
@@ -59,8 +62,8 @@ class Qine {
       callOrig;
 
       if (
-        cc.sc.party[entries.partyStatus].Qine.status != undefined &&
-        cc.sc.party[entries.partyStatus].Qine.status == 0
+        cc.sc.party.contacts.Qine.status != undefined &&
+        cc.sc.party.contacts.Qine.status == 0
       ) {
         new cc.ig.events.SET_PARTY_MEMBER_SP_LEVEL({
           member: "Qine",
@@ -103,8 +106,8 @@ class Qine {
         delete cc.ig.Database.data.commonEvents["nobody-contact"];
         cc.ig.Database.data.commonEvents["nobody-contact"] = nobody;
 
-        sc[entries.commonEvents][entries.commonEventsDb] = {};
-        sc[entries.commonEvents][entries.commonEventsInit]();
+        sc.commonEvents.events = {};
+        sc.commonEvents.init();
       })
       .catch(err => {
         throw err;
@@ -112,14 +115,14 @@ class Qine {
   }
 
   _loadHeads() {
-    this._tmpHeadsImage = new ig[entries.igImage]("assets/media/gui/severed-heads.png");
+    this._tmpHeadsImage = new ig.Image("assets/media/gui/severed-heads.png");
     setTimeout( () => this._updateHeads(), 100 );
   }
 
   _updateHeads() {
     if (this._tmpHeadsImage.loaded) {
-      const tmpSaveGui = new sc[entries.saveGui];
-      Object.assign(tmpSaveGui[entries.saveGuiHeadsImage], this._tmpHeadsImage);
+      const tmpSaveGui = new sc.SaveSlotParty;
+      Object.assign(tmpSaveGui.headsGfx, this._tmpHeadsImage);
     } else {
       setTimeout( () => this._updateHeads(), 100 );
     }
