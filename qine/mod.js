@@ -106,7 +106,7 @@ class Qine {
         delete cc.ig.Database.data.commonEvents["nobody-contact"];
         cc.ig.Database.data.commonEvents["nobody-contact"] = nobody;
 
-        sc.commonEvents.events = {};
+        sc.commonEvents.eventsByType = {};
         sc.commonEvents.init();
       })
       .catch(err => {
