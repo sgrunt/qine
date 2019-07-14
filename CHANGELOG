@@ -1,3 +1,7 @@
+v0.2.3 (14-Jul-2019)
+  * Fix Qine-as-party-member's combat arts to not be interrupted by Qine
+    guarding against attacks.
+
 v0.2.2 (20-May-2019)
   * Fix Contacting Qine showing "But nobody came."
 
