@@ -74,17 +74,6 @@ class Qine {
      */
     sc.PARTY_OPTIONS.push("Qine");
   }
-
-  _addDatabaseEntries() {
-      /*  const nobody = cc.ig.Database.data.commonEvents["nobody-contact"];
-        delete cc.ig.Database.data.commonEvents["nobody-contact"];
-        cc.ig.Database.data.commonEvents["nobody-contact"] = nobody;
-
-        sc.commonEvents.eventsByType = {};
-        sc.commonEvents.init();
-      })*/
-  }
-
 }
 
 new Qine();
