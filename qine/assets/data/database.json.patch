@@ -1,0 +1,69 @@
+[{
+	"type": "ENTER",
+	"index": "commonEvents"
+}, {
+	"type": "INCLUDE",
+	"src": "assets/data/qine-events.json"
+}, {
+	"type": "ENTER",
+	"index" : "cooldown-S"
+}, {
+	"type" : "SET_KEY",
+	"index": "condition",
+	"content" : "party.alive.Emile || party.alive.Glasses || party.alive.Apollo || party.alive.Joern"
+}, {
+	"type": "EXIT"
+}, {
+	"type": "ENTER",
+	"index" : "cooldown-A"
+}, {
+	"type" : "SET_KEY",
+	"index": "condition",
+	"content" : "party.alive.Emile || party.alive.Glasses || party.alive.Apollo || party.alive.Joern"
+}, {
+	"type": "EXIT"
+}, {
+	"type": "ENTER",
+	"index" : "cooldown-B"
+}, {
+	"type" : "SET_KEY",
+	"index": "condition",
+	"content" : "party.alive.Emile || party.alive.Glasses || party.alive.Apollo || party.alive.Joern"
+}, {
+	"type": "EXIT"
+}, {
+	"type" : "SET_KEY",
+	"index": "qineLoad",
+	"content" : {
+		"frequency": "ALWAYS",
+		"repeat": "ONCE",
+		"condition": "",
+		"eventType": "PARALLEL",
+		"overrideSideMessage": false,
+		"loopCount": 1,
+		"event": [{
+			"type": "SET_PARTY_MEMBER_SP_LEVEL",
+			"member": "Qine",
+			"level": 3
+		}, {
+			"type": "SET_PARTY_MEMBER_LEVEL",
+			"member": "Qine",
+			"level": 60,
+			"exp": 183,
+			"updateEquipment": true
+		},{
+			"type": "SET_PARTY_MEMBER_ALL_ELEMENTS",
+			"member": "Qine",
+			"allElements": true		
+		}, {
+			"type": "SET_CONTACT_TYPE",
+			"member": "Qine",
+			"status": "FRIEND"
+		}],
+		"type": {
+			"type": "MAP_ENTERED"
+		}
+	}
+}]
+
+
