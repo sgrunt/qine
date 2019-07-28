@@ -1,6 +1,6 @@
 {
   "name": "Qine",
-  "main": "mod.js",
+  "prestart": "mod.js",
   "version": "0.2.3",
   "dependencies": {
     "ccloader": "^2.9.0",
