@@ -1,8 +1,7 @@
 sc.CommonEvents.inject({
 	_loadCommonEvents: function() {
-		// let it do it's thing
+		// let it do its thing
 		this.parent();
-		console.log('I successfully injected into it');
 		// going to find the indexOf no-contact
 		const socialActions = this.eventsByType["SOCIAL_ACTION"];
 		let i = 0;
