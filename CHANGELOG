@@ -1,3 +1,6 @@
+v0.2.5 (03-Aug-2019)
+  * Now uses / depends on extendable-severed-heads, courtesy of ac2pic.
+
 v0.2.4 (28-Jul-2019)
   * Some code cleanup courtesy of ac2pic. Likely now requires an up-to-date
     version of CCLoader (tested with v2.11.3).

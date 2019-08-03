@@ -1,10 +1,10 @@
 {
   "name": "Qine",
   "prestart": "mod.js",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "dependencies": {
     "ccloader": "^2.11.3",
-	"Custom Music Loader": "^1.0.0",
-	"extendable-severed-heads": "^1.0.0"
+    "Custom Music Loader": "^1.0.0",
+    "extendable-severed-heads": "^1.0.0"
   }
 }
