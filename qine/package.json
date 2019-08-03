@@ -3,7 +3,7 @@
   "prestart": "mod.js",
   "version": "0.2.5",
   "dependencies": {
-    "ccloader": "^2.11.3",
+    "ccloader": "^2.14.1",
     "Custom Music Loader": "^1.0.0",
     "extendable-severed-heads": "^1.0.0"
   }
