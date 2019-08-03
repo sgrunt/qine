@@ -1,7 +1,6 @@
 {
   "character": "mod.qine",
   "sheet": "npc.qine",
-  "headIdx": 3,
   "class": "QUADROGUARD",
   "stats": {
     "hp": {
