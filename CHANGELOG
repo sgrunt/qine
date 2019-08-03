@@ -1,3 +1,7 @@
+v0.2.4 (28-Jul-2019)
+  * Some code cleanup courtesy of ac2pic. Likely now requires an up-to-date
+    version of CCLoader (tested with v2.11.3).
+
 v0.2.3 (14-Jul-2019)
   * Fix Qine-as-party-member's combat arts to not be interrupted by Qine
     guarding against attacks.

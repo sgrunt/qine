@@ -1,9 +1,9 @@
 {
   "name": "Qine",
   "prestart": "mod.js",
-  "version": "0.3.0",
+  "version": "0.2.4",
   "dependencies": {
-    "ccloader": "^2.9.0",
+    "ccloader": "^2.11.3",
     "Custom Music Loader": "^1.0.0"
   }
 }
