@@ -4,6 +4,7 @@
   "version": "0.2.4",
   "dependencies": {
     "ccloader": "^2.11.3",
-    "Custom Music Loader": "^1.0.0"
+	"Custom Music Loader": "^1.0.0",
+	"extendable-severed-heads": "^1.0.0"
   }
 }
