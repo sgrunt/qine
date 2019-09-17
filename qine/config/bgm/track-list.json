@@ -1,0 +1,14 @@
+{
+    "qine": {
+        "path": "assets/media/bgm/muQine.ogg",
+        "loopEnd": 80.02,
+        "volume": 2
+    },
+    "unbreakable": {
+        "intro": "assets/media/bgm/muUnbreakable-i.ogg",
+        "path": "assets/media/bgm/muUnbreakable.ogg",
+        "introEnd": 5.537,
+        "loopEnd": 74.605,
+        "volume": 2
+    }
+}
