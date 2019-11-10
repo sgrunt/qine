@@ -4,7 +4,7 @@
   "version": "0.2.6",
   "dependencies": {
 	"ccloader": "^2.14.1",
-	"hardcoded-config-injector": "^0.5.0",
+	"hardcoded-config-injector": "^0.1.0",
     "extendable-severed-heads": "^1.0.0"
   }
 }
