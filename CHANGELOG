@@ -1,3 +1,7 @@
+v0.2.7 (27-Nov-2019)
+  * Tweaks to the metadata to play better with CCModDB, courtesy of 20kdc.
+  * Another dependency fix courtesy of ac2pic.
+
 v0.2.6 (26-Sep-2019)
   * Fix up mod dependencies, courtesy of ac2pic.
 
