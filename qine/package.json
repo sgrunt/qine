@@ -1,9 +1,9 @@
 {
   "name": "Qine",
-  "description": "Adds a new custom character to your contacts list.",
+  "description": "Adds the character Qine as a party member and PvP duel.",
   "homepage": "https://github.com/sgrunt/qine",
   "prestart": "mod.js",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "ccmodDependencies": {
     "ccloader": "^2.14.1",
     "hardcoded-config-injector": "^0.1.0",
