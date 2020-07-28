@@ -10,7 +10,7 @@
 }, {
 	"type" : "SET_KEY",
 	"index": "condition",
-	"content" : "party.alive.Emile || party.alive.Glasses || party.alive.Apollo || party.alive.Joern"
+	"content" : "party.alive.Emilie || party.alive.Glasses || party.alive.Apollo || party.alive.Joern"
 }, {
 	"type": "EXIT"
 }, {
@@ -19,7 +19,7 @@
 }, {
 	"type" : "SET_KEY",
 	"index": "condition",
-	"content" : "party.alive.Emile || party.alive.Glasses || party.alive.Apollo || party.alive.Joern"
+	"content" : "party.alive.Emilie || party.alive.Glasses || party.alive.Apollo || party.alive.Joern"
 }, {
 	"type": "EXIT"
 }, {
@@ -28,7 +28,7 @@
 }, {
 	"type" : "SET_KEY",
 	"index": "condition",
-	"content" : "party.alive.Emile || party.alive.Glasses || party.alive.Apollo || party.alive.Joern"
+	"content" : "party.alive.Emilie || party.alive.Glasses || party.alive.Apollo || party.alive.Joern"
 }, {
 	"type": "EXIT"
 }, {
