@@ -54,7 +54,7 @@
   "healDropRate": 0,
   "boss": false,
   "bossOrder": 0,
-  "headIdx": 3,
+  "headIdx": "qine",
   "padding": {
     "x": 2,
     "y": 2

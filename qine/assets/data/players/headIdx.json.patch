@@ -5,6 +5,7 @@
 	"type": "ADD_ARRAY_ELEMENT",
 	"content": {
 		"id": "mod.qine",
-		"img" : "media/gui/severed-heads/qine.png"
+		"img" : "media/gui/severed-heads/qine.png",
+		"name" : "qine"
 	}
 }]
